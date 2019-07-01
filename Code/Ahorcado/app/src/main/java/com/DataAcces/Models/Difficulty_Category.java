@@ -1,28 +1,28 @@
 package com.DataAcces.Models;
 
-public class Level_Category {
-    private int Id_Level;
+public class Difficulty_Category {
+    private int Id_Diff_Cat;
     private String Name_Category;
     private int Numero;
 
-    public Level_Category(int id_Level, String name_Category, int numero) {
-        Id_Level = id_Level;
+    public Difficulty_Category(int id_Level, String name_Category, int numero) {
+        Id_Diff_Cat = id_Level;
         Name_Category = name_Category;
         Numero = numero;
     }
 
-    public Level_Category() {
-        Id_Level = 0;
+    public Difficulty_Category() {
+        Id_Diff_Cat = 0;
         Name_Category = null;
         Numero = 0;
     }
 
-    public int getId_Level() {
-        return Id_Level;
+    public int getId_Diff_Cat() {
+        return Id_Diff_Cat;
     }
 
-    public void setId_Level(int id_Level) {
-        Id_Level = id_Level;
+    public void setId_Diff_Cat(int id_Diff_Cat) {
+        Id_Diff_Cat = id_Diff_Cat;
     }
 
     public String getName_Category() {
