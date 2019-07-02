@@ -1,7 +1,7 @@
 package com.DataAcces.Models;
 
 public class Difficulty {
-    private int type;
+    private String type;
     private short score;
 
     public Difficulty(int type, short score) {
