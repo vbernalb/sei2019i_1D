@@ -1,21 +1,15 @@
 package com.DataAcces.Models;
 
 public class Category {
-    private String Name_Category;
+    private String name_category;
 
     public Category(String name_Category) {
-        Name_Category = name_Category;
+        name_category = name_Category;
     }
 
-    public Category() {
-        Name_Category= null;
+
+    public String getName_category() {
+        return name_category;
     }
 
-    public String getName_Category() {
-        return Name_Category;
-    }
-
-    public void setName_Category(String name_Category) {
-        Name_Category = name_Category;
-    }
 }

@@ -1,32 +1,21 @@
 package com.DataAcces.Models;
 
 public class Difficulty {
-    private int Numero;
-    private int Score;
+    private int type;
+    private short score;
 
-    public Difficulty(int numero, int score) {
-        Numero = numero;
-        Score = score;
+    public Difficulty(int type, short score) {
+        this.type = type;
+        this.score = score;
     }
 
-    public Difficulty() {
-        Numero=0;
-        Score=0;
+
+    public int getType() {
+        return type;
     }
 
-    public int getNumero() {
-        return Numero;
+    public short getScore() {
+        return score;
     }
 
-    public void setNumero(int numero) {
-        Numero = numero;
-    }
-
-    public int getScore() {
-        return Score;
-    }
-
-    public void setScore(int score) {
-        Score = score;
-    }
 }
