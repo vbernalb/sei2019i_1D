@@ -8,8 +8,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="402dp"
-        android:layout_height="154dp"
+        android:layout_width="398dp"
+        android:layout_height="174dp"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="7dp"
         tools:layout_editor_absoluteY="6dp">
@@ -26,8 +26,8 @@
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="101dp"
-            app:srcCompat="@mipmap/ahorcado" />
+            android:layout_height="112dp"
+            app:srcCompat="@drawable/ahorcado" />
 
     </LinearLayout>
 
@@ -77,7 +77,8 @@
             android:id="@+id/regActivity_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="register" />
+            android:text="register"
+            android:onClick="openRegisterActivity"/>
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
