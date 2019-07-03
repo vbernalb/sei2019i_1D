@@ -1,16 +1,16 @@
 package com.DataAcces.Models;
 
 public class Difficulty {
-    private int type;
+    private String type;
     private short score;
 
-    public Difficulty(int type, short score) {
+    public Difficulty(String type, short score) {
         this.type = type;
         this.score = score;
     }
 
 
-    public int getType() {
+    public String getType() {
         return type;
     }
 

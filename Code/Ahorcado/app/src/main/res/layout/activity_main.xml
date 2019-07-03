@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context="com.Presentation.MainActivity">
 
     <LinearLayout
@@ -69,16 +70,21 @@
 
         <Button
             android:id="@+id/log_btn"
+            style="@style/Widget.AppCompat.Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="#34F32E2E"
+            android:shadowColor="#0066DB19"
             android:text="Login" />
 
         <Button
             android:id="@+id/regActivity_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="openRegisterActivity"
             android:text="register"
-            android:onClick="openRegisterActivity"/>
+            android:backgroundTint="#34F32E2E"
+            android:shadowColor="#0066DB19"/>
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

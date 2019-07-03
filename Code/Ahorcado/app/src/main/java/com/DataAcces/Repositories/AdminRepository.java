@@ -3,6 +3,7 @@ package com.DataAcces.Repositories;
 import android.content.Context;
 import android.widget.Toast;
 
+import com.DataAcces.Models.Admin;
 import com.DataAcces.Models.User;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -20,44 +21,23 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class UserRepository {
-    public UserRepository(Context context) {
-        this.context = context;
-        this.user=null;
-    }
+public class AdminRepository {
 
-    User user;
-    Context context;
+    public Context context;
+    public Admin admin;
 
-    /**
-     *Esta funcion crea una nueva entrada en la tabla User de la base de datos remota.
-     * @param user EL modelo usuario que contiene los datos de la entrada.
-     * @param URL  la URL del servidor donde se encuentra la base de datos example: http://192.162.1.3:80/Database/insertar.php
-     * @return si se realizo todo el proceso de comunicacion con la base de datos
-     */
-    public boolean create (User user, String URL){
-        final String  email =user.getEmail_user();
-        final String  password_user =user.getPassword_user();
-        final String  acomulate_score =Integer.toString(user.getAcumulate_score());
+    public boolean create (Admin admin, String URL, Response.Listener<String> listener, Response.ErrorListener errorListener){
+        final String  email =admin.getEmail_admi();
+        final String  password_user =admin.getPassword_admi();
 
-        StringRequest stringRequest= new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Toast.makeText(context, "Operacion exitosa",Toast.LENGTH_SHORT).show();
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(context, "Operacion fallida",Toast.LENGTH_SHORT).show();
-            }
-        })
+
+        StringRequest stringRequest= new StringRequest(Request.Method.POST, URL,listener ,errorListener)
         {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String,String> parametros = new HashMap<String,String>();
                 parametros.put("email_user",email);
                 parametros.put("password_user",password_user);
-                parametros.put("acumulate_score",acomulate_score);
 
                 return super.getParams();
             }
@@ -65,14 +45,8 @@ public class UserRepository {
 
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         requestQueue.add(stringRequest);
-            return true;
+        return true;
     }
-
-
-
-    public void delete (String email_user){}
-    public void update (String email_user, short score){}
-
     public User getbyEmail(String URL, String email){
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
             @Override
@@ -81,9 +55,9 @@ public class UserRepository {
                 for (int i = 0; i < response.length(); i++) {
                     try {
                         jsonObject = response.getJSONObject(i);
-                        user= new User(jsonObject.getString("email_user"),
-                                              jsonObject.getString("password_user"),
-                                                Integer.parseInt(jsonObject.getString("acumulate_score")));
+                        admin= new Admin(jsonObject.getString("email_admin"),
+                                jsonObject.getString("password_admin")
+                               );
 
                     } catch (JSONException e) {
                         Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -98,6 +72,6 @@ public class UserRepository {
         }
         );
 
-        return user;
+        return admin;
     }
 }
