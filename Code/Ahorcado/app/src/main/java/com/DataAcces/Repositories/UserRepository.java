@@ -21,13 +21,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class UserRepository {
-    User user;
-    Context context;
-
     public UserRepository(Context context) {
         this.context = context;
         this.user=null;
     }
+
+    User user;
+    Context context;
 
     /**
      *Esta funcion crea una nueva entrada en la tabla User de la base de datos remota.
