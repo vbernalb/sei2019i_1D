@@ -9,18 +9,24 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class UserRepository {
-
+    User user;
     Context context;
 
     public UserRepository(Context context) {
         this.context = context;
+        this.user=null;
     }
 
     /**
@@ -63,11 +69,35 @@ public class UserRepository {
     }
 
 
-    
+
     public void delete (String email_user){}
     public void update (String email_user, short score){}
 
-    public User getbyEmail(){
-        return null;
+    public User getbyEmail(String URL, String email){
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                JSONObject jsonObject = null;
+                for (int i = 0; i < response.length(); i++) {
+                    try {
+                        jsonObject = response.getJSONObject(i);
+                        user= new User(jsonObject.getString("email_user"),
+                                              jsonObject.getString("password_user"),
+                                                Integer.parseInt(jsonObject.getString("acumulate_score")));
+
+                    } catch (JSONException e) {
+                        Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(context, "problema en la conxion", Toast.LENGTH_SHORT).show();
+            }
+        }
+        );
+
+        return user;
     }
 }
