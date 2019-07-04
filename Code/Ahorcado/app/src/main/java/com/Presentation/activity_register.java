@@ -29,7 +29,7 @@ public class activity_register extends AppCompatActivity {
             public void onClick(View view) {
                 if (suc.singin(email.getText().toString(), password.getText().toString(), password2.getText().toString()))
                     Toast.makeText(getApplicationContext(), "REGISTRO EXITOSO", Toast.LENGTH_SHORT).show();
-                else Toast.makeText(getApplicationContext(), "REGISTRO INCORECTO", Toast.LENGTH_SHORT).show();
+               // else Toast.makeText(getApplicationContext(), "REGISTRO INCORECTO", Toast.LENGTH_SHORT).show();
 
             }
         });

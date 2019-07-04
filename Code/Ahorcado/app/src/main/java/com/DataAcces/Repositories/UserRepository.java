@@ -24,12 +24,14 @@ public class UserRepository {
 
     User user;
     boolean ook;
+    boolean respuesta;
     Context context;
 
     public UserRepository(Context context) {
         this.context = context;
         this.user=null;
         this.ook=false;
+        this.respuesta = true;
     }
 
 
@@ -56,6 +58,9 @@ public class UserRepository {
                     JSONObject jsonObject = new JSONObject(response);
                     System.out.println("*******respuesta");
                     ook = jsonObject.getBoolean("success");
+                    if(ook){
+                        Toast.makeText(context, "REGISTRO EXITOSO",Toast.LENGTH_SHORT).show();
+                    }
 
                 }catch (JSONException e ) {
                     System.out.println("*******exception");
@@ -85,6 +90,7 @@ public class UserRepository {
         requestQueue.add(stringRequest);
         operacion = true;
         System.out.println("**********estado del sistemas   "+ ook);
+
             return ook;
 
     }
