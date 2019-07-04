@@ -23,7 +23,8 @@ public class SignInUserController {
         if(password.equals(password2)){
             User user = new User(email, password, 0);
             UserRepository userRepository = new UserRepository(context);
-            return userRepository.create(user, "http://ahorcado1d.000webhostapp.com/ahorcados/insert_user.php");
+            System.out.println("*******entre al sign in");
+            return userRepository.create(user, "http://ahorcado1d.000webhostapp.com/insert_user.php");
         }
         else return false;
     }
