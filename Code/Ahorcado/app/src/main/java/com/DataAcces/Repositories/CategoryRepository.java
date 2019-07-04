@@ -4,7 +4,6 @@ import android.content.Context;
 import android.widget.Toast;
 
 import com.DataAcces.Models.Category;
-import com.DataAcces.Models.User;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
