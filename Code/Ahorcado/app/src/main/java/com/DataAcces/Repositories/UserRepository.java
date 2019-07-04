@@ -36,6 +36,7 @@ public class UserRepository {
      * @return si se realizo todo el proceso de comunicacion con la base de datos
      */
     public boolean create (User user, String URL){
+        boolean operacion= false;
         final String  email =user.getEmail_user();
         final String  password_user =user.getPassword_user();
         final String  acomulate_score =Integer.toString(user.getAcumulate_score());
@@ -65,7 +66,8 @@ public class UserRepository {
 
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         requestQueue.add(stringRequest);
-            return true;
+        operacion = true;
+            return operacion;
     }
 
 
