@@ -4,8 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:background="@drawable/degree_background"
     tools:context="com.Presentation.MainActivity">
+
+<!--    <ImageView
+        android:id="@+id/imgView_logo"
+        android:layout_width="411dp"
+        android:layout_height="736dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/logo1"
+        tools:layout_editor_absoluteX="5dp"
+        tools:layout_editor_absoluteY="2dp" />
+
+    <RelativeLayout
+        android:id="@+id/rellay1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        tools:layout_editor_absoluteX="5dp"
+        tools:layout_editor_absoluteY="-13dp">
+-->
+
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -19,6 +39,7 @@
             android:id="@+id/textView5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/alfa_slab_one"
             android:text="Ahorcado"
             android:textAlignment="center"
             android:textColor="#03A9F4"
@@ -45,19 +66,28 @@
         <EditText
             android:id="@+id/editText3"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/edittext_form"
             android:ems="10"
+            android:fontFamily="sans-serif-black"
             android:hint="email"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"/>
 
         <EditText
             android:id="@+id/editText4"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:ems="10"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/edittext_form"
+            android:fontFamily="sans-serif-black"
             android:hint="password"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -72,19 +102,27 @@
             android:id="@+id/log_btn"
             style="@style/Widget.AppCompat.Button"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:backgroundTint="#34F32E2E"
+            android:fontFamily="sans-serif-black"
             android:shadowColor="#0066DB19"
-            android:text="Login" />
+            android:text="Login"
+            android:background="@drawable/button_form"
+            android:paddingLeft="70dp"
+            android:paddingRight="70dp"/>
 
         <Button
             android:id="@+id/regActivity_btn"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="openRegisterActivity"
-            android:text="register"
+            android:layout_height="40dp"
             android:backgroundTint="#34F32E2E"
-            android:shadowColor="#0066DB19"/>
+            android:fontFamily="sans-serif-black"
+            android:onClick="openRegisterActivity"
+            android:shadowColor="#0066DB19"
+            android:text="register"
+            android:background="@drawable/button_form"
+            android:paddingLeft="70dp"
+            android:paddingRight="70dp"/>
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
