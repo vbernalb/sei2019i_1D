@@ -73,12 +73,11 @@ public class AdminRepository {
     }
 
     /**
-     *
+     *Busca de acuerdo al parametro especificado en la URL
      * @param URL  la URL del servidor donde se encuentra la base de datos example: http://192.162.1.3:80/Database/insertar.php
-     * @param email email por el que se va a buscar en la tabla
      * @return Un objeto Admin, con los datos obtenidos, null si no encuentra nada.
      */
-    public Admin getbyEmail(String URL, String email){
+    public Admin getbyEmail(String URL){
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
@@ -102,7 +101,8 @@ public class AdminRepository {
             }
         }
         );
-
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
+        requestQueue.add(jsonArrayRequest);
         return admin;
     }
 }

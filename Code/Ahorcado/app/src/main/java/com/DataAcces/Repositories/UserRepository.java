@@ -21,13 +21,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class UserRepository {
+
+    User user;
+    Context context;
+
     public UserRepository(Context context) {
         this.context = context;
         this.user=null;
     }
 
-    User user;
-    Context context;
 
     /**
      *Esta funcion crea una nueva entrada en la tabla User de la base de datos remota.
@@ -74,8 +76,12 @@ public class UserRepository {
 
     public void delete (String email_user){}
     public void update (String email_user, short score){}
-
-    public User getbyEmail(String URL, String email){
+    /**
+     *Busca de acuerdo al parametro especificado en la URL
+     * @param URL  la URL del servidor donde se encuentra la base de datos example: http://192.162.1.3:80/Database/insertar.php
+     * @return Un objeto User, con los datos obtenidos, null si no encuentra nada.
+     */
+    public User getbyEmail(String URL){
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
