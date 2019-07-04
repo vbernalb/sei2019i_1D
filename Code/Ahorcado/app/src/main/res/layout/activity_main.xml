@@ -8,24 +8,7 @@
     android:background="@drawable/degree_background"
     tools:context="com.Presentation.MainActivity">
 
-<!--    <ImageView
-        android:id="@+id/imgView_logo"
-        android:layout_width="411dp"
-        android:layout_height="736dp"
-        android:adjustViewBounds="true"
-        android:scaleType="fitCenter"
-        android:src="@drawable/logo1"
-        tools:layout_editor_absoluteX="5dp"
-        tools:layout_editor_absoluteY="2dp" />
 
-    <RelativeLayout
-        android:id="@+id/rellay1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        tools:layout_editor_absoluteX="5dp"
-        tools:layout_editor_absoluteY="-13dp">
--->
 
 
     <LinearLayout
@@ -72,27 +55,31 @@
             android:id="@+id/editText3"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
             android:background="@drawable/edittext_form"
             android:ems="10"
             android:fontFamily="sans-serif-black"
             android:hint="email"
             android:inputType="textEmailAddress"
             android:paddingLeft="15dp"
-            android:paddingRight="15dp"/>
+            android:paddingRight="15dp" />
 
         <EditText
             android:id="@+id/editText4"
             android:layout_width="match_parent"
-            android:ems="10"
             android:layout_height="40dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
             android:background="@drawable/edittext_form"
+            android:ems="10"
             android:fontFamily="sans-serif-black"
             android:hint="password"
             android:inputType="textPassword"
             android:paddingLeft="15dp"
-            android:paddingRight="15dp"/>
+            android:paddingRight="15dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -109,26 +96,32 @@
             style="@style/Widget.AppCompat.Button"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:backgroundTint="#34F32E2E"
-            android:fontFamily="sans-serif-black"
-            android:shadowColor="#0066DB19"
-            android:text="Login"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:background="@drawable/button_form"
+            android:fontFamily="sans-serif-black"
             android:paddingLeft="70dp"
-            android:paddingRight="70dp"/>
+            android:paddingRight="70dp"
+            android:shadowColor="#0066DB19"
+            android:text="Login" />
 
         <Button
             android:id="@+id/regActivity_btn"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:backgroundTint="#34F32E2E"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/button_form"
             android:fontFamily="sans-serif-black"
             android:onClick="openRegisterActivity"
-            android:shadowColor="#0066DB19"
-            android:text="register"
-            android:background="@drawable/button_form"
             android:paddingLeft="70dp"
-            android:paddingRight="70dp"/>
+            android:paddingRight="70dp"
+            android:shadowColor="#0066DB19"
+            android:text="register" />
     </LinearLayout>
+
+
+
 
 </android.support.constraint.ConstraintLayout>
