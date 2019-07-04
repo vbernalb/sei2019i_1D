@@ -26,12 +26,35 @@ public class AdminRepository {
     public Context context;
     public Admin admin;
 
-    public boolean create (Admin admin, String URL, Response.Listener<String> listener, Response.ErrorListener errorListener){
+
+    public AdminRepository(Context context) {
+        this.context = context;
+        this.admin = null;
+    }
+
+    /**
+     *Esta funcion crea una nueva entrada en la tabla User de la base de datos remota.
+     * @param admin EL modelo admin que contiene los datos de la entrada.
+     * @param URL  la URL del servidor donde se encuentra la base de datos example: http://192.162.1.3:80/Database/insertar.php
+     * @return si se realizo todo el proceso de comunicacion con la base de datos
+     */
+    public boolean create (Admin admin, String URL){
+        boolean operacion = false;
         final String  email =admin.getEmail_admi();
         final String  password_user =admin.getPassword_admi();
 
 
-        StringRequest stringRequest= new StringRequest(Request.Method.POST, URL,listener ,errorListener)
+        StringRequest stringRequest= new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Toast.makeText(context, "Operacion exitosa",Toast.LENGTH_SHORT).show();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(context, "Operacion fallida",Toast.LENGTH_SHORT).show();
+            }
+        })
         {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
@@ -45,9 +68,17 @@ public class AdminRepository {
 
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         requestQueue.add(stringRequest);
-        return true;
+        operacion = true;
+        return operacion;
     }
-    public User getbyEmail(String URL, String email){
+
+    /**
+     *
+     * @param URL  la URL del servidor donde se encuentra la base de datos example: http://192.162.1.3:80/Database/insertar.php
+     * @param email email por el que se va a buscar en la tabla
+     * @return Un objeto Admin, con los datos obtenidos, null si no encuentra nada.
+     */
+    public Admin getbyEmail(String URL, String email){
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
