@@ -4,31 +4,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.Presentation.activity_register">
+    android:background="@drawable/degree_background"
+    tools:context="com.Presentation.activity_register"
+    >
+
 
     <LinearLayout
         android:id="@+id/linearLayout4"
-        android:layout_width="397dp"
-        android:layout_height="76dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp">
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="409dp"
-            android:layout_height="66dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:text="Registro"
             android:textAlignment="center"
             android:textColor="#4983C2"
             android:textSize="40dp"
             tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="0dp" />
+            tools:layout_editor_absoluteY="0dp"
+            android:fontFamily="@font/alfa_slab_one"/>
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="395dp"
-        android:layout_height="631dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_marginTop="8dp"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
@@ -40,7 +47,12 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="email"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/edittext_form"
+            android:fontFamily="sans-serif-black"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"/>
 
         <EditText
             android:id="@+id/Password"
@@ -48,7 +60,12 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Contraseña"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/edittext_form"
+            android:fontFamily="sans-serif-black"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"/>
 
         <EditText
             android:id="@+id/Password2"
@@ -56,12 +73,23 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Confirma contraseña"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/edittext_form"
+            android:fontFamily="sans-serif-black"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"/>
 
         <Button
             android:id="@+id/SingIn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Registrarse" />
+            android:text="Registrarse"
+            android:backgroundTint="#34F32E2E"
+            android:fontFamily="sans-serif-black"
+            android:shadowColor="#0066DB19"
+            android:background="@drawable/button_form"
+            android:paddingLeft="70dp"
+            android:paddingRight="70dp"/>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
