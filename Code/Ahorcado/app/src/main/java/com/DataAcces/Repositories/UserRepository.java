@@ -23,11 +23,13 @@ import java.util.Map;
 public class UserRepository {
 
     User user;
+    boolean ook;
     Context context;
 
     public UserRepository(Context context) {
         this.context = context;
         this.user=null;
+        this.ook=false;
     }
 
 
@@ -38,6 +40,7 @@ public class UserRepository {
      * @return si se realizo todo el proceso de comunicacion con la base de datos
      */
     public boolean create (User user, String URL){
+        System.out.println("*******entre al user repositori");
         boolean operacion= false;
         final String  email =user.getEmail_user();
         final String  password_user =user.getPassword_user();
@@ -46,30 +49,44 @@ public class UserRepository {
         StringRequest stringRequest= new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(context, "Operacion exitosa",Toast.LENGTH_SHORT).show();
+
+                System.out.println("*******on ** respuesta");
+                System.out.println("respuesta " + response);
+                try{
+                    JSONObject jsonObject = new JSONObject(response);
+                    System.out.println("*******respuesta");
+                    ook = jsonObject.getBoolean("success");
+
+                }catch (JSONException e ) {
+                    System.out.println("*******exception");
+                    System.out.println("exeption    "+ e.getMessage());
+                }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                System.out.println("***error");
                 Toast.makeText(context, "Operacion fallida",Toast.LENGTH_SHORT).show();
             }
         })
         {
             @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
+            protected Map<String, String> getParams()  {
                 Map<String,String> parametros = new HashMap<String,String>();
                 parametros.put("email_user",email);
                 parametros.put("password_user",password_user);
-                parametros.put("acumulate_score",acomulate_score);
+                parametros.put("accumulated_score",acomulate_score);
 
-                return super.getParams();
+                return parametros;
             }
         };
 
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         requestQueue.add(stringRequest);
         operacion = true;
-            return operacion;
+        System.out.println("**********estado del sistemas   "+ ook);
+            return ook;
+
     }
 
 
