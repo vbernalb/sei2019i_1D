@@ -35,7 +35,7 @@
         tools:layout_editor_absoluteX="8dp">
 
         <EditText
-            android:id="@+id/emailReg_txt"
+            android:id="@+id/Email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -43,7 +43,7 @@
             android:inputType="textEmailAddress" />
 
         <EditText
-            android:id="@+id/passReg_txt"
+            android:id="@+id/Password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -51,7 +51,7 @@
             android:inputType="textPassword" />
 
         <EditText
-            android:id="@+id/passConReg_txt"
+            android:id="@+id/Password2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -59,7 +59,7 @@
             android:inputType="textPassword" />
 
         <Button
-            android:id="@+id/reg_btn"
+            android:id="@+id/SingIn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Registrarse" />

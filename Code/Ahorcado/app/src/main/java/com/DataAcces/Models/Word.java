@@ -9,9 +9,18 @@ public class Word {
         this.description = description;
     }
 
+    /**
+     *
+     * @return nombre de la palabra
+     */
     public String getName_Word() {
         return name_word;
     }
+
+    /**
+     *
+     * @return descripcion de la palabra
+     */
     public String getDescription() {
         return description;
     }

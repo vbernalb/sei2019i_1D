@@ -11,14 +11,26 @@ public class User {
         this.acumulate_score = score;
     }
 
+    /**
+     *
+     * @return Email del usuario
+     */
     public String getEmail_user() {
         return email_user;
     }
 
+    /**
+     *
+     * @return password del usuario
+     */
     public String getPassword_user() {
         return password_user;
     }
 
+    /**
+     *
+     * @return puntaje acomulado del usuario
+     */
     public int getAcumulate_score() {
         return acumulate_score;
     }

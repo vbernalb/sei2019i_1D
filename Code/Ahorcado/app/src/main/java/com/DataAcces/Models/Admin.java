@@ -9,10 +9,18 @@ public class Admin {
         this.password_admi = password_admi;
     }
 
+    /**
+     *
+     * @return Email del admin
+     */
     public String getEmail_admi() {
         return email_admi;
     }
 
+    /**
+     *
+     * @return password del admin
+     */
     public String getPassword_admi() {
         return password_admi;
     }
