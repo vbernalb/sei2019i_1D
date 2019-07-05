@@ -70,8 +70,8 @@ public class UserRepository {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                System.out.println("***error");
-                Toast.makeText(context, "Operacion fallida",Toast.LENGTH_SHORT).show();
+                System.out.println("***error" + error.getMessage());
+                Toast.makeText(context, "Operacion fallida " + error.getMessage(),Toast.LENGTH_SHORT).show();
             }
         })
         {
