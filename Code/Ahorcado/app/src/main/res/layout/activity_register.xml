@@ -26,9 +26,8 @@
             android:fontFamily="@font/alfa_slab_one"
             android:text="Registro"
             android:textAlignment="center"
-            android:textColor="#4983C2"
+            android:textColor="#000000"
             android:textSize="40dp"
-            android:textStyle="italic"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="0dp" />
     </LinearLayout>

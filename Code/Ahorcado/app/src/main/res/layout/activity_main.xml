@@ -29,7 +29,7 @@
             android:fontFamily="@font/alfa_slab_one"
             android:text="Ahorcado"
             android:textAlignment="center"
-            android:textColor="#03A9F4"
+            android:textColor="#000000"
             android:textSize="40dp" />
 
         <ImageView
