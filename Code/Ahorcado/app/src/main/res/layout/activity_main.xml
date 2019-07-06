@@ -52,7 +52,7 @@
 
 
         <EditText
-            android:id="@+id/editText3"
+            android:id="@+id/emailJoin_txt"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginLeft="10dp"
@@ -67,7 +67,7 @@
             android:paddingRight="15dp" />
 
         <EditText
-            android:id="@+id/editText4"
+            android:id="@+id/passJoin_txt"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginLeft="10dp"
