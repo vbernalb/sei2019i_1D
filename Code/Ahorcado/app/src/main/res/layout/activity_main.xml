@@ -111,9 +111,8 @@
             android:fontFamily="sans-serif-black"
             android:paddingLeft="70dp"
             android:paddingRight="70dp"
-            android:shadowColor="#0066DB19"
-            android:text="Login"
-            />
+            android:shadowColor="#B5C45E"
+            android:text="Login" />
 
         <Button
             android:id="@+id/regActivity_btn"
@@ -127,7 +126,7 @@
             android:onClick="openRegisterActivity"
             android:paddingLeft="70dp"
             android:paddingRight="70dp"
-            android:shadowColor="#0066DB19"
+            android:shadowColor="#43DB19"
             android:text="register" />
     </LinearLayout>
 

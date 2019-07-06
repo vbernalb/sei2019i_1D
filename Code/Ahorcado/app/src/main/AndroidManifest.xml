@@ -12,8 +12,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.Presentation.MenuUserActivity"></activity>
-        <activity android:name="com.Presentation.MenuAdminActivity" />
+        <activity android:name="com.Presentation.PlayActivity"
+                android:theme="@style/AppTheme.NoActionBar" ></activity>
+        <activity android:name="com.Presentation.WordActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="com.Presentation.CategoryActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.Presentation.MenuUserActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.Presentation.MenuAdminActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.Presentation.RegisterActivity"
             android:theme="@style/AppTheme.NoActionBar" />
