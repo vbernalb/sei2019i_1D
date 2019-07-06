@@ -2,13 +2,13 @@ package com.BusinessLogic;
 
 import android.content.Context;
 
-public class LoginAdminController {
+public class LoginUserController {
     Context context;
 
-    public LoginAdminController(Context context) {
+    public LoginUserController(Context context) {
         this.context = context;
     }
-    public boolean loginAdmin(String email, String password){
+    public boolean loginUser(String email, String password){
         return true;
     }
 }
