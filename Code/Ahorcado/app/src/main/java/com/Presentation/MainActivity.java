@@ -41,7 +41,8 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onClick(View v) {
                                 if(suc.loginAdmin(email.getText().toString(), password.getText().toString())){
-                                    Toast.makeText(getApplicationContext(), "Login admin exitoso", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(MainActivity.this, MenuAdminActivity.class);
+                                    startActivityForResult(intent, 0);
                                 }else{
                                     Toast.makeText(getApplicationContext(), "Datos del administrador incorrectos", Toast.LENGTH_SHORT).show();
                                 }
@@ -54,7 +55,8 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onClick(View v) {
                                 if(suc.loginUser(email.getText().toString(), password.getText().toString())){
-                                    Toast.makeText(getApplicationContext(), "Login user exitoso", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(MainActivity.this, MenuUserActivity.class);
+                                    startActivityForResult(intent, 0);
                                 }else{
                                     Toast.makeText(getApplicationContext(), "Datos del usuario incorrectos", Toast.LENGTH_SHORT).show();
                                 }
