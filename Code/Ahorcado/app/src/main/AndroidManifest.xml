@@ -2,21 +2,23 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ahorcado">
 
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:networkSecurityConfig="@xml/network_segurity_config"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_segurity_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name="com.Presentation.activity_register"
-                     android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.Presentation.MenuUserActivity"></activity>
+        <activity android:name="com.Presentation.MenuAdminActivity" />
         <activity
-            android:name= "com.Presentation.MainActivity"
+            android:name="com.Presentation.RegisterActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.Presentation.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

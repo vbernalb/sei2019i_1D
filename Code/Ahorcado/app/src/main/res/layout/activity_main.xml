@@ -52,7 +52,7 @@
 
 
         <EditText
-            android:id="@+id/editText3"
+            android:id="@+id/emailJoin_txt"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginLeft="10dp"
@@ -67,7 +67,7 @@
             android:paddingRight="15dp" />
 
         <EditText
-            android:id="@+id/editText4"
+            android:id="@+id/passJoin_txt"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginLeft="10dp"
@@ -80,6 +80,16 @@
             android:inputType="textPassword"
             android:paddingLeft="15dp"
             android:paddingRight="15dp" />
+
+        <CheckBox
+            android:id="@+id/admin_check"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:checked="true"
+            android:fontFamily="sans-serif-black"
+            android:text="Administrador" />
     </LinearLayout>
 
     <LinearLayout
@@ -103,7 +113,8 @@
             android:paddingLeft="70dp"
             android:paddingRight="70dp"
             android:shadowColor="#0066DB19"
-            android:text="Login" />
+            android:text="Login"
+            />
 
         <Button
             android:id="@+id/regActivity_btn"

@@ -10,7 +10,7 @@ import android.widget.Toast;
 import com.BusinessLogic.SignInUserController;
 import com.example.ahorcado.R;
 
-public class activity_register extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
     EditText email, password, password2;
     Button signIn;
 
@@ -18,6 +18,7 @@ public class activity_register extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
         email=(EditText)findViewById(R.id.Email);
         password=(EditText)findViewById(R.id.Password);
         password2=(EditText)findViewById(R.id.Password2);
