@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/degree_background"
-    tools:context="com.Presentation.MenuUserActivity">
+    tools:context="com.Presentation.PlayActivity">
 
     <LinearLayout
         android:layout_width="395dp"
@@ -15,16 +15,9 @@
         tools:layout_editor_absoluteY="8dp">
 
         <TextView
-            android:id="@+id/textView7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Menu user activity" />
-
-        <Button
-            android:id="@+id/button"
+            android:id="@+id/textView8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Jugar" />
-
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

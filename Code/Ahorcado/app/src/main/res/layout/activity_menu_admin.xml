@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/degree_background"
     tools:context="com.Presentation.MenuAdminActivity">
 
     <LinearLayout
@@ -18,5 +19,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Menu admin activity" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ingresar categoria" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ingresar palabras" />
+
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
