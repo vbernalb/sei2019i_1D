@@ -3,6 +3,7 @@ package com.DataAcces.Repositories;
 import android.content.Context;
 import android.widget.Toast;
 
+import com.BusinessLogic.LoginAdminController;
 import com.DataAcces.Models.Admin;
 import com.DataAcces.Models.User;
 import com.android.volley.AuthFailureError;
@@ -75,9 +76,9 @@ public class AdminRepository {
     /**
      *Busca de acuerdo al parametro especificado en la URL
      * @param URL  la URL del servidor donde se encuentra la base de datos example: http://192.162.1.3:80/Database/insertar.php
-     * @return Un objeto Admin, con los datos obtenidos, null si no encuentra nada.
+     * @return
      */
-    public Admin getbyEmail(String URL){
+    public void getbyEmail(String URL,String email, String password){
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
@@ -85,10 +86,10 @@ public class AdminRepository {
                 for (int i = 0; i < response.length(); i++) {
                     try {
                         jsonObject = response.getJSONObject(i);
-                        admin= new Admin(jsonObject.getString("email_admin"),
+                        Admin admin= new Admin(jsonObject.getString("email_admin"),
                                 jsonObject.getString("password_admin")
                                );
-
+                            new LoginAdminController(context).cofirmLogin(admin);
                     } catch (JSONException e) {
                         Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
@@ -103,6 +104,6 @@ public class AdminRepository {
         );
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         requestQueue.add(jsonArrayRequest);
-        return admin;
+        return ;
     }
 }
