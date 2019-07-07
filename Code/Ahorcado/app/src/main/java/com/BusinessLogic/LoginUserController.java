@@ -21,9 +21,10 @@ public class LoginUserController {
         new UserRepository(context).getbyEmail("http://ahorcado1d.000webhostapp.com/**.php",email ,password);
     }
 
-    public boolean cofirmLogin(User user){
+    public boolean cofirmLogin(User user, String password){
         if(user!= null){
-
+            if(user.getPassword_user().equals(password)) return true;
+            return false;
 
         }
         return false;
