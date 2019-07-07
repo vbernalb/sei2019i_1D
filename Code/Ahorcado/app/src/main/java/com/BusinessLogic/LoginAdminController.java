@@ -20,7 +20,7 @@ public class LoginAdminController {
      * @return
      */
     public void loginAdmin(String email, String password) {
-        new AdminRepository(context).getbyEmail("http://ahorcado1d.000webhostapp.com/**.php",email ,password);
+        new AdminRepository(context).getbyEmail("http://ahorcado1d.000webhostapp.com/get_admi.php",email ,password);
     }
 
     public boolean cofirmLogin(Admin admin, String password){
