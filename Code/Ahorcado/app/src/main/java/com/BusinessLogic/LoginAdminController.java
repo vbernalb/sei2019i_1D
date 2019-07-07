@@ -23,8 +23,11 @@ public class LoginAdminController {
         new AdminRepository(context).getbyEmail("http://ahorcado1d.000webhostapp.com/**.php",email ,password);
     }
 
-    public boolean cofirmLogin(Admin admin){
-        if(admin!= null)return true;
+    public boolean cofirmLogin(Admin admin, String password){
+        if(admin!= null){
+            if(admin.getPassword_admi().equals(password))return true;
+            return false;
+        };
         return false;
     }
 
