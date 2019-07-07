@@ -19,13 +19,13 @@ public class InsertWordController {
      * @param difficulty dificultad de la palabra
      * @return si la insercion fue exitosa
      */
-    public boolean insert(String word, String description, String category, String difficulty){
+    public void insert(String word, String description, String category, String difficulty){
             Word word1 = new Word(word, description);
             Difficulty_Category d_c = new Difficulty_Category(category,difficulty,word);
             //FALTA REPOSITORIO DEFFICULTY_CATEGORY
             WordRepository wordRepository = new WordRepository(context);
             //System.out.println("*******entre al sign insertWORD");
-            return wordRepository.create(word1, "http://ahorcado1d.000webhostapp.com/insert_word.php");
+            wordRepository.create(word1, "http://ahorcado1d.000webhostapp.com/insert_word.php");
 
     }
 }
