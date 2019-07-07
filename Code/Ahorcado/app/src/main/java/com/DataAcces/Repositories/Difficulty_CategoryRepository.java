@@ -42,7 +42,6 @@ public class Difficulty_CategoryRepository {
     public boolean create (Difficulty_Category difficulty_category, String URL){
         System.out.println("*******entre al category repositori");
         boolean operacion= false;
-        final String  id_diff_cat = Integer.toString(difficulty_category.getId_diff_cat());
         final String  name_category= difficulty_category.getName_Category();
         final String type= difficulty_category.getType();
         final String name_word= difficulty_category.getName_word();
@@ -77,7 +76,6 @@ public class Difficulty_CategoryRepository {
             @Override
             protected Map<String, String> getParams()  {
                 Map<String,String> parametros = new HashMap<String,String>();
-                parametros.put("id_diff_cat", id_diff_cat);
                 parametros.put("name_category", name_category);
                 parametros.put("type", type);
                 parametros.put("name_word", name_word);
@@ -108,7 +106,7 @@ public class Difficulty_CategoryRepository {
                 for (int i = 0; i < response.length(); i++) {
                     try {
                         jsonObject = response.getJSONObject(i);
-                        difficulty_category= new Difficulty_Category(Integer.parseInt(jsonObject.getString("id_diff_cat")), jsonObject.getString("name_category"),
+                        difficulty_category= new Difficulty_Category(jsonObject.getString("name_category"),
                                 jsonObject.getString("type"), jsonObject.getString("name_word"));
 
                     } catch (JSONException e) {
