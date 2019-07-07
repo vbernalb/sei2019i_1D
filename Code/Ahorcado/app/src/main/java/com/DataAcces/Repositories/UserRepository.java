@@ -97,15 +97,19 @@ public class UserRepository {
 
 
 
+
+    
+
     public void delete (String email_user){}
     public void update (String email_user, short score){}
     /**
      *Busca de acuerdo al parametro especificado en la URL
      * @param URL  la URL del servidor donde se encuentra la base de datos example: http://192.162.1.3:80/Database/insertar.php
      *@param email El email por el cual se quiere buscar
+     *  @param password La contraseña por el cual se quiere comparar
      */
-    public void getbyEmail(String URL,String email
-    ){
+    public void getbyEmail(String URL,String email, String password ){
+        final String password_f = password;
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
@@ -116,7 +120,7 @@ public class UserRepository {
                         User user= new User(jsonObject.getString("email_user"),
                                               jsonObject.getString("password_user"),
                                                 Integer.parseInt(jsonObject.getString("acumulate_score")));
-                        new LoginUserController(context).cofirmLogin(user);
+                        new LoginUserController(context).cofirmLogin(user, password_f);
                     } catch (JSONException e) {
                         Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }

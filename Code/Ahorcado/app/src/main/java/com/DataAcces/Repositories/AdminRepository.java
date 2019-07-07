@@ -99,6 +99,7 @@ public class AdminRepository {
      * @param password La contraseña por el cual se quiere comparar
      */
     public void getbyEmail(String URL,String email, String password){
+        final String password_f = password;
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
@@ -109,7 +110,7 @@ public class AdminRepository {
                         Admin admin= new Admin(jsonObject.getString("email_admin"),
                                 jsonObject.getString("password_admin")
                                );
-                            new LoginAdminController(context).cofirmLogin(admin,password);
+                            new LoginAdminController(context).cofirmLogin(admin,password_f);
                     } catch (JSONException e) {
                         Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }

@@ -18,12 +18,13 @@ public class LoginUserController {
      * @return
      */
     public void loginAdmin(String email, String password) {
-        new UserRepository(context).getbyEmail("http://ahorcado1d.000webhostapp.com/**.php",email ,password);
+        new UserRepository(context).getbyEmail("http://ahorcado1d.000webhostapp.com/get_user.php",email ,password);
     }
 
-    public boolean cofirmLogin(User user){
+    public boolean cofirmLogin(User user, String password){
         if(user!= null){
-
+            if(user.getPassword_user().equals(password)) return true;
+            return false;
 
         }
         return false;
