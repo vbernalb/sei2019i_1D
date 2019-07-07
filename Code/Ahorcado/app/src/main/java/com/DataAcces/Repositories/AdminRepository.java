@@ -91,11 +91,11 @@ public class AdminRepository {
     }
 
     /**
-     *Busca de acuerdo al parametro especificado en la URL
+     * Busca de acuerdo al parametro especificado en la URL
      * @param URL  la URL del servidor donde se encuentra la base de datos example: http://192.162.1.3:80/Database/insertar.php
-     * @return
+     * @param email El email por el cual se quiere buscar
      */
-    public void getbyEmail(String URL,String email, String password){
+    public void getbyEmail(String URL,String email){
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
