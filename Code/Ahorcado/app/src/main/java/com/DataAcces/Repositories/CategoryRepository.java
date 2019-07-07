@@ -10,9 +10,11 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -85,6 +87,38 @@ public class CategoryRepository {
 
         return ook;
 
+    }
+    public void delete (String email_user){}
+    public void update (String email_user, short score){}
+    /**
+     *Busca de acuerdo al parametro especificado en la URL
+     * @param URL  la URL del servidor donde se encuentra la base de datos example: http://192.162.1.3:80/Database/insertar.php
+     * @return Un objeto User, con los datos obtenidos, null si no encuentra nada.
+     */
+    public Category getbyCategory(String URL){
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                JSONObject jsonObject = null;
+                for (int i = 0; i < response.length(); i++) {
+                    try {
+                        jsonObject = response.getJSONObject(i);
+                        category= new Category(jsonObject.getString("name_category"));
+
+                    } catch (JSONException e) {
+                        Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(context, "problema en la conxion", Toast.LENGTH_SHORT).show();
+            }
+        }
+        );
+
+        return category;
     }
 
 }
