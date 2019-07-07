@@ -55,7 +55,7 @@ public class CategoryRepository {
                     System.out.println("*******respuesta");
                     ook = jsonObject.getBoolean("success");
                     if(ook){
-                        Toast.makeText(context, "INSERCION EXITOSO",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "INSERCION EXITOSA",Toast.LENGTH_SHORT).show();
                     }
 
                 }catch (JSONException e ) {
@@ -88,12 +88,12 @@ public class CategoryRepository {
         return ook;
 
     }
-    public void delete (String email_user){}
-    public void update (String email_user, short score){}
+    public void delete (String name_category){}
+    public void update (String name_category){}
     /**
      *Busca de acuerdo al parametro especificado en la URL
      * @param URL  la URL del servidor donde se encuentra la base de datos example: http://192.162.1.3:80/Database/insertar.php
-     * @return Un objeto User, con los datos obtenidos, null si no encuentra nada.
+     * @return Un objeto Category, con los datos obtenidos, null si no encuentra nada.
      */
     public Category getbyCategory(String URL){
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
