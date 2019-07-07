@@ -37,9 +37,8 @@ public class CategoryRepository {
      *Esta funcion crea una nueva entrada en la tabla User de la base de datos remota.
      * @param category EL modelo category que contiene los datos de la entrada.
      * @param URL  la URL del servidor donde se encuentra la base de datos example: http://192.162.1.3:80/Database/insertar.php
-     * @return si se realizo todo el proceso de comunicacion con la base de datos
      */
-    public boolean create (Category category, String URL){
+    public void create (Category category, String URL){
         System.out.println("*******entre al category repositori");
         boolean operacion= false;
         final String  name_category =category.getName_category();
@@ -84,8 +83,6 @@ public class CategoryRepository {
         requestQueue.add(stringRequest);
         operacion = true;
         System.out.println("**********estado del sistemas   "+ ook);
-
-        return ook;
 
     }
     public void delete (String name_category){}
