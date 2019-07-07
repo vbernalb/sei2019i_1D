@@ -25,12 +25,12 @@ import java.util.Map;
 public class AdminRepository {
 
     public Context context;
-    public Admin admin;
+
 
 
     public AdminRepository(Context context) {
         this.context = context;
-        this.admin = null;
+
     }
 
     /**
@@ -39,6 +39,8 @@ public class AdminRepository {
      * @param URL  la URL del servidor donde se encuentra la base de datos example: http://192.162.1.3:80/Database/insertar.php
      * @return
      */
+
+    
     public void create (Admin admin, String URL){
         System.out.println("*******entre al user repositori");
         boolean operacion= false;
@@ -94,8 +96,9 @@ public class AdminRepository {
      * Busca de acuerdo al parametro especificado en la URL
      * @param URL  la URL del servidor donde se encuentra la base de datos example: http://192.162.1.3:80/Database/insertar.php
      * @param email El email por el cual se quiere buscar
+     * @param password La contraseña por el cual se quiere comparar
      */
-    public void getbyEmail(String URL,String email){
+    public void getbyEmail(String URL,String email, String password){
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
@@ -106,7 +109,7 @@ public class AdminRepository {
                         Admin admin= new Admin(jsonObject.getString("email_admin"),
                                 jsonObject.getString("password_admin")
                                );
-                            new LoginAdminController(context).cofirmLogin(admin);
+                            new LoginAdminController(context).cofirmLogin(admin,password);
                     } catch (JSONException e) {
                         Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
