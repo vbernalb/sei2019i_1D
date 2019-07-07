@@ -1,6 +1,7 @@
 package com.Presentation;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.BusinessLogic.LoginAdminController;
@@ -16,6 +18,7 @@ import com.BusinessLogic.LoginUserController;
 import com.example.ahorcado.R;
 
 public class MainActivity extends AppCompatActivity {
+
     EditText email, password;
     Button login;
     private CheckBox check;
@@ -24,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
             email=(EditText)findViewById(R.id.emailJoin_txt);
             password=(EditText)findViewById(R.id.passJoin_txt);
             login= (Button)findViewById(R.id.log_btn);
