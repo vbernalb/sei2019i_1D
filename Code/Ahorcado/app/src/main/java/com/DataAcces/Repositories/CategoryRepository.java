@@ -4,6 +4,7 @@ import android.content.Context;
 import android.widget.Toast;
 
 import com.DataAcces.Models.Category;
+import com.DataAcces.Models.User;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -12,16 +13,23 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class CategoryRepository {
     Category category;
     Context context;
+    boolean ook;
+    boolean respuesta;
 
     public CategoryRepository(Context context) {
         this.category =null;
         this.context = context;
+        this.ook=false;
+        this.respuesta = true;
     }
     /**
      *Esta funcion crea una nueva entrada en la tabla User de la base de datos remota.
@@ -30,32 +38,53 @@ public class CategoryRepository {
      * @return si se realizo todo el proceso de comunicacion con la base de datos
      */
     public boolean create (Category category, String URL){
+        System.out.println("*******entre al category repositori");
         boolean operacion= false;
         final String  name_category =category.getName_category();
 
         StringRequest stringRequest= new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(context, "Operacion exitosa",Toast.LENGTH_SHORT).show();
+
+                System.out.println("*******on ** respuesta");
+                System.out.println("respuesta " + response);
+                try{
+                    JSONObject jsonObject = new JSONObject(response);
+                    System.out.println("*******respuesta");
+                    ook = jsonObject.getBoolean("success");
+                    if(ook){
+                        Toast.makeText(context, "INSERCION EXITOSO",Toast.LENGTH_SHORT).show();
+                    }
+
+                }catch (JSONException e ) {
+                    System.out.println("*******exception");
+                    System.out.println("exeption    "+ e.getMessage());
+                }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(context, "Operacion fallida",Toast.LENGTH_SHORT).show();
+                System.out.println("***error" + error.getMessage());
+                Toast.makeText(context, "Operacion fallida " + error.getMessage(),Toast.LENGTH_SHORT).show();
             }
         })
         {
             @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
+            protected Map<String, String> getParams()  {
                 Map<String,String> parametros = new HashMap<String,String>();
                 parametros.put("name_category", name_category);
-                return super.getParams();
+
+                return parametros;
             }
         };
 
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         requestQueue.add(stringRequest);
         operacion = true;
-        return operacion;
+        System.out.println("**********estado del sistemas   "+ ook);
+
+        return ook;
+
     }
+
 }
