@@ -40,7 +40,12 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="470dp"
+<<<<<<< HEAD
             android:background="#F44336"
+=======
+            android:onClick="openMainActivity"
+            android:background="#CDDC39"
+>>>>>>> feature_Daniel
             android:text="CERRAR SESIÓN" />
 
     </LinearLayout>
