@@ -1,5 +1,6 @@
 package com.Presentation;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -34,5 +35,10 @@ public class CategoryActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void openMenuAdminActivity(View view){
+        Intent openMenuAdminActivity = new Intent(CategoryActivity.this, MenuAdminActivity.class);
+        startActivity(openMenuAdminActivity);
     }
 }

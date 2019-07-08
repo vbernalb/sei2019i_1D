@@ -66,6 +66,7 @@
             android:layout_margin="400dp"
             android:background="@drawable/button_form"
             android:backgroundTint="#A3DFE7"
+            android:onClick="openMenuAdminActivity"
             android:text="Volver" />
 
     </LinearLayout>
