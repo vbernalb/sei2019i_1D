@@ -56,6 +56,16 @@
             android:layout_margin="20dp"
             android:background="@drawable/button_form"
             android:text="Ingresar Palabra" />
+        
+        <Button
+            android:id="@+id/ca_btn_category2"
+            android:layout_width="214dp"
+            android:layout_height="47dp"
+            android:layout_gravity="center"
+            android:layout_margin="400dp"
+            android:background="@drawable/button_form"
+            android:backgroundTint="#A3DFE7"
+            android:text="Volver" />
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

@@ -51,12 +51,22 @@
         <Button
             android:id="@+id/ca_btn_category"
             android:layout_width="214dp"
-            android:layout_height="wrap_content"
+            android:layout_height="47dp"
             android:layout_gravity="center"
             android:layout_margin="10dp"
             android:background="@drawable/button_form"
             android:backgroundTint="#A3DFE7"
             android:text="Ingresar Categoría" />
+
+        <Button
+            android:id="@+id/ca_btn_category2"
+            android:layout_width="214dp"
+            android:layout_height="47dp"
+            android:layout_gravity="center"
+            android:layout_margin="400dp"
+            android:background="@drawable/button_form"
+            android:backgroundTint="#A3DFE7"
+            android:text="Volver" />
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
