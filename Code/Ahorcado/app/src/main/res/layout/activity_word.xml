@@ -38,7 +38,7 @@
         <EditText
             android:id="@+id/ca_category"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50"
             android:layout_margin="20dp"
             android:background="#3333"
             android:gravity="center"
@@ -62,7 +62,7 @@
             android:layout_width="214dp"
             android:layout_height="47dp"
             android:layout_gravity="center"
-            android:layout_margin="400dp"
+            android:layout_margin="390dp"
             android:background="@drawable/button_form"
             android:onClick="openMenuAdminActivity"
             android:backgroundTint="#A3DFE7"
