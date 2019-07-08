@@ -14,12 +14,6 @@
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp">
 
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Menu user activity" />
-
         <Button
             android:id="@+id/button"
             android:layout_width="match_parent"
