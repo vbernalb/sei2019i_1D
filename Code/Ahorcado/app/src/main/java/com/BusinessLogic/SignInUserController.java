@@ -36,7 +36,10 @@ public class SignInUserController {
         return email.contains("@unal.edu.co")|| email.contains("@hotmail.com")||email.contains("@gmail.com")
                 || email.contains("@outlook.com");
     }
-    private boolean UserExist (String email){
+    public  void UserExist1(String email){
+        userRepository
+    }
+    public static boolean userExist (User user){
         return true;
     }
 }

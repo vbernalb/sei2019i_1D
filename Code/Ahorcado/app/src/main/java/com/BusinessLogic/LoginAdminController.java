@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.DataAcces.Models.Admin;
 import com.DataAcces.Repositories.AdminRepository;
+import com.Presentation.MainActivity;
 
 public class LoginAdminController {
     Context context;
@@ -23,12 +24,14 @@ public class LoginAdminController {
         new AdminRepository(context).getbyEmail("http://ahorcado1d.000webhostapp.com/get_admi.php",email ,password);
     }
 
-    public boolean cofirmLogin(Admin admin, String password){
+    public static void cofirmLogin(Admin admin, String password){
+        boolean confirm = false;
         if(admin!= null){
-            if(admin.getPassword_admi().equals(password))return true;
-            return false;
+            if(admin.getPassword_admi().equals(password))confirm = true;
+
         };
-        return false;
+        new MainActivity().nuevoIntent(confirm);
+
     }
 
 

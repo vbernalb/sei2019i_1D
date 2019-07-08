@@ -45,12 +45,8 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onClick(View v) {
                                 // suc.loginAdmin(email.getText().toString(), password.getText().toString())
-                                if(true){
-                                    Intent intent = new Intent(MainActivity.this, MenuAdminActivity.class);
-                                    startActivityForResult(intent, 0);
-                                }else{
-                                    Toast.makeText(getApplicationContext(), "Datos del administrador incorrectos", Toast.LENGTH_SHORT).show();
-                                }
+                                //llamar funciòn nuevoIntent
+                                finishActivity(0);
                             }
                         });
                     }
@@ -85,4 +81,14 @@ public class MainActivity extends AppCompatActivity {
         Intent openRegisterActivity = new Intent(MainActivity.this, MenuUserActivity.class);
     }
 
+    public void nuevoIntent(boolean confirm){
+        if(confirm){
+            Intent intent = new Intent(MainActivity.this, MenuAdminActivity.class);
+            startActivityForResult(intent, 0);
+            finishActivity(0);
+        }else{
+            Toast.makeText(getApplicationContext(), "Datos del administrador incorrectos", Toast.LENGTH_SHORT).show();
+        }
+
+    }
 }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.widget.Toast;
 
 import com.BusinessLogic.LoginUserController;
+import com.BusinessLogic.SignInUserController;
 import com.DataAcces.Models.User;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -108,7 +109,8 @@ public class UserRepository {
      *@param email El email por el cual se quiere buscar
      *  @param password La contraseña por el cual se quiere comparar
      */
-    public void getbyEmail(String URL,String email, String password ){
+    public void getbyEmail(String URL,String email, String password,int tipo ){
+        final int numero = tipo;
         final String password_f = password;
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
             @Override
@@ -120,7 +122,15 @@ public class UserRepository {
                         User user= new User(jsonObject.getString("email_user"),
                                               jsonObject.getString("password_user"),
                                                 Integer.parseInt(jsonObject.getString("acumulate_score")));
-                        new LoginUserController(context).cofirmLogin(user, password_f);
+
+                        switch (numero){
+                            case 1:
+                                new LoginUserController(context).cofirmLogin(user, password_f);
+                            break;
+                            case 2:
+                                SignInUserController.userExist(user);
+                                break;
+                        }
                     } catch (JSONException e) {
                         Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
