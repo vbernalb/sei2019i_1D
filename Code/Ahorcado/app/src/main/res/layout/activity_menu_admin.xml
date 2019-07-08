@@ -55,5 +55,14 @@
             android:shadowColor="#0066DB19"
             android:text="ingresar palabras" />
 
+        <Button
+            android:id="@+id/sign_out_btn"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="300dp"
+            android:background="#CDDC39"
+            android:text="CERRAR SESIÓN" />
+
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
