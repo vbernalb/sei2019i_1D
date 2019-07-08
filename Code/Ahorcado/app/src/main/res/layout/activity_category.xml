@@ -56,7 +56,7 @@
             android:layout_margin="10dp"
             android:background="@drawable/button_form"
             android:backgroundTint="#A3DFE7"
-            android:text="Ingresar" />
+            android:text="Ingresar Categoría" />
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
