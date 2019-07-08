@@ -24,17 +24,17 @@ public class CategoryActivity extends AppCompatActivity {
         etCategory = (EditText)findViewById(R.id.ca_category);
         btnCategory = (Button)findViewById(R.id.ca_btn_category);
 
+        final String category = etCategory.getText().toString();
         final InsertCategoryController cat = new InsertCategoryController(getApplicationContext());
 
         btnCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (cat.InsertCategory(etCategory.getText().toString())){
+                if (cat.InsertCategory(category)){
                     Toast.makeText(getApplicationContext(), "Categoria registrada", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
     }
 
     public void openMenuAdminActivity(View view){

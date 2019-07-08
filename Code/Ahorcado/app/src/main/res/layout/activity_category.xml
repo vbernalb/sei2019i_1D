@@ -44,7 +44,7 @@
             android:background="#BCFDFCFC"
             android:ems="10"
             android:fontFamily="casual"
-            android:hint=" Categoria"
+            android:hint=" Nueva Categoria"
             android:inputType="textPersonName"
             android:textStyle="normal" />
 
@@ -55,17 +55,15 @@
             android:layout_gravity="center"
             android:layout_margin="10dp"
             android:background="@drawable/button_form"
-            android:backgroundTint="#A3DFE7"
-            android:text="Ingresar Categoría" />
+            android:text="Ingresar" />
 
         <Button
             android:id="@+id/ca_btn_category2"
             android:layout_width="214dp"
             android:layout_height="47dp"
             android:layout_gravity="center"
-            android:layout_margin="400dp"
+            android:layout_margin="300dp"
             android:background="@drawable/button_form"
-            android:backgroundTint="#A3DFE7"
             android:onClick="openMenuAdminActivity"
             android:text="Volver" />
 
