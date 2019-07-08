@@ -40,6 +40,7 @@
             android:paddingLeft="70dp"
             android:paddingRight="70dp"
             android:shadowColor="#0066DB19"
+            android:onClick="openScoreActivity"
             android:text="Ver puntaje" />
 
         <Button

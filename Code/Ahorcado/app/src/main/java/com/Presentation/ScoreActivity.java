@@ -11,7 +11,7 @@ public class ScoreActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_word);
+        setContentView(R.layout.activity_score);
     }
 
     public void openMenuUserActivity(View view){
