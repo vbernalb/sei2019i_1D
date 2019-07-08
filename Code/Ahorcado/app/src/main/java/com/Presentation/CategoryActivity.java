@@ -2,13 +2,37 @@ package com.Presentation;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.BusinessLogic.InsertCategoryController;
 import com.example.ahorcado.R;
 
 public class CategoryActivity extends AppCompatActivity {
+
+    EditText etCategory;
+    Button btnCategory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
+
+        etCategory = (EditText)findViewById(R.id.ca_category);
+        btnCategory = (Button)findViewById(R.id.ca_btn_category);
+
+        final InsertCategoryController cat = new InsertCategoryController(getApplicationContext());
+
+        btnCategory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (cat.InsertCategory(etCategory.getText().toString())){
+                    Toast.makeText(getApplicationContext(), "Categoria registrada", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
     }
 }
