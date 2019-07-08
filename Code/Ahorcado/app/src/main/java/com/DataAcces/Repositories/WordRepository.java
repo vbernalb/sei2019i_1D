@@ -30,43 +30,63 @@ public class WordRepository {
         this.context = context;
     }
 
+
     /**
-     *Esta funcion crea una nueva entrada en la tabla Word de la base de datos remota.
-     * @param word EL modelo word que contiene los datos de la entrada.
+     *Esta funcion crea una nueva entrada en la tabla User de la base de datos remota.
+     * @param word EL modelo Word que contiene los datos de la entrada.
      * @param URL  la URL del servidor donde se encuentra la base de datos example: http://192.162.1.3:80/Database/insertar.php
-     * @return si se realizo todo el proceso de comunicacion con la base de datos
+     * @return
      */
-    public boolean create (Word word, String URL){
-        boolean operacion= false;
-        final String  name =word.getName_Word();
-        final String  description =word.getDescription();
+    public void create (Word word, String URL){
+        System.out.println("*******entre al user repositori");
+
+        final String  nameWord =word.getName_Word();
+        final String  wordDescription =word.getDescription();
+
 
         StringRequest stringRequest= new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(context, "Operacion exitosa",Toast.LENGTH_SHORT).show();
+
+
+                try{
+                    JSONObject jsonObject = new JSONObject(response);
+
+
+                    if(jsonObject.getBoolean("success")){
+                        Toast.makeText(context, "REGISTRO EXITOSO",Toast.LENGTH_SHORT).show();
+                    }
+
+                }catch (JSONException e ) {
+
+                    System.out.println("exeption    "+ e.getMessage());
+                }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(context, "Operacion fallida",Toast.LENGTH_SHORT).show();
+
+                Toast.makeText(context, "Operacion fallida " + error.getMessage(),Toast.LENGTH_SHORT).show();
             }
         })
         {
             @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
+            protected Map<String, String> getParams()  {
                 Map<String,String> parametros = new HashMap<String,String>();
-                parametros.put("name_Word",name);
-                parametros.put("description",description);
+                parametros.put("**",nameWord);
+                parametros.put("**",wordDescription);
 
-                return super.getParams();
+                return parametros;
             }
         };
 
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         requestQueue.add(stringRequest);
-        operacion = true;
-        return operacion;
+
+
+
+        return;
+
     }
 
 
