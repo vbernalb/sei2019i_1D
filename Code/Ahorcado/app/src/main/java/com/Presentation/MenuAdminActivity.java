@@ -13,7 +13,6 @@ public class MenuAdminActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_admin);
-
     }
 
     public void onClick(View view){
@@ -30,5 +29,10 @@ public class MenuAdminActivity extends AppCompatActivity {
         if(intent!=null){
             startActivity(intent);
         }
+    }
+
+    public void openMainActivity(View view){
+        Intent openMainActivity = new Intent(MenuAdminActivity.this, MainActivity.class);
+        startActivity(openMainActivity);
     }
 }

@@ -44,7 +44,8 @@ public class MainActivity extends AppCompatActivity {
                         login.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                if(suc.loginAdmin(email.getText().toString(), password.getText().toString())){
+                                // suc.loginAdmin(email.getText().toString(), password.getText().toString())
+                                if(true){
                                     Intent intent = new Intent(MainActivity.this, MenuAdminActivity.class);
                                     startActivityForResult(intent, 0);
                                 }else{
@@ -58,7 +59,8 @@ public class MainActivity extends AppCompatActivity {
                         login.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                if(suc.loginUser(email.getText().toString(), password.getText().toString())){
+                                //suc.loginUser(email.getText().toString(), password.getText().toString())
+                                if(true){
                                     Intent intent = new Intent(MainActivity.this, MenuUserActivity.class);
                                     startActivityForResult(intent, 0);
                                 }else{

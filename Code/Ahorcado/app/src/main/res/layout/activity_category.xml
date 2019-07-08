@@ -28,9 +28,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
+            android:background="#6A000000"
             android:fontFamily="casual"
             android:gravity="center"
-            android:text="Ingresar categoria"
+            android:text="INGRESAR CATEGORIA"
             android:textColor="#E3F2FD"
             android:textSize="24sp"
             android:textStyle="normal|bold" />
@@ -48,12 +49,25 @@
             android:textStyle="normal" />
 
         <Button
-            android:id="@+id/button2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:id="@+id/ca_btn_category"
+            android:layout_width="214dp"
+            android:layout_height="47dp"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
             android:background="@drawable/button_form"
-            android:text="Ingresar categoria" />
+            android:backgroundTint="#A3DFE7"
+            android:text="Ingresar Categoría" />
+
+        <Button
+            android:id="@+id/ca_btn_category2"
+            android:layout_width="214dp"
+            android:layout_height="47dp"
+            android:layout_gravity="center"
+            android:layout_margin="400dp"
+            android:background="@drawable/button_form"
+            android:backgroundTint="#A3DFE7"
+            android:onClick="openMenuAdminActivity"
+            android:text="Volver" />
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

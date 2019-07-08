@@ -36,6 +36,7 @@
             android:layout_marginRight="10dp"
             android:background="@drawable/button_form"
             android:fontFamily="sans-serif-black"
+            android:onClick="onClick"
             android:paddingLeft="70dp"
             android:paddingRight="70dp"
             android:shadowColor="#0066DB19"
@@ -50,6 +51,7 @@
             android:layout_marginRight="10dp"
             android:background="@drawable/button_form"
             android:fontFamily="sans-serif-black"
+            android:onClick="onClick"
             android:paddingLeft="70dp"
             android:paddingRight="70dp"
             android:shadowColor="#0066DB19"
@@ -61,7 +63,8 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="320dp"
-            android:background="#CDDC39"
+            android:background="#F44336"
+            android:onClick="openMainActivity"
             android:text="CERRAR SESIÓN" />
 
     </LinearLayout>
