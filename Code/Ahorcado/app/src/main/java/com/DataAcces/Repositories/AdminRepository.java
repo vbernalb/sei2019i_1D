@@ -100,6 +100,7 @@ public class AdminRepository {
      */
     public void getbyEmail(String URL,String email, String password){
         final String password_f = password;
+        final String email_F = email;
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
@@ -110,7 +111,7 @@ public class AdminRepository {
                         Admin admin= new Admin(jsonObject.getString("email_admin"),
                                 jsonObject.getString("password_admin")
                                );
-                            new LoginAdminController(context).cofirmLogin(admin,password_f);
+                             LoginAdminController.cofirmLogin(admin,password_f);
                     } catch (JSONException e) {
                         Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
@@ -122,7 +123,15 @@ public class AdminRepository {
                 Toast.makeText(context, "problema en la conxion", Toast.LENGTH_SHORT).show();
             }
         }
-        );
+        ){
+            @Override
+            protected Map<String, String> getParams()  {
+                Map<String,String> parametros = new HashMap<String,String>();
+                parametros.put("email_admin",email_F);
+
+                return parametros;
+            }
+        };
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         requestQueue.add(jsonArrayRequest);
         return ;
