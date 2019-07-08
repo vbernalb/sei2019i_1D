@@ -8,9 +8,10 @@ import com.DataAcces.Repositories.UserRepository;
 
 public class SignInUserController {
     Context context;
-
+    UserRepository userRepository;
     public SignInUserController(Context context) {
         this.context = context;
+        this.userRepository=new UserRepository(context);
     }
 
     /**
@@ -22,8 +23,6 @@ public class SignInUserController {
     public boolean singin(String email, String password, String password2){
         if(this.PasswordValidation(password, password2)&& this.EmailValidation(email)&& this.UserExist(email)){
             User user = new User(email, password, 0);
-            UserRepository userRepository = new UserRepository(context);
-            System.out.println("*******entre al sign in");
             userRepository.create(user, "http://ahorcado1d.000webhostapp.com/insert_user.php");
             return true;
         }
