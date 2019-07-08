@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.Presentation.ScoreActivity">
+
+    <LinearLayout
+        android:layout_width="395dp"
+        android:layout_height="715dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp">
+
+
+        <Button
+            android:id="@+id/ca_btn_category3"
+            android:layout_width="200dp"
+            android:layout_height="47dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="590dp"
+            android:background="@drawable/button_form"
+            android:backgroundTint="#A3DFE7"
+            android:onClick="openMenuUserActivity"
+            android:text="Volver" />
+
+        <Button
+            android:id="@+id/sign_out_btn"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:background="#F44336"
+            android:onClick="openMainActivity"
+            android:text="CERRAR SESIÓN" />
+
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

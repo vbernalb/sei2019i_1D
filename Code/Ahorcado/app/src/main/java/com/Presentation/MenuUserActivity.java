@@ -18,4 +18,9 @@ public class MenuUserActivity extends AppCompatActivity {
         Intent openMainActivity = new Intent(MenuUserActivity.this, MainActivity.class);
         startActivity(openMainActivity);
     }
+
+    public void openScoreActivity(View view){
+        Intent openScoreActivity = new Intent(MenuUserActivity.this, ScoreActivity.class);
+        startActivity(openScoreActivity);
+    }
 }
