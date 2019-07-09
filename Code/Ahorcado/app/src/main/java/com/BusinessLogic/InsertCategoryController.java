@@ -31,6 +31,6 @@ public class InsertCategoryController {
             confirm=true;
             categoryRepository.create(new Category(name_category), "http://ahorcado1d.000webhostapp.com/insert_category.php");
         }
-
+        ca.nuevoIntent(confirm, context);
     }
 }
