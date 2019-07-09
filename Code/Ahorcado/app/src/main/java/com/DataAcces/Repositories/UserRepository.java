@@ -109,15 +109,15 @@ public class UserRepository {
     public void getbyEmail(String URL,String email, String password){
         final String password_f = password;
         final String email_F = email;
-        System.out.println("*** login admin repository");
+       // System.out.println("*** login admin repository");
         StringRequest jsonArrayRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                System.out.println("*** login admin on repose ");
+              //  System.out.println("*** login admin on repose ");
                 JSONObject jsonObject = null;
                 for (int i = 0; i < response.length(); i++) {
                     try {
-                        System.out.println("*** login admin *** on repose");
+                    //    System.out.println("*** login admin *** on repose");
                         jsonObject = new JSONObject(response);
                         User user= new User(jsonObject.getString("email_user"),
                                 jsonObject.getString("password_user"),
@@ -138,8 +138,8 @@ public class UserRepository {
             @Override
             protected Map<String, String> getParams()  {
                 Map<String,String> parametros = new HashMap<String,String>();
-                parametros.put("email_admin",email_F);
-                System.out.println("*** login admin parametros");
+                parametros.put("user_admin",email_F);
+               // System.out.println("*** login admin parametros");
                 return parametros;
             }
         };
