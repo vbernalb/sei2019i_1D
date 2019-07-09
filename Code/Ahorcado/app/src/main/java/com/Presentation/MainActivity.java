@@ -38,6 +38,17 @@ public class MainActivity extends AppCompatActivity {
          * de iniciar sesión como ususario o como admin
          * Llama a LoginUserController o LoginAdminController respectivamente
          */
+        if(check.isChecked() == false) {
+            final LoginUserController suc= new LoginUserController(MainActivity.this);
+            login.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    System.out.println("**** boton click");
+                    //suc.loginUser(email.getText().toString(), password.getText().toString())
+                    suc.loginUser(email.getText().toString(), password.getText().toString());
+                }
+            });
+        }
             check.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     if (check.isChecked() == true){
