@@ -111,9 +111,12 @@ public class AdminRepository {
                     try {
                         System.out.println("*** login admin *** on repose");
                         jsonObject = new JSONObject(response);
-                        Admin admin= new Admin(jsonObject.getString("email_admin"),
-                                jsonObject.getString("password_admin")
-                               );
+                        Admin admin = null;
+                        if(jsonObject.getBoolean("success")==true) {
+                           admin = new Admin(jsonObject.getString("email_admin"),
+                                    jsonObject.getString("password_admin")
+                            );
+                        }
                             new LoginAdminController(context).cofirmLogin(admin,password_f);
                     } catch (JSONException e) {
                         Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
