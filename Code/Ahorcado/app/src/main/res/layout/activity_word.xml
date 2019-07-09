@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/star"
     tools:context="com.Presentation.WordActivity">
+
 
     <LinearLayout
         android:id="@+id/linearLayout3"
@@ -51,20 +53,28 @@
         <Button
             android:id="@+id/button2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/button_form"
+            android:fontFamily="sans-serif-black"
+            android:paddingLeft="70dp"
+            android:paddingRight="70dp"
             android:text="Ingresar Palabra" />
 
         <Button
             android:id="@+id/ca_btn_category2"
-            android:layout_width="214dp"
-            android:layout_height="47dp"
-            android:layout_gravity="center"
-            android:layout_margin="390dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="420dp"
             android:background="@drawable/button_form"
+            android:fontFamily="sans-serif-black"
+            android:paddingLeft="70dp"
+            android:paddingRight="70dp"
             android:onClick="openMenuAdminActivity"
-            android:backgroundTint="#A3DFE7"
             android:text="Volver" />
 
     </LinearLayout>

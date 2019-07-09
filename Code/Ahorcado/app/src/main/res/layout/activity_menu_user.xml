@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/degree_background"
+    android:background="@mipmap/star"
     tools:context="com.Presentation.MenuUserActivity">
 
     <LinearLayout
@@ -47,9 +47,14 @@
             android:id="@+id/sign_out_btn"
             style="@style/Widget.AppCompat.Button"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="400dp"
-            android:background="#F44336"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="430dp"
+            android:background="@drawable/button_form"
+            android:fontFamily="sans-serif-black"
+            android:paddingLeft="70dp"
+            android:paddingRight="70dp"
             android:onClick="openMainActivity"
             android:text="CERRAR SESIÓN" />
 
