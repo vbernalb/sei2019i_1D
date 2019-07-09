@@ -8,9 +8,11 @@ import com.DataAcces.Repositories.UserRepository;
 
 public class SignInUserController {
     Context context;
+    static boolean exist;
     UserRepository userRepository;
     public SignInUserController(Context context) {
         this.context = context;
+        this.exist= false;
         this.userRepository=new UserRepository(context);
     }
 
@@ -20,12 +22,16 @@ public class SignInUserController {
      * @param password password del usuario a registar.
      * @return
      */
-    public void singin(String email, String password, String password2){
+    public boolean singin(String email, String password, String password2){
         if(this.PasswordValidation(password, password2)&& this.EmailValidation(email)){
-            User user = new User(email, password, 0);
-            userRepository.create(user, "http://ahorcado1d.000webhostapp.com/insert_user.php");
             this.userExist1(email);
+        }else return false;
+        if(exist){
+        User user = new User(email, password, 0);
+        userRepository.create(user, "http://ahorcado1d.000webhostapp.com/insert_user.php");
+        return true;
         }
+        else return false;
     }
 
     private boolean PasswordValidation(String password, String password2){
@@ -34,10 +40,10 @@ public class SignInUserController {
     private boolean EmailValidation(String email){
         return email.contains("@");
     }
-    private  void userExist1(String email){
+    public   void userExist1(String email){
         userRepository.getbyEmail("http://ahorcado1d.000webhostapp.com/get_user.php", email, null, 2);
     }
     public static void userExist (User user){
-
+        if(user!= null) exist=true;
     }
 }
