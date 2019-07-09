@@ -100,46 +100,59 @@ public class UserRepository {
 
 
 
-     /**
-     * Busca de acuerdo al parametro especificado en la email
+
+    public void delete (String email_user){}
+    public void update (String email_user, short score){}
+    /**
+     *Busca de acuerdo al parametro especificado en la URL
      * @param URL  la URL del servidor donde se encuentra la base de datos example: http://192.162.1.3:80/Database/insertar.php
-     * @param email El email por el cual se quiere buscar
-     * @param password La contraseña por el cual se quiere comparar
+     *@param email El email por el cual se quiere buscar
+     *  @param password La contraseña por el cual se quiere comparar
      */
-    public void getbyEmail(String URL,String email, String password){
-        final String password_f = password;
+    public void getbyEmail(String URL,String email, String password,int tipo ){
+        final int numero = tipo;
         final String email_F = email;
-       // System.out.println("*** login admin repository");
+        System.out.println("*** user entro");
+        final String password_f = password;
         StringRequest jsonArrayRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
+
             @Override
             public void onResponse(String response) {
-              //  System.out.println("*** login admin on repose ");
                 JSONObject jsonObject = null;
-                for (int i = 0; i < response.length(); i++) {
+                System.out.println("*** llego respuesta");
                     try {
-                    //    System.out.println("*** login admin *** on repose");
+                        System.out.println("*** onResponse user ");
                         jsonObject = new JSONObject(response);
                         User user= new User(jsonObject.getString("email_user"),
-                                jsonObject.getString("password_user"),
-                                Integer.parseInt(jsonObject.getString("acumulate_score")));
-                        new LoginUserController(context).cofirmLogin(user,password_f);
+                                              jsonObject.getString("password_user"),
+                                        Integer.parseInt(jsonObject.getString("accumulated_score")));
+
+                        switch (numero){
+                            case 1:
+                                new LoginUserController(context).cofirmLogin(user, password_f);
+                            break;
+                            case 2:
+                                SignInUserController.userExist(user);
+                                break;
+                        }
                     } catch (JSONException e) {
+                        System.out.println("on error ");
                         Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
-                }
+
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(context, "problema en la conexion", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "problema en la conxion", Toast.LENGTH_SHORT).show();
             }
         }
         ){
             @Override
             protected Map<String, String> getParams()  {
                 Map<String,String> parametros = new HashMap<String,String>();
-                parametros.put("user_admin",email_F);
-               // System.out.println("*** login admin parametros");
+                parametros.put("email_user",email_F);
+                System.out.println("*** login admin parametros");
                 return parametros;
             }
         };
@@ -150,6 +163,4 @@ public class UserRepository {
 
 
 
-    public void delete (String email_user){}
-    public void update (String email_user, short score){}
 }
