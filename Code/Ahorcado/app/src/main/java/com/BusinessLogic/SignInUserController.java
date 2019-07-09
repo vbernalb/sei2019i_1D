@@ -8,9 +8,11 @@ import com.DataAcces.Repositories.UserRepository;
 
 public class SignInUserController {
     Context context;
+    static boolean exist;
     UserRepository userRepository;
     public SignInUserController(Context context) {
         this.context = context;
+        this.exist= false;
         this.userRepository=new UserRepository(context);
     }
 
@@ -21,11 +23,13 @@ public class SignInUserController {
      * @return
      */
     public boolean singin(String email, String password, String password2){
-       if(this.PasswordValidation(password, password2)&& this.EmailValidation(email)){
-
-            User user = new User(email, password, 0);
-            userRepository.create(user, "http://ahorcado1d.000webhostapp.com/insert_user.php");
-            return true;
+        if(this.PasswordValidation(password, password2)&& this.EmailValidation(email)){
+            this.userExist1(email);
+        }else return false;
+        if(exist){
+        User user = new User(email, password, 0);
+        userRepository.create(user, "http://ahorcado1d.000webhostapp.com/insert_user.php");
+        return true;
         }
         else return false;
     }
@@ -34,13 +38,12 @@ public class SignInUserController {
         return password.equals(password2);
     }
     private boolean EmailValidation(String email){
-        return email.contains("@unal.edu.co")|| email.contains("@hotmail.com")||email.contains("@gmail.com")
-                || email.contains("@outlook.com");
+        return email.contains("@");
     }
-    public  void UserExist1(String email){
-        //userRepository
+    public   void userExist1(String email){
+        userRepository.getbyEmail("http://ahorcado1d.000webhostapp.com/get_user.php", email, null, 2);
     }
-    public static boolean userExist (User user){
-        return true;
+    public static void userExist (User user){
+        if(user!= null) exist=true;
     }
 }
