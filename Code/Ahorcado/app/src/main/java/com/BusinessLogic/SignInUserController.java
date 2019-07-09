@@ -9,11 +9,9 @@ import com.Presentation.RegisterActivity;
 
 public class SignInUserController {
     Context context;
-    static boolean exist;
     UserRepository userRepository;
     public SignInUserController(Context context) {
         this.context = context;
-        this.exist= false;
         this.userRepository=new UserRepository(context);
     }
 
@@ -40,9 +38,10 @@ public class SignInUserController {
         userRepository.getbyEmail("http://ahorcado1d.000webhostapp.com/get_user.php", email, password, 2);
     }
     public void userExist (User user, String email, String password){
+        boolean confirm =false;
         final RegisterActivity ma = (RegisterActivity) context;
             if(user!= null){
-
+                confirm= true;
                 new UserRepository(context).create(new User(email,password,0),"http://ahorcado1d.000webhostapp.com/insert_user.php");
             }
         //ma.nuevoIntent(confirm, context);
