@@ -4,23 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/star"
     tools:context="com.Presentation.WordActivity">
+
 
     <LinearLayout
         android:id="@+id/linearLayout3"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_weight="1"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp">
 
         <TextView
             android:id="@+id/textView10"
@@ -51,20 +46,28 @@
         <Button
             android:id="@+id/button2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/button_form"
+            android:fontFamily="sans-serif-black"
+            android:paddingLeft="70dp"
+            android:paddingRight="70dp"
             android:text="Ingresar Palabra" />
 
         <Button
             android:id="@+id/ca_btn_category2"
-            android:layout_width="214dp"
-            android:layout_height="47dp"
-            android:layout_gravity="center"
-            android:layout_margin="390dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/button_form"
+            android:fontFamily="sans-serif-black"
+            android:paddingLeft="70dp"
+            android:paddingRight="70dp"
             android:onClick="openMenuAdminActivity"
-            android:backgroundTint="#A3DFE7"
             android:text="Volver" />
 
     </LinearLayout>
