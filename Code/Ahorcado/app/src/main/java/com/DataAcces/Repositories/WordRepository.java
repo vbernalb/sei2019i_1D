@@ -110,7 +110,7 @@ public class WordRepository {
                     jsonObject = new JSONObject(response);
                     Word word1 = null;
                     if(jsonObject.getBoolean("success")==true) {
-                        word1 = new word1(jsonObject.getString("nameWord"),
+                        word1 = new Word(jsonObject.getString("nameWord"),
                                 jsonObject.getString("description")
                         );
                     }
