@@ -24,7 +24,6 @@
             android:layout_marginTop="590dp"
             android:background="@drawable/button_form"
             android:backgroundTint="#A3DFE7"
-            android:onClick="openMenuUserActivity"
             android:text="Volver" />
 
         <Button
@@ -34,7 +33,6 @@
             android:layout_height="60dp"
             android:layout_marginTop="10dp"
             android:background="#F44336"
-            android:onClick="openMainActivity"
             android:text="CERRAR SESIÓN" />
 
 
