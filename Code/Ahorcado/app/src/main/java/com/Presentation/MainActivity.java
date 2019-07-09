@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
                         login.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
+                                System.out.println("**** boton click admin ");
                                 suc.loginAdmin(email.getText().toString(), password.getText().toString());
                                 //llamar funciòn nuevoIntent
                                // finishActivity(0);
@@ -52,17 +53,13 @@ public class MainActivity extends AppCompatActivity {
                         });
                     }
                     if(check.isChecked() == false) {
-                        final LoginUserController suc= new LoginUserController(getApplicationContext());
+                        final LoginUserController suc= new LoginUserController(MainActivity.this);
                         login.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
+                                System.out.println("**** boton click");
                                 //suc.loginUser(email.getText().toString(), password.getText().toString())
-                                if(true){
-                                    Intent intent = new Intent(getApplicationContext(), MenuUserActivity.class);
-                                    startActivityForResult(intent, 0);
-                                }else{
-                                    Toast.makeText(getApplicationContext(), "Datos del usuario incorrectos", Toast.LENGTH_SHORT).show();
-                                }
+                                suc.loginUser(email.getText().toString(), password.getText().toString());
                             }
                         });
                     }
@@ -91,6 +88,18 @@ public class MainActivity extends AppCompatActivity {
             finishActivity(0);
         }else{
             Toast.makeText(context, "Datos del administrador incorrectos", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+    public void nuevoIntent2(boolean confirm, Context context){
+        System.out.println("*** context  "+ context);
+        System.out.println("*** confirm  "+ confirm);
+        if(confirm){
+            Intent intent = new Intent(context, MenuUserActivity.class);
+            startActivity(intent);
+            finishActivity(0);
+        }else{
+            Toast.makeText(context, "Datos del usuario incorrectos", Toast.LENGTH_SHORT).show();
         }
 
     }
