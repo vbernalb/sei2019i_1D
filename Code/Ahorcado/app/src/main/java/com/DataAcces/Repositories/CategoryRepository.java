@@ -3,6 +3,9 @@ package com.DataAcces.Repositories;
 import android.content.Context;
 import android.widget.Toast;
 
+import com.BusinessLogic.LoginAdminController;
+import com.BusinessLogic.SignInUserController;
+import com.DataAcces.Models.Admin;
 import com.DataAcces.Models.Category;
 import com.DataAcces.Models.User;
 import com.android.volley.AuthFailureError;
@@ -87,21 +90,27 @@ public class CategoryRepository {
     }
     public void delete (String name_category){}
     public void update (String name_category){}
+
     /**
-     *Busca de acuerdo al parametro especificado en la URL
+     * Busca de acuerdo al parametro especificado en la URL
      * @param URL  la URL del servidor donde se encuentra la base de datos example: http://192.162.1.3:80/Database/insertar.php
-     * @return Un objeto Category, con los datos obtenidos, null si no encuentra nada.
+     * @param name_category El nombre de la categoria por el cual se quiere buscar
      */
-    public Category getbyCategory(String URL){
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
+    public void getbyCategory(String URL, final String name_category){
+        final String name_category_F = name_category;
+        System.out.println("*** login admin repository");
+        StringRequest jsonArrayRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
             @Override
-            public void onResponse(JSONArray response) {
+            public void onResponse(String response) {
+                System.out.println("*** login admin on repose ");
                 JSONObject jsonObject = null;
                 for (int i = 0; i < response.length(); i++) {
                     try {
-                        jsonObject = response.getJSONObject(i);
-                        category= new Category(jsonObject.getString("name_category"));
-
+                        System.out.println("*** login admin *** on repose");
+                        jsonObject = new JSONObject(response);
+                        Category category= new Category(jsonObject.getString("name_category")
+                        );
+                        //new SignInUserController(context).userExist1(name_category_F); cambiar
                     } catch (JSONException e) {
                         Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
@@ -110,12 +119,21 @@ public class CategoryRepository {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(context, "problema en la conxion", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "problema en la conexion", Toast.LENGTH_SHORT).show();
             }
         }
-        );
-
-        return category;
+        ){
+            @Override
+            protected Map<String, String> getParams()  {
+                Map<String,String> parametros = new HashMap<String,String>();
+                parametros.put("name_category",name_category_F);
+                System.out.println("*** login admin parametros");
+                return parametros;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
+        requestQueue.add(jsonArrayRequest);
+        return ;
     }
 
 }
