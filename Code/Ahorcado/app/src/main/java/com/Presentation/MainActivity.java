@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
             finishActivity(0);
         }else{
-            Toast.makeText(context.getApplicationContext(), "Datos del administrador incorrectos", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Datos del administrador incorrectos", Toast.LENGTH_SHORT).show();
         }
 
     }
