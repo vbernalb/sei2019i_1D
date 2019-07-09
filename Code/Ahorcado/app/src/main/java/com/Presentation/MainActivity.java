@@ -57,12 +57,7 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onClick(View v) {
                                 //suc.loginUser(email.getText().toString(), password.getText().toString())
-                                if(true){
-                                    Intent intent = new Intent(getApplicationContext(), MenuUserActivity.class);
-                                    startActivityForResult(intent, 0);
-                                }else{
-                                    Toast.makeText(getApplicationContext(), "Datos del usuario incorrectos", Toast.LENGTH_SHORT).show();
-                                }
+                                suc.loginUser(email.getText().toString(), password.getText().toString());
                             }
                         });
                     }
@@ -91,6 +86,18 @@ public class MainActivity extends AppCompatActivity {
             finishActivity(0);
         }else{
             Toast.makeText(context, "Datos del administrador incorrectos", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+    public void nuevoIntent2(boolean confirm, Context context){
+        System.out.println("*** context  "+ context);
+        System.out.println("*** confirm  "+ confirm);
+        if(confirm){
+            Intent intent = new Intent(context, MenuUserActivity.class);
+            startActivity(intent);
+            finishActivity(0);
+        }else{
+            Toast.makeText(context, "Datos del usuario incorrectos", Toast.LENGTH_SHORT).show();
         }
 
     }

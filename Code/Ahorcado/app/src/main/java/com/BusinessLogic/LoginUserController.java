@@ -18,8 +18,8 @@ public class LoginUserController {
      * @param password password del usuario registrado.
      * @return
      */
-    public void loginAdmin(String email, String password) {
-        new UserRepository(context).getbyEmail("http://ahorcado1d.000webhostapp.com/get_user.php",email ,password,1);
+    public void loginUser(String email, String password) {
+        new UserRepository(context).getbyEmail("http://ahorcado1d.000webhostapp.com/get_user.php",email ,password);
     }
 
     public void cofirmLogin(User user, String password){
