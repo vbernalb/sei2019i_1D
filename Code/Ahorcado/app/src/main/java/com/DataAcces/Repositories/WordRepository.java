@@ -97,9 +97,8 @@ public class WordRepository {
      * @param URL  la URL del servidor donde se encuentra la base de datos example: http://192.162.1.3:80/Database/insertar.php
      * @param word El email por el cual se quiere buscar
      */
-    public void getbyEmail(String URL,String word){
+    public void getbyword(String URL,String word){
         final String word_f = word;
-        System.out.println("*** login admin repository");
         StringRequest jsonArrayRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -109,10 +108,13 @@ public class WordRepository {
                 try {
                     System.out.println("*** login admin *** on repose");
                     jsonObject = new JSONObject(response);
-                    Word admin= new Word(jsonObject.getString("nameWord"),
-                            jsonObject.getString("description")
-                    );
-                   // new LoginAdminController(context).cofirmLogin(admin,password_f);
+                    Word word1 = null;
+                    if(jsonObject.getBoolean("success")==true) {
+                        word1 = new word1(jsonObject.getString("nameWord"),
+                                jsonObject.getString("description")
+                        );
+                    }
+                    //new LoginAdminController(context).cofirmLogin(admin,password_f);
                 } catch (JSONException e) {
                     Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
