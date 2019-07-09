@@ -19,7 +19,7 @@ public class LoginUserController {
      * @return
      */
     public void loginUser(String email, String password) {
-        new UserRepository(context).getbyEmail("http://ahorcado1d.000webhostapp.com/get_user.php",email ,password);
+        new UserRepository(context).getbyEmail("http://ahorcado1d.000webhostapp.com/get_user.php",email ,password,1);
     }
 
     public void cofirmLogin(User user, String password){
@@ -29,7 +29,7 @@ public class LoginUserController {
 
         if(user!= null){
             if(user.getPassword_user().equals(password))confirm = true;
-
+            System.out.println("*** valor " + confirm);
         };
         ma.nuevoIntent2(confirm, context);
     }

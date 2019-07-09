@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
                         login.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
+                                System.out.println("**** boton click admin ");
                                 suc.loginAdmin(email.getText().toString(), password.getText().toString());
                                 //llamar funciòn nuevoIntent
                                // finishActivity(0);
@@ -52,10 +53,11 @@ public class MainActivity extends AppCompatActivity {
                         });
                     }
                     if(check.isChecked() == false) {
-                        final LoginUserController suc= new LoginUserController(getApplicationContext());
+                        final LoginUserController suc= new LoginUserController(MainActivity.this);
                         login.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
+                                System.out.println("**** boton click");
                                 //suc.loginUser(email.getText().toString(), password.getText().toString())
                                 suc.loginUser(email.getText().toString(), password.getText().toString());
                             }
