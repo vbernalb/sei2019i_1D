@@ -1,5 +1,6 @@
 package com.Presentation;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -40,13 +41,13 @@ public class MainActivity extends AppCompatActivity {
             check.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     if (check.isChecked() == true){
-                        final LoginAdminController suc= new LoginAdminController(getApplicationContext());
+                        final LoginAdminController suc= new LoginAdminController(MainActivity.this);
                         login.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                // suc.loginAdmin(email.getText().toString(), password.getText().toString())
+                                suc.loginAdmin(email.getText().toString(), password.getText().toString());
                                 //llamar funciòn nuevoIntent
-                                finishActivity(0);
+                               // finishActivity(0);
                             }
                         });
                     }
@@ -57,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onClick(View v) {
                                 //suc.loginUser(email.getText().toString(), password.getText().toString())
                                 if(true){
-                                    Intent intent = new Intent(MainActivity.this, MenuUserActivity.class);
+                                    Intent intent = new Intent(getApplicationContext(), MenuUserActivity.class);
                                     startActivityForResult(intent, 0);
                                 }else{
                                     Toast.makeText(getApplicationContext(), "Datos del usuario incorrectos", Toast.LENGTH_SHORT).show();
@@ -81,13 +82,15 @@ public class MainActivity extends AppCompatActivity {
         Intent openRegisterActivity = new Intent(MainActivity.this, MenuUserActivity.class);
     }
 
-    public void nuevoIntent(boolean confirm){
+    public void nuevoIntent(boolean confirm, Context context){
+        System.out.println("*** context  "+ context);
+        System.out.println("*** confirm  "+ confirm);
         if(confirm){
-            Intent intent = new Intent(MainActivity.this, MenuAdminActivity.class);
-            startActivityForResult(intent, 0);
+            Intent intent = new Intent(context, MenuAdminActivity.class);
+            startActivity(intent);
             finishActivity(0);
         }else{
-            Toast.makeText(getApplicationContext(), "Datos del administrador incorrectos", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context.getApplicationContext(), "Datos del administrador incorrectos", Toast.LENGTH_SHORT).show();
         }
 
     }

@@ -21,7 +21,8 @@ public class SignInUserController {
      * @return
      */
     public boolean singin(String email, String password, String password2){
-        if(this.PasswordValidation(password, password2)&& this.EmailValidation(email)&& this.UserExist(email)){
+       if(this.PasswordValidation(password, password2)&& this.EmailValidation(email)){
+
             User user = new User(email, password, 0);
             userRepository.create(user, "http://ahorcado1d.000webhostapp.com/insert_user.php");
             return true;
@@ -37,7 +38,7 @@ public class SignInUserController {
                 || email.contains("@outlook.com");
     }
     public  void UserExist1(String email){
-        userRepository
+        //userRepository
     }
     public static boolean userExist (User user){
         return true;
