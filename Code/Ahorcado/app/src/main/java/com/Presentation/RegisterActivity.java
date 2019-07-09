@@ -1,5 +1,6 @@
 package com.Presentation;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.BusinessLogic.InsertCategoryController;
 import com.BusinessLogic.SignInUserController;
 import com.example.ahorcado.R;
 
@@ -24,16 +26,29 @@ public class RegisterActivity extends AppCompatActivity {
         password=(EditText)findViewById(R.id.Password);
         password2=(EditText)findViewById(R.id.Password2);
         signIn= (Button)findViewById(R.id.SingIn);
-        final SignInUserController suc= new SignInUserController(getApplicationContext());
+
+        //final SignInUserController suc= new SignInUserController(getApplicationContext());
 
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (suc.singin(email.getText().toString(), password.getText().toString(), password2.getText().toString()))
-                    Toast.makeText(getApplicationContext(), "REGISTRO EXITOSO", Toast.LENGTH_SHORT).show();
-               // else Toast.makeText(getApplicationContext(), "REGISTRO INCORECTO", Toast.LENGTH_SHORT).show();
-
+                new SignInUserController(getApplicationContext()).singin(email.getText().toString(),
+                        password.getText().toString(), password2.getText().toString());
             }
         });
     }
+
+    public void nuevoIntent(boolean confirm, Context context){
+        System.out.println("*** context  "+ context);
+        System.out.println("*** confirm  "+ confirm);
+        if(confirm){
+            Intent intent = new Intent(context, RegisterActivity.class);
+            startActivity(intent);
+            finishActivity(0);
+            Toast.makeText(context, "Usuario registrado", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(context, "Usuario ya registrado", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 }
