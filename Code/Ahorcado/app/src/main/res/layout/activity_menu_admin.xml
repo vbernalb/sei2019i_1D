@@ -4,15 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/degree_background"
+    android:background="@mipmap/star"
     tools:context="com.Presentation.MenuAdminActivity">
 
     <LinearLayout
-        android:layout_width="395dp"
-        android:layout_height="715dp"
+        android:id="@+id/linearLayout5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/textView2"
@@ -21,7 +28,7 @@
             android:text="Menu admin activity" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/ma_category"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -29,13 +36,14 @@
             android:layout_marginRight="10dp"
             android:background="@drawable/button_form"
             android:fontFamily="sans-serif-black"
+            android:onClick="onClick"
             android:paddingLeft="70dp"
             android:paddingRight="70dp"
             android:shadowColor="#0066DB19"
             android:text="Ingresar categoria" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/ma_word"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -43,10 +51,25 @@
             android:layout_marginRight="10dp"
             android:background="@drawable/button_form"
             android:fontFamily="sans-serif-black"
+            android:onClick="onClick"
             android:paddingLeft="70dp"
             android:paddingRight="70dp"
             android:shadowColor="#0066DB19"
             android:text="ingresar palabras" />
+
+        <Button
+            android:id="@+id/sign_out_btn"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="320dp"
+            android:background="@drawable/button_form"
+            android:fontFamily="sans-serif-black"
+            android:paddingLeft="70dp"
+            android:paddingRight="70dp"
+            android:onClick="openMainActivity"
+            android:text="CERRAR SESIÓN" />
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

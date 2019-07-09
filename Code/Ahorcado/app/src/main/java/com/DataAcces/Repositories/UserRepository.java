@@ -3,6 +3,8 @@ package com.DataAcces.Repositories;
 import android.content.Context;
 import android.widget.Toast;
 
+import com.BusinessLogic.LoginUserController;
+import com.BusinessLogic.SignInUserController;
 import com.DataAcces.Models.User;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -41,9 +43,9 @@ public class UserRepository {
      * @param URL  la URL del servidor donde se encuentra la base de datos example: http://192.162.1.3:80/Database/insertar.php
      * @return si se realizo todo el proceso de comunicacion con la base de datos
      */
-    public boolean create (User user, String URL){
-        System.out.println("*******entre al user repositori");
-        boolean operacion= false;
+    public void create (User user, String URL){
+
+
         final String  email =user.getEmail_user();
         final String  password_user =user.getPassword_user();
         final String  acomulate_score =Integer.toString(user.getAcumulate_score());
@@ -52,25 +54,24 @@ public class UserRepository {
             @Override
             public void onResponse(String response) {
 
-                System.out.println("*******on ** respuesta");
-                System.out.println("respuesta " + response);
+
                 try{
                     JSONObject jsonObject = new JSONObject(response);
-                    System.out.println("*******respuesta");
-                    ook = jsonObject.getBoolean("success");
-                    if(ook){
+
+
+                    if(jsonObject.getBoolean("success")){
                         Toast.makeText(context, "REGISTRO EXITOSO",Toast.LENGTH_SHORT).show();
                     }
 
                 }catch (JSONException e ) {
-                    System.out.println("*******exception");
+
                     System.out.println("exeption    "+ e.getMessage());
                 }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                System.out.println("***error" + error.getMessage());
+
                 Toast.makeText(context, "Operacion fallida " + error.getMessage(),Toast.LENGTH_SHORT).show();
             }
         })
@@ -88,12 +89,15 @@ public class UserRepository {
 
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         requestQueue.add(stringRequest);
-        operacion = true;
-        System.out.println("**********estado del sistemas   "+ ook);
 
-            return ook;
+
+
+            return ;
 
     }
+
+
+
 
 
 
@@ -102,24 +106,40 @@ public class UserRepository {
     /**
      *Busca de acuerdo al parametro especificado en la URL
      * @param URL  la URL del servidor donde se encuentra la base de datos example: http://192.162.1.3:80/Database/insertar.php
-     * @return Un objeto User, con los datos obtenidos, null si no encuentra nada.
+     *@param email El email por el cual se quiere buscar
+     *  @param password La contraseña por el cual se quiere comparar
      */
-    public User getbyEmail(String URL){
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
-            @Override
-            public void onResponse(JSONArray response) {
-                JSONObject jsonObject = null;
-                for (int i = 0; i < response.length(); i++) {
-                    try {
-                        jsonObject = response.getJSONObject(i);
-                        user= new User(jsonObject.getString("email_user"),
-                                              jsonObject.getString("password_user"),
-                                                Integer.parseInt(jsonObject.getString("acumulate_score")));
+    public void getbyEmail(String URL,String email, String password,int tipo ){
+        final int numero = tipo;
+        final String email_F = email;
+        System.out.println("*** user entro");
+        final String password_f = password;
+        StringRequest jsonArrayRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
 
+            @Override
+            public void onResponse(String response) {
+                JSONObject jsonObject = null;
+                System.out.println("*** llego respuesta");
+                    try {
+                        System.out.println("*** onResponse user ");
+                        jsonObject = new JSONObject(response);
+                        User user= new User(jsonObject.getString("email_user"),
+                                              jsonObject.getString("password_user"),
+                                        Integer.parseInt(jsonObject.getString("accumulated_score")));
+
+                        switch (numero){
+                            case 1:
+                                new LoginUserController(context).cofirmLogin(user, password_f);
+                            break;
+                            case 2:
+                                SignInUserController.userExist(user);
+                                break;
+                        }
                     } catch (JSONException e) {
+                        System.out.println("on error ");
                         Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
-                }
+
             }
         }, new Response.ErrorListener() {
             @Override
@@ -127,8 +147,20 @@ public class UserRepository {
                 Toast.makeText(context, "problema en la conxion", Toast.LENGTH_SHORT).show();
             }
         }
-        );
-
-        return user;
+        ){
+            @Override
+            protected Map<String, String> getParams()  {
+                Map<String,String> parametros = new HashMap<String,String>();
+                parametros.put("email_user",email_F);
+                System.out.println("*** login admin parametros");
+                return parametros;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
+        requestQueue.add(jsonArrayRequest);
+        return ;
     }
+
+
+
 }

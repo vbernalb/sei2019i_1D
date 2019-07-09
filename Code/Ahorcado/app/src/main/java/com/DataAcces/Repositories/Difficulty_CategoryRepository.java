@@ -3,12 +3,8 @@ package com.DataAcces.Repositories;
 import android.content.Context;
 import android.widget.Toast;
 
-import com.BusinessLogic.LoginAdminController;
-import com.BusinessLogic.SignInUserController;
-import com.DataAcces.Models.Admin;
 import com.DataAcces.Models.Category;
-import com.DataAcces.Models.User;
-import com.android.volley.AuthFailureError;
+import com.DataAcces.Models.Difficulty_Category;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -24,27 +20,31 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CategoryRepository {
-    Category category;
+public class Difficulty_CategoryRepository {
+    Difficulty_Category difficulty_category;
     Context context;
     boolean ook;
     boolean respuesta;
 
-    public CategoryRepository(Context context) {
-        this.category =null;
+    public Difficulty_CategoryRepository(Context context) {
         this.context = context;
+        this.difficulty_category= null;
         this.ook=false;
         this.respuesta = true;
     }
+
     /**
      *Esta funcion crea una nueva entrada en la tabla User de la base de datos remota.
-     * @param category EL modelo category que contiene los datos de la entrada.
+     * @param difficulty_category EL modelo Difficulty_Category que contiene los datos de la entrada.
      * @param URL  la URL del servidor donde se encuentra la base de datos example: http://192.162.1.3:80/Database/insertar.php
+     * @return si se realizo todo el proceso de comunicacion con la base de datos
      */
-    public void create (Category category, String URL){
+    public boolean create (Difficulty_Category difficulty_category, String URL){
         System.out.println("*******entre al category repositori");
         boolean operacion= false;
-        final String  name_category =category.getName_category();
+        final String  name_category= difficulty_category.getName_Category();
+        final String type= difficulty_category.getType();
+        final String name_word= difficulty_category.getName_word();
 
         StringRequest stringRequest= new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
@@ -77,7 +77,8 @@ public class CategoryRepository {
             protected Map<String, String> getParams()  {
                 Map<String,String> parametros = new HashMap<String,String>();
                 parametros.put("name_category", name_category);
-
+                parametros.put("type", type);
+                parametros.put("name_word", name_word);
                 return parametros;
             }
         };
@@ -87,30 +88,27 @@ public class CategoryRepository {
         operacion = true;
         System.out.println("**********estado del sistemas   "+ ook);
 
-    }
-    public void delete (String name_category){}
-    public void update (String name_category){}
+        return ook;
 
+    }
+    public void delete (String id_diff_cat){}
+    public void update (Difficulty_Category difficulty_category){}
     /**
-     * Busca de acuerdo al parametro especificado en la URL
+     *Busca de acuerdo al parametro especificado en la URL
      * @param URL  la URL del servidor donde se encuentra la base de datos example: http://192.162.1.3:80/Database/insertar.php
-     * @param name_category El nombre de la categoria por el cual se quiere buscar
+     * @return Un objeto Difficulty_Category, con los datos obtenidos, null si no encuentra nada.
      */
-    public void getbyCategory(String URL, final String name_category){
-        final String name_category_F = name_category;
-        System.out.println("*** login admin repository");
-        StringRequest jsonArrayRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
+    public Difficulty_Category getbyDifficulty_Category(String URL){
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
             @Override
-            public void onResponse(String response) {
-                System.out.println("*** login admin on repose ");
+            public void onResponse(JSONArray response) {
                 JSONObject jsonObject = null;
                 for (int i = 0; i < response.length(); i++) {
                     try {
-                        System.out.println("*** login admin *** on repose");
-                        jsonObject = new JSONObject(response);
-                        Category category= new Category(jsonObject.getString("name_category")
-                        );
-                        //new SignInUserController(context).userExist1(name_category_F); cambiar
+                        jsonObject = response.getJSONObject(i);
+                        difficulty_category= new Difficulty_Category(jsonObject.getString("name_category"),
+                                jsonObject.getString("type"), jsonObject.getString("name_word"));
+
                     } catch (JSONException e) {
                         Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
@@ -119,21 +117,11 @@ public class CategoryRepository {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(context, "problema en la conexion", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "problema en la conxion", Toast.LENGTH_SHORT).show();
             }
         }
-        ){
-            @Override
-            protected Map<String, String> getParams()  {
-                Map<String,String> parametros = new HashMap<String,String>();
-                parametros.put("name_category",name_category_F);
-                System.out.println("*** login admin parametros");
-                return parametros;
-            }
-        };
-        RequestQueue requestQueue = Volley.newRequestQueue(context);
-        requestQueue.add(jsonArrayRequest);
-        return ;
-    }
+        );
 
+        return difficulty_category;
+    }
 }

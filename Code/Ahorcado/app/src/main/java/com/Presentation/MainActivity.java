@@ -1,5 +1,6 @@
 package com.Presentation;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -40,30 +41,25 @@ public class MainActivity extends AppCompatActivity {
             check.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     if (check.isChecked() == true){
-                        final LoginAdminController suc= new LoginAdminController(getApplicationContext());
+                        final LoginAdminController suc= new LoginAdminController(MainActivity.this);
                         login.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                if(suc.loginAdmin(email.getText().toString(), password.getText().toString())){
-                                    Intent intent = new Intent(MainActivity.this, MenuAdminActivity.class);
-                                    startActivityForResult(intent, 0);
-                                }else{
-                                    Toast.makeText(getApplicationContext(), "Datos del administrador incorrectos", Toast.LENGTH_SHORT).show();
-                                }
+                                System.out.println("**** boton click admin ");
+                                suc.loginAdmin(email.getText().toString(), password.getText().toString());
+                                //llamar funciòn nuevoIntent
+                               // finishActivity(0);
                             }
                         });
                     }
                     if(check.isChecked() == false) {
-                        final LoginUserController suc= new LoginUserController(getApplicationContext());
+                        final LoginUserController suc= new LoginUserController(MainActivity.this);
                         login.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                if(suc.loginUser(email.getText().toString(), password.getText().toString())){
-                                    Intent intent = new Intent(MainActivity.this, MenuUserActivity.class);
-                                    startActivityForResult(intent, 0);
-                                }else{
-                                    Toast.makeText(getApplicationContext(), "Datos del usuario incorrectos", Toast.LENGTH_SHORT).show();
-                                }
+                                System.out.println("**** boton click");
+                                //suc.loginUser(email.getText().toString(), password.getText().toString())
+                                suc.loginUser(email.getText().toString(), password.getText().toString());
                             }
                         });
                     }
@@ -83,4 +79,28 @@ public class MainActivity extends AppCompatActivity {
         Intent openRegisterActivity = new Intent(MainActivity.this, MenuUserActivity.class);
     }
 
+    public void nuevoIntent(boolean confirm, Context context){
+        System.out.println("*** context  "+ context);
+        System.out.println("*** confirm  "+ confirm);
+        if(confirm){
+            Intent intent = new Intent(context, MenuAdminActivity.class);
+            startActivity(intent);
+            finishActivity(0);
+        }else{
+            Toast.makeText(context, "Datos del administrador incorrectos", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+    public void nuevoIntent2(boolean confirm, Context context){
+        System.out.println("*** context  "+ context);
+        System.out.println("*** confirm  "+ confirm);
+        if(confirm){
+            Intent intent = new Intent(context, MenuUserActivity.class);
+            startActivity(intent);
+            finishActivity(0);
+        }else{
+            Toast.makeText(context, "Datos del usuario incorrectos", Toast.LENGTH_SHORT).show();
+        }
+
+    }
 }
