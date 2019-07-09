@@ -27,13 +27,12 @@ public class RegisterActivity extends AppCompatActivity {
         password2=(EditText)findViewById(R.id.Password2);
         signIn= (Button)findViewById(R.id.SingIn);
 
-        //final SignInUserController suc= new SignInUserController(getApplicationContext());
+        final SignInUserController suc= new SignInUserController(RegisterActivity.this);
 
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new SignInUserController(getApplicationContext()).singin(email.getText().toString(),
-                        password.getText().toString(), password2.getText().toString());
+                suc.singin(email.getText().toString(),password.getText().toString(), password2.getText().toString());
             }
         });
     }
