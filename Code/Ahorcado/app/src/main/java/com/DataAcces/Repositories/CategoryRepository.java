@@ -3,6 +3,7 @@ package com.DataAcces.Repositories;
 import android.content.Context;
 import android.widget.Toast;
 
+import com.BusinessLogic.InsertCategoryController;
 import com.BusinessLogic.LoginAdminController;
 import com.BusinessLogic.SignInUserController;
 import com.DataAcces.Models.Admin;
@@ -108,9 +109,11 @@ public class CategoryRepository {
                     try {
                         System.out.println("*** login admin *** on repose");
                         jsonObject = new JSONObject(response);
-                        Category category= new Category(jsonObject.getString("name_category")
-                        );
-                        //new SignInUserController(context).userExist1(name_category_F); cambiar
+                        Category category=null;
+                        if(jsonObject.getBoolean("success")==true){
+                            category= new Category(jsonObject.getString("name_category"));
+                        }
+                        new InsertCategoryController(context).categoryExist1(category, name_category_F);
                     } catch (JSONException e) {
                         Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
