@@ -9,20 +9,26 @@ import com.DataAcces.Repositories.UserRepository;
 
 public class InsertCategoryController {
     Context context;
+    static boolean exist;
     CategoryRepository categoryRepository;
+
     public InsertCategoryController(Context context) {
         this.context = context;
         this.categoryRepository= new CategoryRepository(context);
     }
+
     public boolean InsertCategory (String name_category){
-        if(this.CategoryExist(name_category)){
-            Category category = new Category(name_category);
-            categoryRepository.create(category, "http://ahorcado1d.000webhostapp.com/insert_user.php");
+        Category category = new Category(name_category);
+        if(exist){
+            categoryRepository.create(category, "http://ahorcado1d.000webhostapp.com/insert_category.php");
             return true;
         }
         else return false;
     }
-    private boolean CategoryExist (String name_category){
-        return true;
+    private void categoryExist (String name_category){
+        categoryRepository.getbyCategory("http://ahorcado1d.000webhostapp.com/get_category.php", name_category);
+    }
+    public static void categoryExist1(Category category){
+        exist= category!=null;
     }
 }
