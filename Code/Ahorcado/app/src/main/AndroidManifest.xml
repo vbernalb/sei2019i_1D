@@ -15,8 +15,13 @@
         <activity android:name="com.Presentation.PlayActivity"
                 android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name="com.Presentation.WordActivity"
+
             android:theme="@style/AppTheme.NoActionBar"
             />
+
+        <activity android:name="com.Presentation.ScoreActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
         <activity android:name="com.Presentation.CategoryActivity"
             android:theme="@style/AppTheme.NoActionBar"
             />

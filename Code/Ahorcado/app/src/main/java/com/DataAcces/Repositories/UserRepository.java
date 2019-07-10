@@ -4,6 +4,7 @@ import android.content.Context;
 import android.widget.Toast;
 
 import com.BusinessLogic.LoginUserController;
+import com.BusinessLogic.ScoreViewController;
 import com.BusinessLogic.SignInUserController;
 import com.DataAcces.Models.User;
 import com.android.volley.AuthFailureError;
@@ -136,6 +137,8 @@ public class UserRepository {
                                 case 2:
                                     new SignInUserController(context).userExist(user, email_F, password_f);
                                     break;
+                                case 3:
+                                    new ScoreViewController(context).viewScoreAnswer(user.getAcumulate_score());
                             }
                     } catch (JSONException e) {
                         System.out.println("on error ");

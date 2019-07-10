@@ -43,26 +43,19 @@ public class CategoryRepository {
      * @param URL  la URL del servidor donde se encuentra la base de datos example: http://192.162.1.3:80/Database/insertar.php
      */
     public void create (Category category, String URL){
-        System.out.println("*******entre al category repositori");
-        boolean operacion= false;
         final String  name_category =category.getName_category();
 
         StringRequest stringRequest= new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-
-                System.out.println("*******on ** respuesta");
-                System.out.println("respuesta " + response);
                 try{
                     JSONObject jsonObject = new JSONObject(response);
-                    System.out.println("*******respuesta");
                     ook = jsonObject.getBoolean("success");
                     if(ook){
                         Toast.makeText(context, "INSERCION EXITOSA",Toast.LENGTH_SHORT).show();
                     }
 
                 }catch (JSONException e ) {
-                    System.out.println("*******exception");
                     System.out.println("exeption    "+ e.getMessage());
                 }
             }
@@ -85,8 +78,6 @@ public class CategoryRepository {
 
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         requestQueue.add(stringRequest);
-        operacion = true;
-        System.out.println("**********estado del sistemas   "+ ook);
 
     }
     public void delete (String name_category){}

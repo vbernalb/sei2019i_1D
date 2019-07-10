@@ -6,17 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.ahorcado.R;
+
 public class ScoreActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_score);
-    }
-
-    public void openMenuUserActivity(View view){
-        Intent openMenuUserActivity = new Intent(ScoreActivity.this, MenuUserActivity.class);
-        startActivity(openMenuUserActivity);
     }
 
     public void openMainActivity(View view){
