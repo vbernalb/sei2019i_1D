@@ -64,7 +64,9 @@
             android:hint="email"
             android:inputType="textEmailAddress"
             android:paddingLeft="15dp"
-            android:paddingRight="15dp" />
+            android:paddingRight="15dp"
+            android:textColor="#1E88E5"
+            android:textColorHint="#1E88E5" />
 
         <EditText
             android:id="@+id/passJoin_txt"
@@ -79,7 +81,9 @@
             android:hint="password"
             android:inputType="textPassword"
             android:paddingLeft="15dp"
-            android:paddingRight="15dp" />
+            android:paddingRight="15dp"
+            android:textColor="#1E88E5"
+            android:textColorHint="#1E88E5" />
 
         <CheckBox
             android:id="@+id/admin_check"
@@ -87,8 +91,10 @@
             android:layout_height="40dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
+            android:buttonTint="#FDD835"
             android:fontFamily="sans-serif-black"
-            android:text="Administrador" />
+            android:text="Administrador"
+            android:textColor="#FFB300" />
     </LinearLayout>
 
     <LinearLayout

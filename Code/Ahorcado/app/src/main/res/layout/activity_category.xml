@@ -34,11 +34,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:background="#BCFDFCFC"
+            android:background="@drawable/edittext_form"
             android:ems="10"
             android:fontFamily="casual"
             android:hint=" Nueva Categoria"
             android:inputType="textPersonName"
+            android:textColor="#1E88E5"
+            android:textColorHint="#1E88E5"
             android:textStyle="normal" />
 
         <Button
