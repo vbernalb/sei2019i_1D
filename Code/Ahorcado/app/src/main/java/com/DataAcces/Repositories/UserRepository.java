@@ -4,6 +4,7 @@ import android.content.Context;
 import android.widget.Toast;
 
 import com.BusinessLogic.LoginUserController;
+import com.BusinessLogic.ScoreViewController;
 import com.BusinessLogic.SignInUserController;
 import com.DataAcces.Models.User;
 import com.android.volley.AuthFailureError;
@@ -109,7 +110,7 @@ public class UserRepository {
      *@param email El email por el cual se quiere buscar
      *  @param password La contraseña por el cual se quiere comparar
      */
-    public void getbyEmail(String URL,String email, String password,int tipo ){
+    public void getbyEmail(String URL, final String email, String password, int tipo ){
         final int numero = tipo;
         final String email_F = email;
         System.out.println("*** user entro");
@@ -120,21 +121,25 @@ public class UserRepository {
             public void onResponse(String response) {
                 JSONObject jsonObject = null;
                 System.out.println("*** llego respuesta");
-                    try {
+                       try {
                         System.out.println("*** onResponse user ");
                         jsonObject = new JSONObject(response);
-                        User user= new User(jsonObject.getString("email_user"),
-                                              jsonObject.getString("password_user"),
-                                        Integer.parseInt(jsonObject.getString("accumulated_score")));
-
-                        switch (numero){
-                            case 1:
-                                new LoginUserController(context).cofirmLogin(user, password_f);
-                            break;
-                            case 2:
-                                SignInUserController.userExist(user);
-                                break;
+                           User user = null;
+                        if(jsonObject.getBoolean("success")==true) {
+                             user = new User(jsonObject.getString("email_user"),
+                                    jsonObject.getString("password_user"),
+                                    Integer.parseInt(jsonObject.getString("accumulated_score")));
                         }
+                            switch (numero) {
+                                case 1:
+                                    new LoginUserController(context).cofirmLogin(user, password_f);
+                                    break;
+                                case 2:
+                                    new SignInUserController(context).userExist(user, email_F, password_f);
+                                    break;
+                                case 3:
+                             //       new ScoreViewController(context).viewScoreAnswer(user.getAcumulate_score());
+                            }
                     } catch (JSONException e) {
                         System.out.println("on error ");
                         Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();

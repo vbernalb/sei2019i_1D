@@ -14,13 +14,19 @@ public class MenuUserActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu_user);
     }
 
-    public void openMainActivity(View view){
-        Intent openMainActivity = new Intent(MenuUserActivity.this, MainActivity.class);
-        startActivity(openMainActivity);
-    }
+    public void onClick(View view){
+        Intent intent = null;
 
-    public void openScoreActivity(View view){
-        Intent openScoreActivity = new Intent(MenuUserActivity.this, ScoreActivity.class);
-        startActivity(openScoreActivity);
+        switch (view.getId()){
+            case R.id.mu_jugar:
+                intent = new Intent(this,PlayActivity.class);
+                break;
+            case R.id.mu_puntaje:
+                intent = new Intent(this, ScoreActivity.class);
+                break;
+        }
+        if(intent!=null){
+            startActivity(intent);
+        }
     }
 }

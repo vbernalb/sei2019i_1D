@@ -16,27 +16,47 @@
         tools:layout_editor_absoluteY="8dp">
 
 
-        <Button
-            android:id="@+id/ca_btn_category3"
-            android:layout_width="200dp"
-            android:layout_height="47dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="590dp"
-            android:background="@drawable/button_form"
-            android:backgroundTint="#A3DFE7"
-            android:onClick="openMenuUserActivity"
-            android:text="Volver" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:text="TU PUNTAJE"
+            android:textColor="#ffffff"
+            android:textSize="24sp"
+            android:textStyle="normal|bold" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:text="35"
+            android:textColor="#ffffff"
+            android:textSize="60sp"
+            android:textStyle="normal|bold" />
 
         <Button
             android:id="@+id/sign_out_btn"
             style="@style/Widget.AppCompat.Button"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="10dp"
-            android:background="#F44336"
-            android:onClick="openMainActivity"
-            android:text="CERRAR SESIÓN" />
 
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="430dp"
+
+            android:onClick="openMainActivity"
+            android:background="@drawable/button_form"
+            android:fontFamily="sans-serif-black"
+            android:paddingLeft="70dp"
+            android:paddingRight="70dp"
+            android:text="CERRAR SESIÓN" />
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
