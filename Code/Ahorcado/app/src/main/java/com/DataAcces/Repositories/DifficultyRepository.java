@@ -38,7 +38,7 @@ public class DifficultyRepository {
      * @param difficulty EL modelo Difficulty que contiene los datos de la entrada.
      * @param URL  la URL del servidor donde se encuentra la base de datos example: http://192.162.1.3:80/Database/insertar.php
      */
-    public void create (Difficulty difficulty, String URL){
+    public void createDifficulty (Difficulty difficulty, String URL){
         final String  type =difficulty.getType();
         final String score= Integer.toString(difficulty.getScore());
 
