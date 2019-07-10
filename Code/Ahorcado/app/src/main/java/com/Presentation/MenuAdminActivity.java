@@ -34,5 +34,6 @@ public class MenuAdminActivity extends AppCompatActivity {
     public void openMainActivity(View view){
         Intent openMainActivity = new Intent(MenuAdminActivity.this, MainActivity.class);
         startActivity(openMainActivity);
+        finishActivity(0);
     }
 }

@@ -1,4 +1,19 @@
 <resources>
     <string name="app_name">Ahorcado</string>
     <string name="action_settings">Settings</string>
+    <string name="category_prompt">Escoger Categoría</string>
+    <string name="dificulty_prompt">Escoger Categoría</string>
+
+    <string-array name="category_values">
+        <item>Animales</item>
+        <item>Países</item>
+        <item>Frutas</item>
+    </string-array>
+
+    <string-array name="dificulty_values">
+        <item>Fácil</item>
+        <item>Medio</item>
+        <item>Difícil</item>
+    </string-array>
+
 </resources>

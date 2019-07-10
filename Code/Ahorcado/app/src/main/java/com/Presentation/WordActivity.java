@@ -17,5 +17,6 @@ public class WordActivity extends AppCompatActivity {
     public void openMenuAdminActivity(View view){
         Intent openMenuAdminActivity = new Intent(WordActivity.this, MenuAdminActivity.class);
         startActivity(openMenuAdminActivity);
+        finishActivity(1);
     }
 }

@@ -8,6 +8,7 @@ import com.BusinessLogic.LoginAdminController;
 import com.BusinessLogic.SignInUserController;
 import com.DataAcces.Models.Admin;
 import com.DataAcces.Models.Category;
+import com.DataAcces.Models.Difficulty_Category;
 import com.DataAcces.Models.User;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -22,12 +23,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class CategoryRepository {
     Category category;
-    Context context;
+    public Context context;
     boolean ook;
     boolean respuesta;
 
@@ -43,26 +45,19 @@ public class CategoryRepository {
      * @param URL  la URL del servidor donde se encuentra la base de datos example: http://192.162.1.3:80/Database/insertar.php
      */
     public void create (Category category, String URL){
-        System.out.println("*******entre al category repositori");
-        boolean operacion= false;
         final String  name_category =category.getName_category();
 
         StringRequest stringRequest= new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-
-                System.out.println("*******on ** respuesta");
-                System.out.println("respuesta " + response);
                 try{
                     JSONObject jsonObject = new JSONObject(response);
-                    System.out.println("*******respuesta");
                     ook = jsonObject.getBoolean("success");
                     if(ook){
                         Toast.makeText(context, "INSERCION EXITOSA",Toast.LENGTH_SHORT).show();
                     }
 
                 }catch (JSONException e ) {
-                    System.out.println("*******exception");
                     System.out.println("exeption    "+ e.getMessage());
                 }
             }
@@ -85,8 +80,6 @@ public class CategoryRepository {
 
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         requestQueue.add(stringRequest);
-        operacion = true;
-        System.out.println("**********estado del sistemas   "+ ook);
 
     }
     public void delete (String name_category){}
@@ -99,21 +92,54 @@ public class CategoryRepository {
      */
     public void getbyCategory(String URL, final String name_category){
         final String name_category_F = name_category;
-        System.out.println("*** login admin repository");
         StringRequest jsonArrayRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                System.out.println("*** login admin on repose ");
+                JSONObject jsonObject = null;
+                    try {
+                        jsonObject = new JSONObject(response);
+                        Category category = null;
+                        if(jsonObject.getBoolean("success")==true){
+                            System.out.println("papas3");
+                            category= new Category(jsonObject.getString("nameCategory"));
+                        }
+                        new InsertCategoryController(context).categoryExist1(category, name_category_F);
+                    } catch (JSONException e) {
+                        Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(context, "problema en la conexion", Toast.LENGTH_SHORT).show();
+            }
+        }
+        ){
+            @Override
+            protected Map<String, String> getParams()  {
+                Map<String,String> parametros = new HashMap<String,String>();
+                parametros.put("nameCategory",name_category_F);
+                return parametros;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
+        requestQueue.add(jsonArrayRequest);
+    }
+
+    public void categoryList (String URL){
+        final StringRequest jsonArrayRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
                 JSONObject jsonObject = null;
                 for (int i = 0; i < response.length(); i++) {
                     try {
-                        System.out.println("*** login admin *** on repose");
                         jsonObject = new JSONObject(response);
-                        Category category=null;
-                        if(jsonObject.getBoolean("success")==true){
-                            category= new Category(jsonObject.getString("name_category"));
+                        ArrayList arrayList= new ArrayList();
+                        for (int j=0; j<jsonObject.length(); j++){
+                            arrayList.add(j,jsonObject.getJSONArray(Integer.toString(j)));
                         }
-                        new InsertCategoryController(context).categoryExist1(category, name_category_F);
+
+
                     } catch (JSONException e) {
                         Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
@@ -128,15 +154,16 @@ public class CategoryRepository {
         ){
             @Override
             protected Map<String, String> getParams()  {
-                Map<String,String> parametros = new HashMap<String,String>();
+                /*Map<String,String> parametros = new HashMap<String,String>();
                 parametros.put("name_category",name_category_F);
-                System.out.println("*** login admin parametros");
-                return parametros;
+                parametros.put("type",type_F);
+                parametros.put("name_word",name_word_F);
+                return parametros;*/
+                return null;
             }
         };
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         requestQueue.add(jsonArrayRequest);
-        return ;
     }
 
 }

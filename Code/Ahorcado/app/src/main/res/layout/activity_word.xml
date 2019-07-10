@@ -25,7 +25,7 @@
             android:fontFamily="casual"
             android:gravity="center"
             android:text="Ingresar palabra"
-            android:textColor="#427ef5"
+            android:textColor="#ffffff"
             android:textSize="24sp"
             android:textStyle="normal|bold" />
 
@@ -34,14 +34,35 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_margin="20dp"
-            android:background="#3333"
             android:gravity="center"
             android:ems="10"
             android:fontFamily="casual"
-            android:textColor="#000000"
+            android:textColor="#ffffff"
             android:hint="Nueva Palabra"
             android:inputType="textPersonName"
             android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/spinner1"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:background="#11ff99"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:entries="@array/category_values"
+            android:prompt="@string/category_prompt" />
+
+        <Spinner
+            android:id="@+id/spinner2"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:background="#11ff99"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:entries="@array/dificulty_values"
+            android:prompt="@string/dificulty_prompt" />
 
         <Button
             android:id="@+id/button2"
@@ -49,26 +70,15 @@
             android:layout_height="40dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="60dp"
             android:background="@drawable/button_form"
             android:fontFamily="sans-serif-black"
             android:paddingLeft="70dp"
             android:paddingRight="70dp"
             android:text="Ingresar Palabra" />
 
-        <Button
-            android:id="@+id/ca_btn_category2"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/button_form"
-            android:fontFamily="sans-serif-black"
-            android:paddingLeft="70dp"
-            android:paddingRight="70dp"
-            android:onClick="openMenuAdminActivity"
-            android:text="Volver" />
+
+
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

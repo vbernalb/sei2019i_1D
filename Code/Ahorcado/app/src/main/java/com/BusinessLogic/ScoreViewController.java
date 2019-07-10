@@ -7,6 +7,7 @@ import com.Presentation.ScoreActivity;
 
 public class ScoreViewController {
     Context context;
+<<<<<<< HEAD
     UserRepository userRepository;
 
     public  ScoreViewController(Context context){
@@ -24,4 +25,10 @@ public class ScoreViewController {
         sa.nuevoIntent(score, context);
     }
     
+=======
+
+    public ScoreViewController(Context context) {
+
+    }
+>>>>>>> develop
 }
