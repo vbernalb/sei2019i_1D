@@ -29,7 +29,7 @@ import java.util.Map;
 
 public class CategoryRepository {
     Category category;
-    Context context;
+    public Context context;
     boolean ook;
     boolean respuesta;
 

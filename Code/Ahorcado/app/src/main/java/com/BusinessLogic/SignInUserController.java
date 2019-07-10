@@ -8,7 +8,7 @@ import com.DataAcces.Repositories.UserRepository;
 import com.Presentation.RegisterActivity;
 
 public class SignInUserController {
-    Context context;
+    final Context context;
     UserRepository userRepository;
     public SignInUserController(Context context) {
         this.context = context;
@@ -40,7 +40,7 @@ public class SignInUserController {
     public void userExist (User user, String email, String password){
         boolean confirm =false;
         final RegisterActivity ma = (RegisterActivity) context;
-            if(user!= null){
+            if(user==null){
                 confirm= true;
                 new UserRepository(context).create(new User(email,password,0),"http://ahorcado1d.000webhostapp.com/insert_user.php");
             }

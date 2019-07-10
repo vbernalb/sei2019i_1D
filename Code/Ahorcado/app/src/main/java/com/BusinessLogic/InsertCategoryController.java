@@ -11,17 +11,14 @@ import com.Presentation.RegisterActivity;
 
 public class InsertCategoryController {
     final Context context;
-    CategoryRepository categoryRepository;
 
     public InsertCategoryController(Context context) {
         this.context = context;
-        this.categoryRepository= new CategoryRepository(context);
-
     }
 
     public void InsertCategory (String name_category){
         System.out.println("papas2");
-        categoryRepository.getbyCategory("http://ahorcado1d.000webhostapp.com/get_category.php", name_category);
+        new CategoryRepository(context).getbyCategory("http://ahorcado1d.000webhostapp.com/get_category.php", name_category);
     }
     public  void categoryExist1(Category category, String name_category){
         boolean confirm =false;
