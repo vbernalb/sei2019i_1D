@@ -51,10 +51,6 @@ public class Difficulty_CategoryRepository {
                 System.out.println("respuesta " + response);
                 try{
                     JSONObject jsonObject = new JSONObject(response);
-                    ook = jsonObject.getBoolean("success");
-                    if(ook){
-                        Toast.makeText(context, "INSERCION EXITOSA",Toast.LENGTH_SHORT).show();
-                    }
 
                 }catch (JSONException e ) {
                     System.out.println("exeption    "+ e.getMessage());
@@ -71,9 +67,9 @@ public class Difficulty_CategoryRepository {
             @Override
             protected Map<String, String> getParams()  {
                 Map<String,String> parametros = new HashMap<String,String>();
-                parametros.put("name_category", name_category);
+                parametros.put("nameCategory", name_category);
                 parametros.put("type", type);
-                parametros.put("name_word", name_word);
+                parametros.put("nameWord", name_word);
                 return parametros;
             }
         };
@@ -97,7 +93,7 @@ public class Difficulty_CategoryRepository {
             @Override
             public void onResponse(String response) {
                 JSONObject jsonObject = null;
-                for (int i = 0; i < response.length(); i++) {
+
                     try {
                         jsonObject = new JSONObject(response);
                         Difficulty_Category difficulty_category=null;
@@ -109,7 +105,6 @@ public class Difficulty_CategoryRepository {
                     } catch (JSONException e) {
                         Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
-                }
             }
         }, new Response.ErrorListener() {
             @Override
@@ -121,9 +116,9 @@ public class Difficulty_CategoryRepository {
             @Override
             protected Map<String, String> getParams()  {
                 Map<String,String> parametros = new HashMap<String,String>();
-                parametros.put("name_category",name_category_F);
+                parametros.put("nameCategory",name_category_F);
                 parametros.put("type",type_F);
-                parametros.put("name_word",name_word_F);
+                parametros.put("nameWord",name_word_F);
                 return parametros;
             }
         };

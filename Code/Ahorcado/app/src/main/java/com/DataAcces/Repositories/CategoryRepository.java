@@ -4,18 +4,13 @@ import android.content.Context;
 import android.widget.Toast;
 
 import com.BusinessLogic.InsertCategoryController;
-import com.BusinessLogic.LoginAdminController;
-import com.BusinessLogic.SignInUserController;
-import com.DataAcces.Models.Admin;
+
 import com.DataAcces.Models.Category;
-import com.DataAcces.Models.Difficulty_Category;
-import com.DataAcces.Models.User;
-import com.android.volley.AuthFailureError;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -122,15 +117,14 @@ public class CategoryRepository {
         final StringRequest jsonArrayRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                JSONObject jsonObject = null;
+                JSONArray jsonArray =null;
                 for (int i = 0; i < response.length(); i++) {
                     try {
-                        jsonObject = new JSONObject(response);
+                        jsonArray= new JSONArray(response);
                         ArrayList arrayList= new ArrayList();
-                        for (int j=0; j<jsonObject.length(); j++){
-                            arrayList.add(j,jsonObject.getJSONArray(Integer.toString(j)));
+                        for (int j=0; j<jsonArray.length(); j++){
+                            arrayList.add(j, jsonArray.getString(j));
                         }
-
 
                     } catch (JSONException e) {
                         Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
