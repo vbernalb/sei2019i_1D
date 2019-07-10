@@ -32,8 +32,7 @@ public class LoginAdminController {
 
         if(admin!= null){
             if(admin.getPassword_admi().equals(password))confirm = true;
-
-        };
+        }
         ma.nuevoIntent(confirm, context);
 
     }

@@ -21,7 +21,7 @@ public class SignInUserController {
      * @param password password del usuario a registar.
      * @return
      */
-    private void singin(String email, String password, String password2){
+    public void singin(String email, String password, String password2){
         if(this.PasswordValidation(password, password2)&& this.EmailValidation(email)){
             this.userExist1(email, password);
         }
@@ -44,6 +44,6 @@ public class SignInUserController {
                 confirm= true;
                 new UserRepository(context).create(new User(email,password,0),"http://ahorcado1d.000webhostapp.com/insert_user.php");
             }
-        //ma.nuevoIntent(confirm, context);
+        ma.nuevoIntent(confirm, context);
         }
 }

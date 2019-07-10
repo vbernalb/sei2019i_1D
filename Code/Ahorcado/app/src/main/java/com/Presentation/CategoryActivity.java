@@ -26,8 +26,7 @@ public class CategoryActivity extends AppCompatActivity {
         etCategory = (EditText)findViewById(R.id.ca_category);
         btnCategory = (Button)findViewById(R.id.ca_btn_category);
 
-        final String category = etCategory.getText().toString();
-        final InsertCategoryController cat = new InsertCategoryController(getApplicationContext());
+        //final InsertCategoryController cat = new InsertCategoryController(getApplicationContext());
 
         btnCategory.setOnClickListener(new View.OnClickListener() {
             @Override
