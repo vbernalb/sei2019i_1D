@@ -48,7 +48,7 @@ public class InsertWordController {
         //wordExist(name_word, description, name_category, name_difficulty);
     }
     private void wordExist (String name_word){
-        wordRepository.getbyword("http://ahorcado1d.000webhostapp.com/get_word.php", name_word, description);
+        //wordRepository.getbyword("http://ahorcado1d.000webhostapp.com/get_word.php", name_word, description);
     }
     public  void wordExist1(Word word, String name_word, String description, String name_category, String name_difficulty){
         boolean confirm =false;

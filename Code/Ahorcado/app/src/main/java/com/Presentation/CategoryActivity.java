@@ -44,7 +44,6 @@ public class CategoryActivity extends AppCompatActivity {
         System.out.println("*** context  "+ context);
         System.out.println("*** confirm  "+ confirm);
         if(confirm){
-            System.out.println("papas5");
             Intent intent = new Intent(context, CategoryActivity.class);
             startActivity(intent);
             finishActivity(0);
