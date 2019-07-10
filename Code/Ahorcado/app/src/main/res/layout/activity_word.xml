@@ -34,11 +34,10 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_margin="20dp"
-            android:background="#"
             android:gravity="center"
             android:ems="10"
             android:fontFamily="casual"
-            android:textColor="#000000"
+            android:textColor="#ffffff"
             android:hint="Nueva Palabra"
             android:inputType="textPersonName"
             android:textStyle="bold" />
