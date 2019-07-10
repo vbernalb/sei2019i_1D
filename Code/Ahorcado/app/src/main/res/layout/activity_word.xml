@@ -77,19 +77,7 @@
             android:paddingRight="70dp"
             android:text="Ingresar Palabra" />
 
-        <Button
-            android:id="@+id/ca_btn_category2"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/button_form"
-            android:fontFamily="sans-serif-black"
-            android:paddingLeft="70dp"
-            android:paddingRight="70dp"
-            android:onClick="openMenuAdminActivity"
-            android:text="Volver" />
+
 
 
     </LinearLayout>

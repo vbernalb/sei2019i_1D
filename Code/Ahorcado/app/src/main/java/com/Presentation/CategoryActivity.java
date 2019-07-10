@@ -39,6 +39,7 @@ public class CategoryActivity extends AppCompatActivity {
     public void openMenuAdminActivity(View view){
         Intent openMenuAdminActivity = new Intent(CategoryActivity.this, MenuAdminActivity.class);
         startActivity(openMenuAdminActivity);
+        finishActivity(0);
     }
     public void nuevoIntent(boolean confirm, Context context){
         System.out.println("*** context  "+ context);
