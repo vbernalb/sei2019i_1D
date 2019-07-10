@@ -30,7 +30,7 @@ public class CategoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 System.out.println("papas1");
-                new InsertCategoryController(getApplicationContext()).InsertCategory(btnCategory.getText().toString());
+                new InsertCategoryController(CategoryActivity.this).InsertCategory(btnCategory.getText().toString());
             }
         });
     }
