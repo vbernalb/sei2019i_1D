@@ -129,6 +129,5 @@ public class Difficulty_CategoryRepository {
         };
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         requestQueue.add(jsonArrayRequest);
-        return ;
     }
 }
