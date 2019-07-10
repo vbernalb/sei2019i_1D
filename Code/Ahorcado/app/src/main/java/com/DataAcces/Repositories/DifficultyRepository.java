@@ -37,37 +37,28 @@ public class DifficultyRepository {
      *Esta funcion crea una nueva entrada en la tabla User de la base de datos remota.
      * @param difficulty EL modelo Difficulty que contiene los datos de la entrada.
      * @param URL  la URL del servidor donde se encuentra la base de datos example: http://192.162.1.3:80/Database/insertar.php
-     * @return si se realizo todo el proceso de comunicacion con la base de datos
      */
-    public boolean create (Difficulty difficulty, String URL){
-        System.out.println("*******entre al category repositori");
-        boolean operacion= false;
+    public void create (Difficulty difficulty, String URL){
         final String  type =difficulty.getType();
         final String score= Integer.toString(difficulty.getScore());
 
         StringRequest stringRequest= new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-
-                System.out.println("*******on ** respuesta");
-                System.out.println("respuesta " + response);
                 try{
                     JSONObject jsonObject = new JSONObject(response);
-                    System.out.println("*******respuesta");
                     ook = jsonObject.getBoolean("success");
                     if(ook){
                         Toast.makeText(context, "INSERCION EXITOSA",Toast.LENGTH_SHORT).show();
                     }
 
                 }catch (JSONException e ) {
-                    System.out.println("*******exception");
                     System.out.println("exeption    "+ e.getMessage());
                 }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                System.out.println("***error" + error.getMessage());
                 Toast.makeText(context, "Operacion fallida " + error.getMessage(),Toast.LENGTH_SHORT).show();
             }
         })
@@ -75,19 +66,14 @@ public class DifficultyRepository {
             @Override
             protected Map<String, String> getParams()  {
                 Map<String,String> parametros = new HashMap<String,String>();
-                parametros.put("type", type);
+                parametros.put("type", type );
                 parametros.put("score", score);
-
                 return parametros;
             }
         };
 
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         requestQueue.add(stringRequest);
-        operacion = true;
-        System.out.println("**********estado del sistemas   "+ ook);
-
-        return ook;
 
     }
     public void delete (String type){}
