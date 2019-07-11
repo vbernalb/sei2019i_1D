@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.BusinessLogic.ScoreViewController;
 import com.example.ahorcado.R;
 
 public class ScoreActivity extends AppCompatActivity {
@@ -15,6 +16,8 @@ public class ScoreActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_score);
+        final Bundle bundle = getIntent().getExtras();
+        new ScoreViewController(ScoreActivity.this).viewScore(bundle.getString("email_user"));
     }
 
     public void nuevoIntent(int score, Context context) {
