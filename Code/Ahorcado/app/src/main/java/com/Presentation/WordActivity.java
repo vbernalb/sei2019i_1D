@@ -72,7 +72,6 @@ public class WordActivity extends AppCompatActivity {
         }else{
             Toast.makeText(context, "Palabra no agregada a diff_cat", Toast.LENGTH_SHORT).show();
         }
-
     }
 
     public void openMenuAdminActivity(View view){
