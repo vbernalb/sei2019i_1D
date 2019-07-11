@@ -37,7 +37,11 @@
             android:layout_margin="20dp"
             android:fontFamily="casual"
             android:gravity="center"
+<<<<<<< HEAD
             android:text="?"
+=======
+            android:text="..."
+>>>>>>> a8d80371a55307a9aee903905841bd37dedbf865
             android:textColor="#ffffff"
             android:textSize="60sp"
             android:textStyle="normal|bold" />
