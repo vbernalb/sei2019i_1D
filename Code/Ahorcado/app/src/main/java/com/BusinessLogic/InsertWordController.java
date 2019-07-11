@@ -57,7 +57,7 @@ public class InsertWordController {
              m[i]= p[3];
         }
 
-       // wa.nuevoIntent(arrayList, context);
+       wa.nuevoIntent(m, context);
     }
 
 
