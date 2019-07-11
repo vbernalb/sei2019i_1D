@@ -41,9 +41,7 @@ public class RegisterActivity extends AppCompatActivity {
         System.out.println("*** context  "+ context);
         System.out.println("*** confirm  "+ confirm);
         if(confirm){
-            Intent intent = new Intent(context, RegisterActivity.class);
-            startActivity(intent);
-            finishActivity(0);
+           
             Toast.makeText(context, "Usuario registrado", Toast.LENGTH_SHORT).show();
         }else{
             Toast.makeText(context, "Usuario ya registrado", Toast.LENGTH_SHORT).show();
