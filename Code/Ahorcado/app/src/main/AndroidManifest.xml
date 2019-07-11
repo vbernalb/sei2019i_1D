@@ -12,8 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.Presentation.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+
         <activity
             android:name="com.Presentation.PlayActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -37,7 +36,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
 
-            android:name="com.Presentation.SplashActivity"
+            android:name="com.Presentation.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
