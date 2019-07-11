@@ -47,7 +47,9 @@ public class InsertWordController {
     }
 
     public void showCategoryAnswer(ArrayList<String> arrayList){
-        
+        final WordActivity wa = (WordActivity) context;
+
+        wa.nuevoIntent(arrayList, context);
     }
 
 
