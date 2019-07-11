@@ -26,12 +26,11 @@ public class CategoryActivity extends AppCompatActivity {
         etCategory = (EditText)findViewById(R.id.ca_category);
         btnCategory = (Button)findViewById(R.id.ca_btn_category);
 
-        //final InsertCategoryController cat = new InsertCategoryController(getApplicationContext());
-
         btnCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new InsertCategoryController(getApplicationContext()).InsertCategory(btnCategory.getText().toString());
+                System.out.println("papas1");
+                new InsertCategoryController(CategoryActivity.this).InsertCategory(etCategory.getText().toString());
             }
         });
     }

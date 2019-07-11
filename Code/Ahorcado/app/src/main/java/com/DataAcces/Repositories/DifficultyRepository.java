@@ -78,34 +78,5 @@ public class DifficultyRepository {
     }
     public void delete (String type){}
     public void update (String tyepe, short score){}
-    /**
-     *Busca de acuerdo al parametro especificado en la URL
-     * @param URL  la URL del servidor donde se encuentra la base de datos example: http://192.162.1.3:80/Database/insertar.php
-     * @return Un objeto Difficulty, con los datos obtenidos, null si no encuentra nada.
-     */
-    public Difficulty getbyDifficulty(String URL){
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
-            @Override
-            public void onResponse(JSONArray response) {
-                JSONObject jsonObject = null;
-                for (int i = 0; i < response.length(); i++) {
-                    try {
-                        jsonObject = response.getJSONObject(i);
-                        difficulty= new Difficulty(jsonObject.getString("type"), (short) Integer.parseInt(jsonObject.getString("score")));
-
-                    } catch (JSONException e) {
-                        Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(context, "problema en la conxion", Toast.LENGTH_SHORT).show();
-            }
-        }
-        );
-
-        return difficulty;
-    }
+    public void  getbyDifficulty(String URL){}
 }
