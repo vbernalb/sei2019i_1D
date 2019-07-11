@@ -30,22 +30,29 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
             email=(EditText)findViewById(R.id.emailJoin_txt);
+
             password=(EditText)findViewById(R.id.passJoin_txt);
             login= (Button)findViewById(R.id.log_btn);
             check = (CheckBox) findViewById(R.id.admin_check);
+
         /**
          * Esta funcion revisa si la checkbox está o no activada con el fin
          * de iniciar sesión como ususario o como admin
          * Llama a LoginUserController o LoginAdminController respectivamente
          */
+
         if(check.isChecked() == false) {
             final LoginUserController suc= new LoginUserController(MainActivity.this);
             login.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     System.out.println("**** boton click");
-                    //suc.loginUser(email.getText().toString(), password.getText().toString())
+                        if(email.getText().toString().isEmpty()){
+                            System.out.println("**** vacio");
+                            Toast.makeText(getApplicationContext(),"No hay datos ingresados", Toast.LENGTH_SHORT).show();
+                        }else{
                     suc.loginUser(email.getText().toString(), password.getText().toString());
+                        }
                 }
             });
         }
@@ -57,9 +64,13 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onClick(View v) {
                                 System.out.println("**** boton click admin ");
-                                suc.loginAdmin(email.getText().toString(), password.getText().toString());
-                                //llamar funciòn nuevoIntent
-                               // finishActivity(0);
+                                if(email.getText().toString().isEmpty()){
+                                    System.out.println("**** vacio");
+                                    Toast.makeText(getApplicationContext(),"No hay datos ingresados", Toast.LENGTH_SHORT).show();
+                                }else {
+                                    suc.loginAdmin(email.getText().toString(), password.getText().toString());
+                                }
+
                             }
                         });
                     }
@@ -70,7 +81,12 @@ public class MainActivity extends AppCompatActivity {
                             public void onClick(View v) {
                                 System.out.println("**** boton click");
                                 //suc.loginUser(email.getText().toString(), password.getText().toString())
-                                suc.loginUser(email.getText().toString(), password.getText().toString());
+                                if(email.getText().toString().isEmpty()){
+                                    System.out.println("**** vacio");
+                                    Toast.makeText(getApplicationContext(),"No hay datos ingresados", Toast.LENGTH_SHORT).show();
+                                }else {
+                                    suc.loginUser(email.getText().toString(), password.getText().toString());
+                                }
                             }
                         });
                     }
@@ -93,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
     public void nuevoIntent(boolean confirm, Context context){
         System.out.println("*** context  "+ context);
         System.out.println("*** confirm  "+ confirm);
+
         if(confirm){
             Intent intent = new Intent(context, MenuAdminActivity.class);
             startActivity(intent);
