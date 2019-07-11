@@ -23,6 +23,6 @@ public class ScoreViewController {
         System.out.println("SCORE: " + score);
         final ScoreActivity sa = (ScoreActivity) context;
 
-       sa.nuevoIntent(score, context);
+        sa.nuevoIntent(score, context);
     }
 }

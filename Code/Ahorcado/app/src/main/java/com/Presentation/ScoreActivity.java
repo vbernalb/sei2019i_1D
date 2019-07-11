@@ -30,7 +30,7 @@ public class ScoreActivity extends AppCompatActivity {
         textView.setText(Integer.toString(score));
         //Toast.makeText(context, Integer.toString(score), Toast.LENGTH_SHORT).show();
     }
-    
+
     public void openMainActivity(View view){
         Intent openMainActivity = new Intent(ScoreActivity.this, MainActivity.class);
         startActivity(openMainActivity);
