@@ -36,7 +36,7 @@
             android:layout_margin="20dp"
             android:fontFamily="casual"
             android:gravity="center"
-            android:text="35"
+            android:text="..."
             android:textColor="#ffffff"
             android:textSize="60sp"
             android:textStyle="normal|bold" />
