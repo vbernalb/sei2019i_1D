@@ -1,10 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+=======
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+>>>>>>> 0619d10178ffb851622402332f44d0d86d0e4939
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
+    android:background="@mipmap/star"
+    tools:context="com.Presentation.SplashActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="93dp"
+        tools:layout_editor_absoluteY="107dp">
+
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="128dp"
+            android:indeterminate="false"
+            android:max="100"
+            android:progress="1" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="match_parent"
+            android:layout_height="298dp"
+
+            android:layout_marginTop="50dp"
+            app:srcCompat="@drawable/ahorcado" />
+
+
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>
+=======
     android:background="@mipmap/star">
 
     <LinearLayout
@@ -35,3 +73,4 @@
             android:textSize="60dp" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
+>>>>>>> 0619d10178ffb851622402332f44d0d86d0e4939
