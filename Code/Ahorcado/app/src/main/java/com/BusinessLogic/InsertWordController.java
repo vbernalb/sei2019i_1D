@@ -22,7 +22,7 @@ public class InsertWordController {
         this.categoryRepository = new CategoryRepository(context);
     }
 
-    /**
+    /*/**
      * Esta funcion registra una nueva palabra en la applicacion, haciendo llamado a la clase DifficulttRepository, CategoryRepository, WordRepository,  .
      * @param word palabra que se va a ingresar
      * @param description descripcion/pista de la palabra.
@@ -30,7 +30,7 @@ public class InsertWordController {
      * @param difficulty dificultad de la palabra
      * @return si la insercion fue exitosa
      */
-    /*public void insert(String word, String description, String category, String difficulty){
+        /*public void insert(String word, String description, String category, String difficulty){
             Word word1 = new Word(word, description);
             Difficulty_Category d_c = new Difficulty_Category(category,difficulty,word);
             //FALTA REPOSITORIO DEFFICULTY_CATEGORY
@@ -48,7 +48,7 @@ public class InsertWordController {
         //wordExist(name_word, description, name_category, name_difficulty);
     }
     private void wordExist (String name_word){
-        wordRepository.getbyword("http://ahorcado1d.000webhostapp.com/get_word.php", name_word, description);
+        //wordRepository.getbyword("http://ahorcado1d.000webhostapp.com/get_word.php", name_word, description);
     }
     public  void wordExist1(Word word, String name_word, String description, String name_category, String name_difficulty){
         boolean confirm =false;

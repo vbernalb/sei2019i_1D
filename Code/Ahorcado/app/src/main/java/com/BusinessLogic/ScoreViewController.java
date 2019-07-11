@@ -21,7 +21,7 @@ public class ScoreViewController {
     public void viewScoreAnswer(int score) {
         final ScoreActivity sa = (ScoreActivity) context;
 
-       // sa.nuevoIntent(score, context);
+       sa.nuevoIntent(score, context);
     }
 
 
