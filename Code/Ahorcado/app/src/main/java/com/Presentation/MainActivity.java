@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
         System.out.println("*** confirm  "+ confirm);
         if(confirm){
             Intent intent = new Intent(context, MenuUserActivity.class);
-            intent.putExtra("email_user", email.toString());
+            intent.putExtra("email_user", email.getText().toString());
             startActivity(intent);
             finishActivity(0);
         }else{
