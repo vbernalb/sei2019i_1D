@@ -3,6 +3,7 @@ package com.DataAcces.Repositories;
 import android.content.Context;
 import android.widget.Toast;
 
+import com.BusinessLogic.InsertWordController;
 import com.BusinessLogic.ScoreViewController;
 import com.DataAcces.Models.Word;
 import com.android.volley.AuthFailureError;
@@ -121,6 +122,7 @@ public class WordRepository {
                     
                    // new ScoreViewController(context).viewScore(word_f);
                     //new LoginAdminController(context).cofirmLogin(admin,password_f);
+                    new InsertWordController(context).wordExist1(word1, word_f, description_f, categoria_f, dificultad_f);
                 } catch (JSONException e) {
                     Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
                 }

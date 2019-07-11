@@ -52,20 +52,29 @@ public class InsertWordController {
         String[] m= new String[arrayList.size()];
         String[] p;
         for(int i=0; i<arrayList.size(); i++){
+
+            a = arrayList.toString();
+
             a = arrayList.get(i);
+
              p = a.split("\"");
              m[i]= p[3];
         }
 
        wa.nuevoIntent(m, context);
-    }
+
+        }
+
+
+
+
 
 
     public void InsertWord (String name_word, String description, String name_category, String name_difficulty){
-        //wordExist(name_word, description, name_category, name_difficulty);
+        wordExist(name_word, name_category, name_difficulty);
     }
-    private void wordExist (String name_word){
-        //wordRepository.getbyword("http://ahorcado1d.000webhostapp.com/get_word.php", name_word, description);
+    private void wordExist (String name_word, String name_category, String name_difficulty){
+        wordRepository.getbyword("http://ahorcado1d.000webhostapp.com/get_word.php", name_word, "a",name_category,name_difficulty);
     }
     public  void wordExist1(Word word, String name_word, String description, String name_category, String name_difficulty){
         boolean confirm =false; 
@@ -75,6 +84,6 @@ public class InsertWordController {
             wordRepository.create(new Word(name_word,description), "http://ahorcado1d.000webhostapp.com/insert_word.php");
             difficulty_categoryRepository.create(new Difficulty_Category(name_category,name_difficulty,name_word),"http://ahorcado1d.000webhostapp.com/insert_difficulty_category.php");
         }
-       // ca.nuevoIntent(confirm, context);
+       ca.nuevoIntent1(confirm, context);
     }
 }
