@@ -5,11 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    android:background="@drawable/degree_background"
+    android:background="@mipmap/star"
     tools:context="com.Presentation.MainActivity">
-
-
-
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -29,7 +26,7 @@
             android:fontFamily="@font/alfa_slab_one"
             android:text="Ahorcado"
             android:textAlignment="center"
-            android:textColor="#03A9F4"
+            android:textColor="#F7F6F1"
             android:textSize="40dp" />
 
         <ImageView
@@ -38,21 +35,8 @@
             android:layout_height="112dp"
             app:srcCompat="@drawable/ahorcado" />
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginTop="30dp"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        tools:layout_editor_absoluteX="7dp">
-
-
         <EditText
-            android:id="@+id/editText3"
+            android:id="@+id/emailJoin_txt"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginLeft="10dp"
@@ -64,10 +48,12 @@
             android:hint="email"
             android:inputType="textEmailAddress"
             android:paddingLeft="15dp"
-            android:paddingRight="15dp" />
+            android:paddingRight="15dp"
+            android:textColor="#1E88E5"
+            android:textColorHint="#1E88E5" />
 
         <EditText
-            android:id="@+id/editText4"
+            android:id="@+id/passJoin_txt"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginLeft="10dp"
@@ -79,17 +65,20 @@
             android:hint="password"
             android:inputType="textPassword"
             android:paddingLeft="15dp"
-            android:paddingRight="15dp" />
-    </LinearLayout>
+            android:paddingRight="15dp"
+            android:textColor="#1E88E5"
+            android:textColorHint="#1E88E5" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginTop="30dp"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        tools:layout_editor_absoluteX="8dp">
+        <CheckBox
+            android:id="@+id/admin_check"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:buttonTint="#FDD835"
+            android:fontFamily="sans-serif-black"
+            android:text="Administrador"
+            android:textColor="#FFB300" />
 
         <Button
             android:id="@+id/log_btn"
@@ -102,7 +91,7 @@
             android:fontFamily="sans-serif-black"
             android:paddingLeft="70dp"
             android:paddingRight="70dp"
-            android:shadowColor="#0066DB19"
+            android:shadowColor="#B5C45E"
             android:text="Login" />
 
         <Button
@@ -117,7 +106,7 @@
             android:onClick="openRegisterActivity"
             android:paddingLeft="70dp"
             android:paddingRight="70dp"
-            android:shadowColor="#0066DB19"
+            android:shadowColor="#43DB19"
             android:text="register" />
     </LinearLayout>
 

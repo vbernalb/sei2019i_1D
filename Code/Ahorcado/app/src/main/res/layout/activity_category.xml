@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/star"
+    tools:context="com.Presentation.CategoryActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp">
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:text="Ingresar categoría"
+            android:textColor="#ffffff"
+            android:textSize="24sp"
+            android:textStyle="normal|bold"  />
+
+        <EditText
+            android:id="@+id/ca_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/edittext_form"
+            android:ems="10"
+            android:fontFamily="casual"
+            android:hint=" Nueva Categoria"
+            android:inputType="textPersonName"
+            android:textColor="#1E88E5"
+            android:textColorHint="#1E88E5"
+            android:textStyle="normal" />
+
+        <Button
+            android:id="@+id/ca_btn_category"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_form"
+            android:fontFamily="sans-serif-black"
+            android:paddingLeft="70dp"
+            android:paddingRight="70dp"
+            android:text="Ingresar" />
+
+
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

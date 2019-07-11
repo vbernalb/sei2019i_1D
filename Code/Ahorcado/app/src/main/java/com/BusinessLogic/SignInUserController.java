@@ -5,12 +5,14 @@ import android.content.Context;
 
 import com.DataAcces.Models.User;
 import com.DataAcces.Repositories.UserRepository;
+import com.Presentation.RegisterActivity;
 
 public class SignInUserController {
-    Context context;
-
+    final Context context;
+    UserRepository userRepository;
     public SignInUserController(Context context) {
         this.context = context;
+        this.userRepository=new UserRepository(context);
     }
 
     /**
@@ -19,13 +21,40 @@ public class SignInUserController {
      * @param password password del usuario a registar.
      * @return
      */
-    public boolean singin(String email, String password, String password2){
-        if(password.equals(password2)){
-            User user = new User(email, password, 0);
-            UserRepository userRepository = new UserRepository(context);
-            System.out.println("*******entre al sign in");
-            return userRepository.create(user, "http://ahorcado1d.000webhostapp.com/insert_user.php");
+    public void singin(String email, String password, String password2){
+        if(this.PasswordValidation(password, password2)&& this.EmailValidation(email)){
+            this.userExist1(email, password);
         }
-        else return false;
+
     }
+
+
+    private boolean PasswordValidation(String password, String password2){
+        return password.equals(password2)&&(password.length()>=6);
+    }
+
+    public static boolean PasswordValidationSignIn(String password, String password2){
+        return password.equals(password2)&&(password.length()>=6);
+    }
+
+    private boolean EmailValidation(String email){
+        return email.contains("@");
+    }
+
+    public static boolean EmailValidationtest(String email){
+        return email.contains("@");
+    }
+
+    private void userExist1(String email, String password){
+        userRepository.getbyEmail("http://ahorcado1d.000webhostapp.com/get_user.php", email, password, 2);
+    }
+    public void userExist (User user, String email, String password){
+        boolean confirm =false;
+        final RegisterActivity ma = (RegisterActivity) context;
+            if(user==null){
+                confirm= true;
+                new UserRepository(context).create(new User(email,password,0),"http://ahorcado1d.000webhostapp.com/insert_user.php");
+            }
+        ma.nuevoIntent(confirm, context);
+        }
 }
