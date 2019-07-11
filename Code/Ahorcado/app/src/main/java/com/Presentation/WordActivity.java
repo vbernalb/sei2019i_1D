@@ -23,28 +23,7 @@ public class WordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_word);
         new InsertWordController(WordActivity.this).showCategory();
-        /*
-        String[] arraySpinner = new String[] {
-                "1", "2", "3", "4", "5", "6", "7"
-        };
-        Spinner spinner = (Spinner)findViewById(R.id.spinner1);
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, arraySpinner);
-        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(arrayAdapter);
-        */
     }
-
-/*        System.out.println("*** confirm  " + confirm);
-        if (confirm) {
-            Intent intent = new Intent(context, CategoryActivity.class);
-            startActivity(intent);
-            finishActivity(0);
-            Toast.makeText(context, "Categoria registrada", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(context, "Categoria ya registrada", Toast.LENGTH_SHORT).show();
-        }
-        */
 
     public void nuevoIntent(String[] inputArray, Context context) {
         System.out.println("*** context  " + inputArray.toString());
