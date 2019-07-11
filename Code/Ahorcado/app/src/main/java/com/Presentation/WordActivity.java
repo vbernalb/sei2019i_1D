@@ -38,16 +38,29 @@ public class WordActivity extends AppCompatActivity {
         final Spinner spinner2 = (Spinner)findViewById(R.id.spinner2);
 
         Button button = (Button)findViewById(R.id.button2);
-
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new InsertWordController(WordActivity.this).InsertWord(editText.getText().toString(), "", spinner1.toString(), spinner2.toString());
+                new InsertWordController(WordActivity.this).InsertWord(editText.getText().toString(), "",
+                        spinner1.getItemAtPosition(spinner1.getSelectedItemPosition()).toString(), spinner2.getItemAtPosition(spinner2.getSelectedItemPosition()).toString());
             }
         });
     }
 
     public void nuevoIntent1(boolean confirm, Context context){
+        System.out.println("*** context  "+ context);
+        System.out.println("*** confirm  "+ confirm);
+        final Spinner spinner1 = (Spinner)findViewById(R.id.spinner1);
+        final EditText editText = (EditText)findViewById(R.id.ca_word);
+        final Spinner spinner2 = (Spinner)findViewById(R.id.spinner2);
+        if(confirm){
+            new InsertWordController(WordActivity.this).
+        }else{
+            Toast.makeText(context, "Palabra ya existente", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+   public void nuevoIntent2(boolean confirm, Context context){
         System.out.println("*** context  "+ context);
         System.out.println("*** confirm  "+ confirm);
         if(confirm){
