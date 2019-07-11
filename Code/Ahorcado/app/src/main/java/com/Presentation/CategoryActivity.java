@@ -27,7 +27,7 @@ public class CategoryActivity extends AppCompatActivity {
         btnCategory = (Button)findViewById(R.id.ca_btn_category);
 
         btnCategory.setOnClickListener(new View.OnClickListener() {
-            @Override
+                @Override
             public void onClick(View v) {
                 System.out.println("papas1");
                 new InsertCategoryController(CategoryActivity.this).InsertCategory(etCategory.getText().toString());
