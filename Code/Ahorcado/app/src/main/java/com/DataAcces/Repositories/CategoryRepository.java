@@ -119,7 +119,6 @@ public class CategoryRepository {
             @Override
             public void onResponse(String response) {
                 JSONArray jsonArray =null;
-                for (int i = 0; i < response.length(); i++) {
                     try {
                         jsonArray= new JSONArray(response);
                         ArrayList arrayList= new ArrayList();
@@ -131,7 +130,6 @@ public class CategoryRepository {
                     } catch (JSONException e) {
                         Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
-                }
             }
         }, new Response.ErrorListener() {
             @Override
