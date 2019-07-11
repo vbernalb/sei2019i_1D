@@ -48,8 +48,8 @@ public class InsertWordController {
 
     public void showCategoryAnswer(ArrayList<String> arrayList){
         final WordActivity wa = (WordActivity) context;
-        System.out.println(arrayList.toArray().toString());
-        wa.nuevoIntent(arrayList, context);
+        System.out.println(arrayList.get(0));
+       // wa.nuevoIntent(arrayList, context);
     }
 
 
