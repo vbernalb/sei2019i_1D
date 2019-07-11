@@ -68,7 +68,7 @@ public class InsertWordController {
         //wordRepository.getbyword("http://ahorcado1d.000webhostapp.com/get_word.php", name_word, description);
     }
     public  void wordExist1(Word word, String name_word, String description, String name_category, String name_difficulty){
-        boolean confirm =false;
+        boolean confirm =false; 
         final WordActivity ca= (WordActivity) context;
         if(word!= null){
             confirm=true;
