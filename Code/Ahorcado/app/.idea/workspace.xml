@@ -11,7 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d6fbce2-081f-4c3e-973e-71af9d449344" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Presentation/CategoryActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Presentation/CategoryActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/BusinessLogic/SignInUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/BusinessLogic/SignInUserController.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -66,11 +66,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/Presentation/CategoryActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="45" column="20" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
+            <state relative-caret-position="390">
+              <caret line="49" column="9" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/BusinessLogic/SignInUserController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="331">
+              <caret line="36" column="63" selection-start-line="36" selection-start-column="63" selection-end-line="36" selection-end-column="63" />
             </state>
           </provider>
         </entry>
@@ -112,7 +121,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/Presentation/activity_register.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/DataAcces/Models/Difficulty_Category.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/DataAcces/Repositories/DifficultyRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/BusinessLogic/SignInUserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/BusinessLogic/InsertCategoryController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/DataAcces/Repositories/Difficulty_CategoryRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/Presentation/MainActivity.java" />
@@ -123,6 +131,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/Presentation/WordActivity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/BusinessLogic/InsertWordController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/Presentation/CategoryActivity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/BusinessLogic/SignInUserController.java" />
       </list>
     </option>
   </component>
@@ -565,13 +574,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/BusinessLogic/SignInUserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="42" column="19" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/Presentation/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1394">
@@ -620,8 +622,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/Presentation/CategoryActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="45" column="20" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
+        <state relative-caret-position="390">
+          <caret line="49" column="9" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/BusinessLogic/SignInUserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="36" column="63" selection-start-line="36" selection-start-column="63" selection-end-line="36" selection-end-column="63" />
         </state>
       </provider>
     </entry>
