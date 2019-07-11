@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.BusinessLogic.InsertWordController;
 import com.example.ahorcado.R;
 
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ public class WordActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_word);
+        new InsertWordController(WordActivity.this).showCategory();
     }
 
 /*        System.out.println("*** confirm  " + confirm);
