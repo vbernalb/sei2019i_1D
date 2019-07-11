@@ -25,7 +25,6 @@ public class MenuUserActivity extends AppCompatActivity {
                 break;
             case R.id.mu_puntaje:
                 intent = new Intent(this, ScoreActivity.class);
-                System.out.println(email_user);
                 intent.putExtra("email_user", email_user);
                 break;
         }
