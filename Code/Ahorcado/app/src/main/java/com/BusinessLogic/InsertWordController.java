@@ -53,8 +53,6 @@ public class InsertWordController {
         String[] p;
         for(int i=0; i<arrayList.size(); i++){
 
-            a = arrayList.toString();
-
             a = arrayList.get(i);
 
              p = a.split("\"");
@@ -64,10 +62,6 @@ public class InsertWordController {
        wa.nuevoIntent(m, context);
 
         }
-
-
-
-
 
 
     public void InsertWord (String name_word, String description, String name_category, String name_difficulty){

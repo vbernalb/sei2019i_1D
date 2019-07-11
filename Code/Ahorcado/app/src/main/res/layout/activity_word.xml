@@ -34,7 +34,7 @@
             android:textStyle="normal|bold" />
 
         <EditText
-            android:id="@+id/ca_category"
+            android:id="@+id/ca_word"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_margin="20dp"
