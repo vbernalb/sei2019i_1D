@@ -71,13 +71,20 @@ public class InsertWordController {
         wordRepository.getbyword("http://ahorcado1d.000webhostapp.com/get_word.php", name_word, "a",name_category,name_difficulty);
     }
     public  void wordExist1(Word word, String name_word, String description, String name_category, String name_difficulty){
-        boolean confirm =false; 
+        boolean confirm =false;
         final WordActivity ca= (WordActivity) context;
-        if(word!= null){
+        System.out.println("name_word: " + name_word);
+        System.out.println("name_cate: " + name_category);
+        System.out.println("name_diff: " + name_difficulty);
+        if(word== null){
             confirm=true;
             wordRepository.create(new Word(name_word,description), "http://ahorcado1d.000webhostapp.com/insert_word.php");
-            difficulty_categoryRepository.create(new Difficulty_Category(name_category,name_difficulty,name_word),"http://ahorcado1d.000webhostapp.com/insert_difficulty_category.php");
         }
        ca.nuevoIntent1(confirm, context);
     }
+    public void diff_cat_create(String name_word, String name_category, String name_difficulty){
+        difficulty_categoryRepository.create(new Difficulty_Category(name_category,name_difficulty,name_word),"http://ahorcado1d.000webhostapp.com/insert_difficulty_category.php");
+    }
+
+
 }
