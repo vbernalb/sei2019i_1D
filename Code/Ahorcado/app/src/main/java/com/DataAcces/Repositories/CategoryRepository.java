@@ -126,7 +126,7 @@ public class CategoryRepository {
                         for (int j=0; j<jsonArray.length(); j++){
                             arrayList.add(j, jsonArray.getString(j));
                         }
-                        new InsertWordController(context);
+                        new InsertWordController(context).showCategoryAnswer(arrayList);
 
                     } catch (JSONException e) {
                         Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
