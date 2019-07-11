@@ -9,6 +9,8 @@ import com.DataAcces.Repositories.Difficulty_CategoryRepository;
 import com.DataAcces.Repositories.WordRepository;
 import com.Presentation.WordActivity;
 
+import java.util.ArrayList;
+
 public class InsertWordController {
     Context context;
     WordRepository wordRepository;
@@ -22,7 +24,7 @@ public class InsertWordController {
         this.categoryRepository = new CategoryRepository(context);
     }
 
-    /**
+    /*/**
      * Esta funcion registra una nueva palabra en la applicacion, haciendo llamado a la clase DifficulttRepository, CategoryRepository, WordRepository,  .
      * @param word palabra que se va a ingresar
      * @param description descripcion/pista de la palabra.
@@ -30,7 +32,7 @@ public class InsertWordController {
      * @param difficulty dificultad de la palabra
      * @return si la insercion fue exitosa
      */
-    /*public void insert(String word, String description, String category, String difficulty){
+        /*public void insert(String word, String description, String category, String difficulty){
             Word word1 = new Word(word, description);
             Difficulty_Category d_c = new Difficulty_Category(category,difficulty,word);
             //FALTA REPOSITORIO DEFFICULTY_CATEGORY
@@ -41,8 +43,15 @@ public class InsertWordController {
     }*/
 
     public void showCategory(){
-
+        categoryRepository.categoryList("http://ahorcado1d.000webhostapp.com/get_all_category.php");
     }
+
+    public void showCategoryAnswer(ArrayList<String> arrayList){
+        final WordActivity wa = (WordActivity) context;
+
+        wa.nuevoIntent(arrayList, context);
+    }
+
 
     public void InsertWord (String name_word, String description, String name_category, String name_difficulty){
         //wordExist(name_word, description, name_category, name_difficulty);

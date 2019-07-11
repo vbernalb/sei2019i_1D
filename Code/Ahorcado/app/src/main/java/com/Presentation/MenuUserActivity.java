@@ -7,11 +7,13 @@ import android.view.View;
 
 import com.example.ahorcado.R;
 public class MenuUserActivity extends AppCompatActivity {
-
+    String email_user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_user);
+        final Bundle bundle = getIntent().getExtras();
+        email_user= bundle.getString("email_user");
     }
 
     public void onClick(View view){
@@ -23,9 +25,11 @@ public class MenuUserActivity extends AppCompatActivity {
                 break;
             case R.id.mu_puntaje:
                 intent = new Intent(this, ScoreActivity.class);
+                intent.putExtra("email_user", email_user);
                 break;
         }
         if(intent!=null){
+
             startActivity(intent);
         }
     }
