@@ -27,7 +27,7 @@
                 android:fontFamily="@font/alfa_slab_one"
                 android:text="Registro"
                 android:textAlignment="center"
-                android:textColor="#000000"
+                android:textColor="#EBE8E3"
                 android:textSize="40dp"
                 tools:layout_editor_absoluteX="0dp"
                 tools:layout_editor_absoluteY="0dp" />
@@ -51,6 +51,7 @@
                 android:layout_weight="1"
                 android:fontFamily="sans-serif-black"
                 android:text="Email:"
+                android:textColor="#FDD835"
                 android:textSize="20dp"
                 tools:layout_editor_absoluteX="0dp"
                 tools:layout_editor_absoluteY="0dp" />
@@ -67,7 +68,8 @@
                 android:fontFamily="sans-serif-black"
                 android:inputType="textEmailAddress"
                 android:paddingLeft="15dp"
-                android:paddingRight="15dp" />
+                android:paddingRight="15dp"
+                android:textColor="#1E88E5" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -78,6 +80,7 @@
                 android:layout_weight="1"
                 android:fontFamily="sans-serif-black"
                 android:text="Contraseña:"
+                android:textColor="#FDD835"
                 android:textSize="20dp"
                 tools:layout_editor_absoluteX="0dp"
                 tools:layout_editor_absoluteY="0dp" />
@@ -94,7 +97,8 @@
                 android:fontFamily="sans-serif-black"
                 android:inputType="textPassword"
                 android:paddingLeft="15dp"
-                android:paddingRight="15dp" />
+                android:paddingRight="15dp"
+                android:textColor="#1E88E5" />
 
             <TextView
                 android:id="@+id/textView6"
@@ -105,6 +109,7 @@
                 android:layout_weight="1"
                 android:fontFamily="sans-serif-black"
                 android:text="Confirmar contraseña:"
+                android:textColor="#FDD835"
                 android:textSize="20dp"
                 tools:layout_editor_absoluteX="0dp"
                 tools:layout_editor_absoluteY="0dp" />
@@ -121,7 +126,8 @@
                 android:fontFamily="sans-serif-black"
                 android:inputType="textPassword"
                 android:paddingLeft="15dp"
-                android:paddingRight="15dp" />
+                android:paddingRight="15dp"
+                android:textColor="#1E88E5" />
 
             <Button
                 android:id="@+id/SingIn"
