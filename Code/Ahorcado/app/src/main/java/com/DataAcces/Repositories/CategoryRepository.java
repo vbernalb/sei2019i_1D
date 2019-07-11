@@ -4,18 +4,13 @@ import android.content.Context;
 import android.widget.Toast;
 
 import com.BusinessLogic.InsertCategoryController;
-import com.BusinessLogic.LoginAdminController;
-import com.BusinessLogic.SignInUserController;
-import com.DataAcces.Models.Admin;
+
 import com.DataAcces.Models.Category;
-import com.DataAcces.Models.Difficulty_Category;
-import com.DataAcces.Models.User;
-import com.android.volley.AuthFailureError;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -46,17 +41,11 @@ public class CategoryRepository {
      */
     public void create (Category category, String URL){
         final String  name_category =category.getName_category();
-
         StringRequest stringRequest= new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try{
                     JSONObject jsonObject = new JSONObject(response);
-                    ook = jsonObject.getBoolean("success");
-                    if(ook){
-                        Toast.makeText(context, "INSERCION EXITOSA",Toast.LENGTH_SHORT).show();
-                    }
-
                 }catch (JSONException e ) {
                     System.out.println("exeption    "+ e.getMessage());
                 }
@@ -72,8 +61,7 @@ public class CategoryRepository {
             @Override
             protected Map<String, String> getParams()  {
                 Map<String,String> parametros = new HashMap<String,String>();
-                parametros.put("name_category", name_category);
-
+                parametros.put("nameCategory", name_category);
                 return parametros;
             }
         };
@@ -100,7 +88,6 @@ public class CategoryRepository {
                         jsonObject = new JSONObject(response);
                         Category category = null;
                         if(jsonObject.getBoolean("success")==true){
-                            System.out.println("papas3");
                             category= new Category(jsonObject.getString("nameCategory"));
                         }
                         new InsertCategoryController(context).categoryExist1(category, name_category_F);
@@ -130,15 +117,14 @@ public class CategoryRepository {
         final StringRequest jsonArrayRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                JSONObject jsonObject = null;
+                JSONArray jsonArray =null;
                 for (int i = 0; i < response.length(); i++) {
                     try {
-                        jsonObject = new JSONObject(response);
+                        jsonArray= new JSONArray(response);
                         ArrayList arrayList= new ArrayList();
-                        for (int j=0; j<jsonObject.length(); j++){
-                            arrayList.add(j,jsonObject.getJSONArray(Integer.toString(j)));
+                        for (int j=0; j<jsonArray.length(); j++){
+                            arrayList.add(j, jsonArray.getString(j));
                         }
-
 
                     } catch (JSONException e) {
                         Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();

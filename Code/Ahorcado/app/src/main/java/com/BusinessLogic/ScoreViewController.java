@@ -23,6 +23,4 @@ public class ScoreViewController {
 
        sa.nuevoIntent(score, context);
     }
-
-
 }

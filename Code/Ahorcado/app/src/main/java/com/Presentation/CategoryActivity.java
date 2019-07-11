@@ -30,7 +30,7 @@ public class CategoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 System.out.println("papas1");
-                new InsertCategoryController(CategoryActivity.this).InsertCategory(btnCategory.getText().toString());
+                new InsertCategoryController(CategoryActivity.this).InsertCategory(etCategory.getText().toString());
             }
         });
     }
@@ -44,7 +44,6 @@ public class CategoryActivity extends AppCompatActivity {
         System.out.println("*** context  "+ context);
         System.out.println("*** confirm  "+ confirm);
         if(confirm){
-            System.out.println("papas5");
             Intent intent = new Intent(context, CategoryActivity.class);
             startActivity(intent);
             finishActivity(0);
