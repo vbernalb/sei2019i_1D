@@ -5,6 +5,7 @@ import android.widget.Toast;
 
 import com.BusinessLogic.InsertCategoryController;
 
+import com.BusinessLogic.InsertWordController;
 import com.DataAcces.Models.Category;
 
 import com.android.volley.Request;
@@ -125,6 +126,7 @@ public class CategoryRepository {
                         for (int j=0; j<jsonArray.length(); j++){
                             arrayList.add(j, jsonArray.getString(j));
                         }
+                        new InsertWordController(context);
 
                     } catch (JSONException e) {
                         Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
