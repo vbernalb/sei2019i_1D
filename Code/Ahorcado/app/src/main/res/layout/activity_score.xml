@@ -11,7 +11,7 @@
         android:id="@+id/linearLayout7"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_margin="20dp"
+        android:layout_margin="10dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,7 +52,7 @@
             android:hint="Email"
             android:inputType="textPersonName"
             android:textColor="#1E88E5"
-            android:textColorHint="#1E88E5" />
+            android:textColorHint="#556E83" />
 
         <Button
             android:id="@+id/s_update"
