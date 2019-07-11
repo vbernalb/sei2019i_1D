@@ -28,12 +28,23 @@ public class SignInUserController {
 
     }
 
+
     private boolean PasswordValidation(String password, String password2){
         return password.equals(password2);
     }
+
+    public static boolean PasswordValidationSignIn(String password, String password2){
+        return password.equals(password2);
+    }
+
     private boolean EmailValidation(String email){
         return email.contains("@");
     }
+
+    public static boolean EmailValidationtest(String email){
+        return email.contains("@");
+    }
+
     private void userExist1(String email, String password){
         userRepository.getbyEmail("http://ahorcado1d.000webhostapp.com/get_user.php", email, password, 2);
     }

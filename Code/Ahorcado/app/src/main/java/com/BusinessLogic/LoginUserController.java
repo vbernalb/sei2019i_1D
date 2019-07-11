@@ -33,4 +33,9 @@ public class LoginUserController {
         };
         ma.nuevoIntent2(confirm, context);
     }
+
+    public static boolean confirmLoginUser(String password1, String password2){
+        return password1.equals(password2);
+    }
+
 }

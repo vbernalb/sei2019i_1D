@@ -1,5 +1,9 @@
 package com.example.ahorcado;
 
+import com.BusinessLogic.LoginAdminController;
+import com.BusinessLogic.LoginUserController;
+import com.BusinessLogic.SignInUserController;
+
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -11,7 +15,19 @@ import static org.junit.Assert.*;
  */
 public class ExampleUnitTest {
     @Test
-    public void addition_isCorrect() {
-        assertEquals(4, 2 + 2);
+    public void email_contains_arroba() {
+        assertTrue(SignInUserController.EmailValidationtest("valentina@hotmail.com"));
+    }
+    @Test
+    public void password_equalsAdmin(){
+        assertTrue(LoginAdminController.confirmLoginAdmin("123456","123456"));
+    }
+    @Test
+    public void password_equalsUser(){
+        assertTrue(LoginUserController.confirmLoginUser("123456","123456"));
+    }
+    @Test
+    public void password_equalsSignIn(){
+        assertTrue(SignInUserController.PasswordValidationSignIn("123456","123456"));
     }
 }
