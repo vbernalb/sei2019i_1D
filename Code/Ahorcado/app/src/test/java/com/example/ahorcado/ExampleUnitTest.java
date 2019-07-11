@@ -27,7 +27,7 @@ public class ExampleUnitTest {
         assertTrue(LoginUserController.confirmLoginUser("123456","123456"));
     }
     @Test
-    public void password_equalsSignIn(){
+    public void password_validationSignIn(){
         assertTrue(SignInUserController.PasswordValidationSignIn("123456","123456"));
     }
 }

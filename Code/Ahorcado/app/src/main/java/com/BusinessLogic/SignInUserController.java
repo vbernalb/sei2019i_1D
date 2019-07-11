@@ -30,11 +30,11 @@ public class SignInUserController {
 
 
     private boolean PasswordValidation(String password, String password2){
-        return password.equals(password2);
+        return password.equals(password2)&&(password.length()>6);
     }
 
     public static boolean PasswordValidationSignIn(String password, String password2){
-        return password.equals(password2);
+        return password.equals(password2)&&(password.length()>6);
     }
 
     private boolean EmailValidation(String email){
