@@ -11,6 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d6fbce2-081f-4c3e-973e-71af9d449344" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/BusinessLogic/InsertWordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/BusinessLogic/InsertWordController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/Presentation/WordActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Presentation/WordActivity.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,46 +44,25 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/BusinessLogic/InsertWordController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="84" column="96" lean-forward="true" selection-start-line="84" selection-start-column="96" selection-end-line="84" selection-end-column="96" />
+            <state relative-caret-position="215">
+              <caret line="86" column="5" selection-start-line="86" selection-start-column="5" selection-end-line="86" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/Presentation/WordActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="436">
-              <caret line="74" column="4" selection-start-line="74" selection-start-column="4" selection-end-line="74" selection-end-column="4" />
+            <state relative-caret-position="233">
+              <caret line="58" column="12" selection-start-line="58" selection-start-column="12" selection-end-line="58" selection-end-column="12" />
               <folding>
                 <element signature="e#1090#1098#0" expanded="true" />
                 <element signature="e#1530#1843#0" expanded="true" />
                 <element signature="e#1842#1843#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/DataAcces/Repositories/Difficulty_CategoryRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="365">
-              <caret line="103" column="121" selection-start-line="103" selection-start-column="121" selection-end-line="103" selection-end-column="121" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/Presentation/MainActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1394">
-              <caret line="109" column="53" selection-start-line="109" selection-start-column="53" selection-end-line="109" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -125,7 +105,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/DataAcces/Models/Difficulty_Category.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/DataAcces/Repositories/DifficultyRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/BusinessLogic/SignInUserController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/BusinessLogic/InsertWordController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/BusinessLogic/InsertCategoryController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/Presentation/CategoryActivity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/DataAcces/Repositories/Difficulty_CategoryRepository.java" />
@@ -135,6 +114,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/DataAcces/Repositories/CategoryRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/DataAcces/Repositories/WordRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/Presentation/WordActivity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/BusinessLogic/InsertWordController.java" />
       </list>
     </option>
   </component>
@@ -311,7 +291,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49918166" visible="true" weight="0.20953101" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49918166" visible="true" weight="0.20953101" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" sideWeight="0.5008183" side_tool="true" weight="0.24962178" />
       <window_info id="Build Variants" order="4" side_tool="true" />
@@ -319,12 +299,12 @@
       <window_info id="Designer" order="6" />
       <window_info id="Resources Explorer" order="7" />
       <window_info id="Capture Tool" order="8" />
-      <window_info anchor="bottom" id="Version Control" order="0" />
+      <window_info anchor="bottom" id="Version Control" order="0" weight="0.3289689" />
       <window_info anchor="bottom" id="Logcat" order="1" />
       <window_info anchor="bottom" id="TODO" order="2" />
       <window_info anchor="bottom" id="Terminal" order="3" />
       <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" weight="0.3289689" />
-      <window_info anchor="bottom" id="Build" order="5" sideWeight="0.49924356" visible="true" weight="0.26350245" />
+      <window_info active="true" anchor="bottom" id="Build" order="5" sideWeight="0.49924356" visible="true" weight="0.26350245" />
       <window_info anchor="bottom" id="Android Profiler" order="6" />
       <window_info anchor="bottom" id="Find" order="7" />
       <window_info anchor="bottom" id="Run" order="8" weight="0.26841244" />
@@ -358,6 +338,32 @@
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
     </layout-to-restore>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/com/DataAcces/Repositories/Level_CategoryRepository.java" />
@@ -592,22 +598,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/BusinessLogic/InsertWordController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="84" column="96" lean-forward="true" selection-start-line="84" selection-start-column="96" selection-end-line="84" selection-end-column="96" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/Presentation/WordActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="74" column="4" selection-start-line="74" selection-start-column="4" selection-end-line="74" selection-end-column="4" />
+        <state relative-caret-position="233">
+          <caret line="58" column="12" selection-start-line="58" selection-start-column="12" selection-end-line="58" selection-end-column="12" />
           <folding>
             <element signature="e#1090#1098#0" expanded="true" />
             <element signature="e#1530#1843#0" expanded="true" />
             <element signature="e#1842#1843#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/BusinessLogic/InsertWordController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="86" column="5" selection-start-line="86" selection-start-column="5" selection-end-line="86" selection-end-column="5" />
         </state>
       </provider>
     </entry>
