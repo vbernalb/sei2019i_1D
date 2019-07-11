@@ -97,7 +97,7 @@ public class WordRepository {
      * @param URL  la URL del servidor donde se encuentra la base de datos example: http://192.162.1.3:80/Database/insertar.php
      * @param word El email por el cual se quiere buscar
      */
-    public void getbyword(String URL,String word){
+    public void getbyword(String URL,String word,String description, String categoria, String dificultad){
         final String word_f = word;
         StringRequest jsonArrayRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
             @Override
