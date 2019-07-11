@@ -9,6 +9,8 @@ import com.DataAcces.Repositories.Difficulty_CategoryRepository;
 import com.DataAcces.Repositories.WordRepository;
 import com.Presentation.WordActivity;
 
+import java.util.ArrayList;
+
 public class InsertWordController {
     Context context;
     WordRepository wordRepository;
@@ -41,7 +43,13 @@ public class InsertWordController {
     }*/
 
     public void showCategory(){
+        categoryRepository.categoryList("http://ahorcado1d.000webhostapp.com/get_all_category.php");
+    }
 
+    public void showCategoryAnswer(ArrayList<String> arrayList){
+        final WordActivity wa = (WordActivity) context;
+
+        wa.nuevoIntent(arrayList, context);
     }
 
 
