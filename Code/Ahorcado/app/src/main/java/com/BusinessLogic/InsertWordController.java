@@ -39,7 +39,6 @@ public class InsertWordController {
             WordRepository wordRepository = new WordRepository(context);
             //System.out.println("*******entre al sign insertWORD");
             wordRepository.create(word1, "http://ahorcado1d.000webhostapp.com/insert_word.php");
-
     }*/
 
     public void showCategory(){
@@ -48,8 +47,16 @@ public class InsertWordController {
 
     public void showCategoryAnswer(ArrayList<String> arrayList){
         final WordActivity wa = (WordActivity) context;
-        System.out.println(arrayList.toArray().toString());
-        wa.nuevoIntent(arrayList, context);
+        String a;
+        String[] m= new String[arrayList.size()];
+        String[] p;
+        for(int i=0; i<arrayList.size(); i++){
+            a = arrayList.toString();
+            p = a.split("\"");
+            m[i]= p[3];
+        }
+
+        wa.nuevoIntent(m, context);
     }
 
 
@@ -67,6 +74,6 @@ public class InsertWordController {
             wordRepository.create(new Word(name_word,description), "http://ahorcado1d.000webhostapp.com/insert_word.php");
             difficulty_categoryRepository.create(new Difficulty_Category(name_category,name_difficulty,name_word),"http://ahorcado1d.000webhostapp.com/insert_difficulty_category.php");
         }
-       // ca.nuevoIntent(confirm, context);
+        // ca.nuevoIntent(confirm, context);
     }
 }
