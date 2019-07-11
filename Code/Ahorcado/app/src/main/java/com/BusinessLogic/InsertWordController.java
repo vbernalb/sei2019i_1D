@@ -39,7 +39,6 @@ public class InsertWordController {
             WordRepository wordRepository = new WordRepository(context);
             //System.out.println("*******entre al sign insertWORD");
             wordRepository.create(word1, "http://ahorcado1d.000webhostapp.com/insert_word.php");
-
     }*/
 
     public void showCategory(){
@@ -58,7 +57,8 @@ public class InsertWordController {
         }
 
        wa.nuevoIntent(m, context);
-    }
+        }
+
 
 
     public void InsertWord (String name_word, String description, String name_category, String name_difficulty){
@@ -75,6 +75,6 @@ public class InsertWordController {
             wordRepository.create(new Word(name_word,description), "http://ahorcado1d.000webhostapp.com/insert_word.php");
             difficulty_categoryRepository.create(new Difficulty_Category(name_category,name_difficulty,name_word),"http://ahorcado1d.000webhostapp.com/insert_difficulty_category.php");
         }
-       // ca.nuevoIntent(confirm, context);
+        // ca.nuevoIntent(confirm, context);
     }
 }
