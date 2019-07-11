@@ -25,7 +25,13 @@
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Menu admin activity" />
+            android:layout_margin="20dp"
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:text="Bienvenido, administrador."
+            android:textColor="#ffffff"
+            android:textSize="24sp"
+            android:textStyle="normal|bold" />
 
         <Button
             android:id="@+id/ma_category"

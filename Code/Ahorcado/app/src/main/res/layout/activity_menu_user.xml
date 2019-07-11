@@ -14,7 +14,17 @@
         android:orientation="vertical"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp">
-
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:text="Bienvenido"
+            android:textColor="#ffffff"
+            android:textSize="24sp"
+            android:textStyle="normal|bold" />
         <Button
             android:id="@+id/mu_jugar"
             android:layout_width="match_parent"
