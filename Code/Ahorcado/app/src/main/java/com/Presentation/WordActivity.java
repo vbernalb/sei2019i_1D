@@ -25,7 +25,6 @@ public class WordActivity extends AppCompatActivity {
         new InsertWordController(WordActivity.this).showCategory();
     }
 
-
     public void nuevoIntent(String[] inputArray, Context context) {
         System.out.println("*** context  " + inputArray.toString());
 
