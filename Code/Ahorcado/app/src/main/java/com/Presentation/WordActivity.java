@@ -5,6 +5,9 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +23,16 @@ public class WordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_word);
         new InsertWordController(WordActivity.this).showCategory();
+        /*
+        String[] arraySpinner = new String[] {
+                "1", "2", "3", "4", "5", "6", "7"
+        };
+        Spinner spinner = (Spinner)findViewById(R.id.spinner1);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, arraySpinner);
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(arrayAdapter);
+        */
     }
 
 /*        System.out.println("*** confirm  " + confirm);
@@ -33,11 +46,13 @@ public class WordActivity extends AppCompatActivity {
         }
         */
 
-    public void nuevoIntent(ArrayList<String> inputArrayList, Context context) {
-        System.out.println("*** context  " + inputArrayList.toString());
-        //TextView textView = findViewById(R.id.textView11);
-        //textView.setText(Integer.toString(score));
-        //Toast.makeText(context, Integer.toString(score), Toast.LENGTH_SHORT).show();
+    public void nuevoIntent(String[] inputArray, Context context) {
+        System.out.println("*** context  " + inputArray.toString());
+
+        Spinner spinner = (Spinner)findViewById(R.id.spinner1);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, inputArray);
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(arrayAdapter);
     }
 
     public void openMenuAdminActivity(View view){
