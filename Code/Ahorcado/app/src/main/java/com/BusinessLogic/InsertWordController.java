@@ -78,6 +78,6 @@ public class InsertWordController {
             wordRepository.create(new Word(name_word,description), "http://ahorcado1d.000webhostapp.com/insert_word.php");
             difficulty_categoryRepository.create(new Difficulty_Category(name_category,name_difficulty,name_word),"http://ahorcado1d.000webhostapp.com/insert_difficulty_category.php");
         }
-  //     ca.nuevoIntent1(confirm, context);
+       ca.nuevoIntent1(confirm, context);
     }
 }

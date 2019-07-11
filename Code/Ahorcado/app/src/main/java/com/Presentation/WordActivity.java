@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
@@ -29,14 +30,21 @@ public class WordActivity extends AppCompatActivity {
     public void nuevoIntent(String[] inputArray, Context context) {
         System.out.println("*** context  " + inputArray.toString());
 
-        Spinner spinner1 = (Spinner)findViewById(R.id.spinner1);
+        final Spinner spinner1 = (Spinner)findViewById(R.id.spinner1);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, inputArray);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner1.setAdapter(arrayAdapter);
-        EditText editText = (EditText)findViewById(R.id.ca_word);
-        Spinner spinner2 = (Spinner)findViewById(R.id.spinner2);
+        final EditText editText = (EditText)findViewById(R.id.ca_word);
+        final Spinner spinner2 = (Spinner)findViewById(R.id.spinner2);
 
-        new InsertWordController(WordActivity.this).InsertWord(editText.getText().toString(), "", spinner1.toString(), spinner2.toString());
+        Button button = (Button)findViewById(R.id.button2);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new InsertWordController(WordActivity.this).InsertWord(editText.getText().toString(), "", spinner1.toString(), spinner2.toString());
+            }
+        });
     }
 
     public void nuevoIntent1(boolean confirm, Context context){
@@ -52,7 +60,6 @@ public class WordActivity extends AppCompatActivity {
         }
 
     }
-
 
     public void openMenuAdminActivity(View view){
         Intent openMenuAdminActivity = new Intent(WordActivity.this, MenuAdminActivity.class);
