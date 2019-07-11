@@ -56,12 +56,13 @@ public class WordActivity extends AppCompatActivity {
         if(confirm){
             new InsertWordController(WordActivity.this).diff_cat_create(editText.getText().toString(),
                     spinner1.getItemAtPosition(spinner1.getSelectedItemPosition()).toString(), spinner2.getItemAtPosition(spinner2.getSelectedItemPosition()).toString());
+            Toast.makeText(context, "Palabra agregada", Toast.LENGTH_SHORT).show();
         }else{
             Toast.makeText(context, "Palabra ya existente", Toast.LENGTH_SHORT).show();
         }
 
     }
-   public void nuevoIntent2(boolean confirm, Context context){
+   /*public void nuevoIntent2(boolean confirm, Context context){
         System.out.println("*** context  "+ context);
         System.out.println("*** confirm  "+ confirm);
         if(confirm){
@@ -72,7 +73,7 @@ public class WordActivity extends AppCompatActivity {
         }else{
             Toast.makeText(context, "Palabra no agregada a diff_cat", Toast.LENGTH_SHORT).show();
         }
-    }
+    }*/
 
     public void openMenuAdminActivity(View view){
         Intent openMenuAdminActivity = new Intent(WordActivity.this, MenuAdminActivity.class);

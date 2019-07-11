@@ -83,9 +83,7 @@ public class InsertWordController {
        ca.nuevoIntent1(confirm, context);
     }
     public void diff_cat_create(String name_word, String name_category, String name_difficulty){
-        final WordActivity ca= (WordActivity) context;
         difficulty_categoryRepository.create(new Difficulty_Category(name_category,name_difficulty,name_word),"http://ahorcado1d.000webhostapp.com/insert_difficulty_category.php");
-        ca.nuevoIntent2(true, context);
     }
 
 
