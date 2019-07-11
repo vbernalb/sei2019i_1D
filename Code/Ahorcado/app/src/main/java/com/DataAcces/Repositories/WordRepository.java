@@ -3,6 +3,7 @@ package com.DataAcces.Repositories;
 import android.content.Context;
 import android.widget.Toast;
 
+import com.BusinessLogic.ScoreViewController;
 import com.DataAcces.Models.Word;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -99,6 +100,9 @@ public class WordRepository {
      */
     public void getbyword(String URL,String word,String description, String categoria, String dificultad){
         final String word_f = word;
+        final String description_f = description;
+        final String categoria_f = categoria;
+        final String dificultad_f = dificultad;
         StringRequest jsonArrayRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -114,6 +118,8 @@ public class WordRepository {
                                 jsonObject.getString("description")
                         );
                     }
+                    
+                   // new ScoreViewController(context).viewScore(word_f);
                     //new LoginAdminController(context).cofirmLogin(admin,password_f);
                 } catch (JSONException e) {
                     Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
