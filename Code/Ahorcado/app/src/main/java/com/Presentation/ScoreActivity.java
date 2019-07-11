@@ -16,12 +16,12 @@ public class ScoreActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_score);
     }
-    
+
     public void nuevoIntent(int score, Context context) {
         System.out.println("*** context  " + context);
         Toast.makeText(context, score, Toast.LENGTH_SHORT).show();
     }
-
+git 
     public void openMainActivity(View view){
         Intent openMainActivity = new Intent(ScoreActivity.this, MainActivity.class);
         startActivity(openMainActivity);
