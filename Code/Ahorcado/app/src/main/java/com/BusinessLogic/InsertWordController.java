@@ -52,7 +52,7 @@ public class InsertWordController {
         String[] m= new String[arrayList.size()];
         String[] p;
         for(int i=0; i<arrayList.size(); i++){
-            a = arrayList.toString();
+            a = arrayList.get(i);
              p = a.split("\"");
              m[i]= p[3];
         }
