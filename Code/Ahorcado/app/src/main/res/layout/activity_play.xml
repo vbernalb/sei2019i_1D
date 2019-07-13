@@ -20,5 +20,36 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Jugar" />
+        <Spinner
+            android:id="@+id/spinnerCat"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/button_form"
+            android:entries="@array/category_values"
+            android:prompt="@string/category_prompt" />
+        <Spinner
+            android:id="@+id/spinnerDif"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/button_form"
+            android:entries="@array/dificulty_values"
+            android:prompt="@string/dificulty_prompt" />
+
+        <Button
+            android:id="@+id/buttonPlay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/button_form"
+            android:text="Jugar" />
     </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>
