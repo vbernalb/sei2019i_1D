@@ -2,6 +2,7 @@ package com.Presentation;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -22,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     EditText email, password;
     Button login;
+    ImageView img;
     private CheckBox check;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +37,10 @@ public class MainActivity extends AppCompatActivity {
             password=(EditText)findViewById(R.id.passJoin_txt);
             login= (Button)findViewById(R.id.log_btn);
             check = (CheckBox) findViewById(R.id.admin_check);
-
+            img = (ImageView) findViewById(R.id.imageView);
+            img.setBackgroundResource(R.drawable.loading);
+            AnimationDrawable frameAnimation = (AnimationDrawable) img.getBackground();
+            frameAnimation.start();
         /**
          * Esta funcion revisa si la checkbox está o no activada con el fin
          * de iniciar sesión como ususario o como admin
