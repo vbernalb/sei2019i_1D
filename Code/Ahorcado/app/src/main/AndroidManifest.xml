@@ -35,8 +35,12 @@
             android:name="com.Presentation.RegisterActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-
             android:name="com.Presentation.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+
+            android:name="com.Presentation.SplashActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
