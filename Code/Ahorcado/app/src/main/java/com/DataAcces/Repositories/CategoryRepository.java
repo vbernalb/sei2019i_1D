@@ -6,7 +6,6 @@ import android.widget.Toast;
 import com.BusinessLogic.InsertCategoryController;
 
 import com.BusinessLogic.InsertWordController;
-import com.BusinessLogic.SelectGameController;
 import com.DataAcces.Models.Category;
 
 import com.android.volley.Request;

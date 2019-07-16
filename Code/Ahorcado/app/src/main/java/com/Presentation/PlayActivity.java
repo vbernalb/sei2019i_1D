@@ -1,6 +1,7 @@
 package com.Presentation;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -33,7 +34,10 @@ public class PlayActivity extends AppCompatActivity {
         final Spinner spinnerDif = (Spinner) findViewById(R.id.spinnerDif);
         Button buttonPlay = (Button) findViewById(R.id.buttonPlay);
     }
-
+    public void ChangeGame(View view){
+        Intent i= new Intent(this, GameActivity.class);
+        startActivity(i);
+    }
 
   /*  public void nuevoIntent1(boolean confirm, Context context){
         System.out.println("*** context  "+ context);
