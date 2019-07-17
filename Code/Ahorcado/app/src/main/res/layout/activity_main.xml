@@ -52,8 +52,8 @@
             android:inputType="textEmailAddress"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
-            android:textColor="#1E88E5"
-            android:textColorHint="#1E88E5" />
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF" />
 
         <EditText
             android:id="@+id/passJoin_txt"
@@ -69,8 +69,8 @@
             android:inputType="textPassword"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
-            android:textColor="#1E88E5"
-            android:textColorHint="#1E88E5" />
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF" />
 
         <CheckBox
             android:id="@+id/admin_check"
