@@ -43,7 +43,7 @@ public class InsertWordController {
     }*/
 
     public void showCategory(){
-        categoryRepository.categoryList("http://ahorcado1d.000webhostapp.com/get_all_category.php");
+        categoryRepository.categoryList("http://ahorcado1d.000webhostapp.com/get_all_category.php", 1);
     }
 
     public void showCategoryAnswer(ArrayList<String> arrayList){
