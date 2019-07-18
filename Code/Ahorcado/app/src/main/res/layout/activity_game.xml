@@ -22,6 +22,17 @@
             android:src="@drawable/n"
             tools:srcCompat="@tools:sample/avatars" />
 
+        <LinearLayout
+            android:id="@+id/layout_word"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+
+
+
+        </LinearLayout>
+
         <Button
             android:id="@+id/img_btn"
             android:layout_width="match_parent"
