@@ -2,6 +2,8 @@ package com.Presentation;
 
 
 import android.app.ActionBar;
+import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.support.annotation.ColorInt;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +18,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.ahorcado.R;
 
@@ -82,6 +85,24 @@ public class GameActivity extends AppCompatActivity {
             myTextViews[i] = rowtxt;
             myTextViews[i].setOnClickListener(onclicklistener);*/
 
+    }
+
+
+    // metodo para verificar, desactivar botones y cambiar color
+
+    public void Verificar(View v) {
+        Button btn = (Button) v;
+        String str = btn.getText().toString();
+        btn.setEnabled(false);
+        btn.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#F31C0A")));
+        Toast.makeText(this, "Boton desactivado", Toast.LENGTH_SHORT).show();
+    }
+
+    //cerrar sesion
+    public void exit(View view){
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
     }
 
 

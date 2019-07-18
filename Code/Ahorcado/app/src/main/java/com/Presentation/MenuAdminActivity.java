@@ -25,6 +25,10 @@ public class MenuAdminActivity extends AppCompatActivity {
             case R.id.ma_word:
                 intent = new Intent(this, WordActivity.class);
                 break;
+            case R.id.ma_salir:
+                intent = new Intent(this, MainActivity.class);
+                intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                break;
         }
         if(intent!=null){
             startActivity(intent);
@@ -36,4 +40,6 @@ public class MenuAdminActivity extends AppCompatActivity {
         startActivity(openMainActivity);
         finishActivity(0);
     }
+
+
 }

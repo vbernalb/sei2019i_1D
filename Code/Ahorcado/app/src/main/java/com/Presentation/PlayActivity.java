@@ -12,7 +12,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.BusinessLogic.InsertWordController;
-import com.BusinessLogic.SelectGameController;
+//import com.BusinessLogic.SelectGameController;
 import com.example.ahorcado.R;
 
 public class PlayActivity extends AppCompatActivity {

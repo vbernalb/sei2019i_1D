@@ -51,7 +51,7 @@
                 android:layout_weight="1"
                 android:fontFamily="sans-serif-black"
                 android:text="Email:"
-                android:textColor="#FDD835"
+                android:textColor="#FFB300"
                 android:textSize="20dp"
                 tools:layout_editor_absoluteX="0dp"
                 tools:layout_editor_absoluteY="0dp" />
@@ -59,17 +59,18 @@
             <EditText
                 android:id="@+id/Email"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/edittext_form"
+                android:drawableLeft="@drawable/ic_action_iconemail"
                 android:ems="10"
                 android:fontFamily="sans-serif-black"
                 android:inputType="textEmailAddress"
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
-                android:textColor="#1E88E5" />
+                android:textColor="#EFF1F3" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -80,7 +81,7 @@
                 android:layout_weight="1"
                 android:fontFamily="sans-serif-black"
                 android:text="Contraseña:"
-                android:textColor="#FDD835"
+                android:textColor="#FFB300"
                 android:textSize="20dp"
                 tools:layout_editor_absoluteX="0dp"
                 tools:layout_editor_absoluteY="0dp" />
@@ -88,17 +89,18 @@
             <EditText
                 android:id="@+id/Password"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/edittext_form"
+                android:drawableLeft="@drawable/ic_action_iconpass"
                 android:ems="10"
                 android:fontFamily="sans-serif-black"
                 android:inputType="textPassword"
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
-                android:textColor="#1E88E5" />
+                android:textColor="#EFF1F3" />
 
             <TextView
                 android:id="@+id/textView6"
@@ -109,7 +111,7 @@
                 android:layout_weight="1"
                 android:fontFamily="sans-serif-black"
                 android:text="Confirmar contraseña:"
-                android:textColor="#FDD835"
+                android:textColor="#FFB300"
                 android:textSize="20dp"
                 tools:layout_editor_absoluteX="0dp"
                 tools:layout_editor_absoluteY="0dp" />
@@ -117,17 +119,18 @@
             <EditText
                 android:id="@+id/Password2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/edittext_form"
+                android:drawableLeft="@drawable/ic_action_iconpass"
                 android:ems="10"
                 android:fontFamily="sans-serif-black"
                 android:inputType="textPassword"
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
-                android:textColor="#1E88E5" />
+                android:textColor="#EFF1F3" />
 
             <Button
                 android:id="@+id/SingIn"
