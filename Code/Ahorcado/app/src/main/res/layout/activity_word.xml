@@ -36,14 +36,19 @@
         <EditText
             android:id="@+id/ca_word"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:layout_margin="20dp"
+            android:background="@drawable/edittext_form"
+            android:drawableLeft="@drawable/ic_action_iconlapiz"
             android:ems="10"
             android:fontFamily="casual"
             android:gravity="center"
             android:hint="Nueva Palabra"
             android:inputType="textPersonName"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:textColor="#ffffff"
+            android:textColorHint="#5DA9B3"
             android:textStyle="bold" />
 
         <Spinner
@@ -54,6 +59,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/button_form"
+            android:backgroundTint="#C9FFFFFF"
             android:entries="@array/category_values"
             android:prompt="@string/category_prompt" />
 
@@ -65,6 +71,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/button_form"
+            android:backgroundTint="#C9FFFFFF"
             android:entries="@array/dificulty_values"
             android:prompt="@string/dificulty_prompt" />
 

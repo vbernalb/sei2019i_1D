@@ -25,6 +25,7 @@
             android:textColor="#ffffff"
             android:textSize="24sp"
             android:textStyle="normal|bold" />
+
         <Button
             android:id="@+id/mu_jugar"
             android:layout_width="match_parent"
@@ -33,6 +34,7 @@
             android:layout_marginTop="100dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/button_form"
+            android:drawableLeft="@drawable/ic_action_iconplay"
             android:fontFamily="sans-serif-black"
             android:onClick="onClick"
             android:paddingLeft="70dp"
@@ -48,6 +50,7 @@
             android:layout_marginTop="30dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/button_form"
+            android:drawableLeft="@drawable/ic_action_iconstar"
             android:fontFamily="sans-serif-black"
             android:onClick="onClick"
             android:paddingLeft="70dp"

@@ -20,6 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Jugar" />
+
         <Spinner
             android:id="@+id/spinnerCat"
             android:layout_width="match_parent"
@@ -28,8 +29,10 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/button_form"
+            android:backgroundTint="#B0FFFFFF"
             android:entries="@array/category_values"
             android:prompt="@string/category_prompt" />
+
         <Spinner
             android:id="@+id/spinnerDif"
             android:layout_width="match_parent"
@@ -38,6 +41,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/button_form"
+            android:backgroundTint="#B9FFFFFF"
             android:entries="@array/dificulty_values"
             android:prompt="@string/dificulty_prompt" />
 

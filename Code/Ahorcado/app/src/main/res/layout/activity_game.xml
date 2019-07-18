@@ -14,6 +14,13 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
+        <Button
+            android:id="@+id/ma_salir2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@mipmap/salir"
+            android:onClick="exit" />
+
         <ImageView
             android:id="@+id/image_ahorc"
             android:layout_width="422dp"

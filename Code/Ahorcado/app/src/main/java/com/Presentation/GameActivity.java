@@ -2,6 +2,7 @@ package com.Presentation;
 
 
 import android.app.ActionBar;
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.support.annotation.ColorInt;
@@ -95,6 +96,13 @@ public class GameActivity extends AppCompatActivity {
         btn.setEnabled(false);
         btn.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#F31C0A")));
         Toast.makeText(this, "Boton desactivado", Toast.LENGTH_SHORT).show();
+    }
+
+    //cerrar sesion
+    public void exit(View view){
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
     }
 
 

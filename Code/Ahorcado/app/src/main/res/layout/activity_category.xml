@@ -31,15 +31,19 @@
         <EditText
             android:id="@+id/ca_category"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_margin="20dp"
             android:background="@drawable/edittext_form"
+            android:drawableLeft="@drawable/ic_action_iconlapiz"
             android:ems="10"
             android:fontFamily="casual"
-            android:hint=" Nueva Categoria"
+            android:gravity="center"
+            android:hint="Nueva Categoria"
             android:inputType="textPersonName"
-            android:textColor="#1E88E5"
-            android:textColorHint="#1E88E5"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textColor="#F4F4F8"
+            android:textColorHint="#6AC4CF"
             android:textStyle="normal" />
 
         <Button
