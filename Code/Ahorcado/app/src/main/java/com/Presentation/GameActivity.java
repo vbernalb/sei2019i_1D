@@ -2,6 +2,8 @@ package com.Presentation;
 
 
 import android.app.ActionBar;
+import android.graphics.Color;
+import android.support.annotation.ColorInt;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
