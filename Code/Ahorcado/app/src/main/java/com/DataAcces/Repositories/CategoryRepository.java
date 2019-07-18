@@ -6,7 +6,7 @@ import android.widget.Toast;
 import com.BusinessLogic.InsertCategoryController;
 
 import com.BusinessLogic.InsertWordController;
-import com.BusinessLogic.PlayController;
+//import com.BusinessLogic.PlayController;
 import com.DataAcces.Models.Category;
 
 import com.android.volley.Request;
@@ -132,7 +132,7 @@ public class CategoryRepository {
                                 break;
                             }
                             case 2: {
-                                new PlayController(context).categoryList2(arrayList);
+                            //    new PlayController(context).categoryList2(arrayList);
                                 break;
                             }
                         }
