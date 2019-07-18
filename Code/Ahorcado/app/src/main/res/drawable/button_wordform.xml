@@ -7,8 +7,8 @@
         android:bottomLeftRadius="20dp"
         android:bottomRightRadius="20dp"/>
     <gradient
-        android:endColor="@color/orange2"
-        android:startColor="@color/orange2"
+        android:endColor="@color/orange"
+        android:startColor="@color/orange"
         />
     <stroke
         android:color="#A35800"
