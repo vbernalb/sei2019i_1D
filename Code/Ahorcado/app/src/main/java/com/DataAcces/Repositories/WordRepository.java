@@ -77,7 +77,7 @@ public class WordRepository {
                 Map<String,String> parametros = new HashMap<String,String>();
                 parametros.put("nameWord",palabra);
                 parametros.put("description",descripcion);
-
+                parametros.put("description",descripcion);
                 return parametros;
             }
         };
@@ -116,7 +116,8 @@ public class WordRepository {
                     Word word1 = null;
                     if(jsonObject.getBoolean("success")==true) {
                         word1 = new Word(jsonObject.getString("nameWord"),
-                                jsonObject.getString("description")
+                                jsonObject.getString("description"),
+                                Integer.parseInt(jsonObject.getString("diff_cat"))
                         );
                     }
                     
