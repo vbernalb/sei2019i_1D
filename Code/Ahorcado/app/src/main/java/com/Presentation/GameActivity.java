@@ -121,6 +121,7 @@ public class GameActivity extends AppCompatActivity {
         btn.setEnabled(false);
         TextView guessWord = findViewById(R.id.textView30);
         guessWord.setText(getTempWord(str));
+
         btn.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#F31C0A")));
         //Toast.makeText(this, "Boton desactivado", Toast.LENGTH_SHORT).show();
     }
