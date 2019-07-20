@@ -78,7 +78,7 @@ public class InsertWordController {
         System.out.println("name_diff: " + name_difficulty);
         if(word== null){
             confirm=true;
-            wordRepository.create(new Word(name_word,description), "http://ahorcado1d.000webhostapp.com/insert_word.php");
+            wordRepository.create(new Word(name_word,description,0), "http://ahorcado1d.000webhostapp.com/insert_word.php");
         }
        ca.nuevoIntent1(confirm, context);
     }
