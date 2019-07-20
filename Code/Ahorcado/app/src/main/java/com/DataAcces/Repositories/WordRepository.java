@@ -44,6 +44,7 @@ public class WordRepository {
         boolean operacion= false;
         final String  palabra =word.getName_Word();
         final String  descripcion =word.getDescription();
+        final String diff_cat = Integer.toString(word.getDiff_cat());
 
         StringRequest stringRequest= new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
@@ -77,7 +78,7 @@ public class WordRepository {
                 Map<String,String> parametros = new HashMap<String,String>();
                 parametros.put("nameWord",palabra);
                 parametros.put("description",descripcion);
-                parametros.put("description",descripcion);
+                parametros.put("diff_cat",diff_cat);
                 return parametros;
             }
         };
