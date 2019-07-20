@@ -4,7 +4,7 @@ public class Difficulty_Category {
     private String name_category;
     private String type;
 
-    public Difficulty_Category(String name_Category, String type, String name_word) {
+    public Difficulty_Category(String name_Category, String type) {
         name_category = name_Category;
         this.type = type;
     }
