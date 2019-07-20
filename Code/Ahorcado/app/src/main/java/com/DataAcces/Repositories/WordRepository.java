@@ -151,4 +151,7 @@ public class WordRepository {
         requestQueue.add(jsonArrayRequest);
         return ;
     }
+
+    public void wordList(){};
+
 }
