@@ -96,14 +96,21 @@ public class GameActivity extends AppCompatActivity {
     char[] outputWord = {'-', '-', '-', '-', '-', '-', '-', '-'};
     String resultWord = "--------";
     char[] fromDB = "Ahorcado".toLowerCase().toCharArray();
+    boolean isMatch;
 
     public String getTempWord(String touchString){
+        isMatch = false;
         char touchChar = touchString.toLowerCase().charAt(0);
         for(int k = 0; k < fromDB.length; k++)
-            if(fromDB[k] == touchChar)
+            if(fromDB[k] == touchChar) {
                 outputWord[k] = touchChar;
-        String resultWord = new String(outputWord);
-        return resultWord;
+                isMatch = true;
+            }
+        return new String(outputWord);
+    }
+
+    public boolean isMatch(){
+        return isMatch;
     }
 
     public void setInitWord(String wordFromDB){
@@ -117,11 +124,18 @@ public class GameActivity extends AppCompatActivity {
 
     public void Verificar(View v) {
         Button btn = (Button) v;
+        String colorButton;
         String str = btn.getText().toString();
         btn.setEnabled(false);
         TextView guessWord = findViewById(R.id.textView30);
         guessWord.setText(getTempWord(str));
-        btn.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#F31C0A")));
+        if(isMatch)
+            colorButton = "#00F700";
+        else
+            colorButton = "#F31C0A";
+        btn.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor(colorButton)));
+
+
         //Toast.makeText(this, "Boton desactivado", Toast.LENGTH_SHORT).show();
     }
 
