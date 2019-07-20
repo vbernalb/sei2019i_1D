@@ -22,6 +22,8 @@ import android.widget.Toast;
 
 import com.example.ahorcado.R;
 
+import org.w3c.dom.Text;
+
 public class GameActivity extends AppCompatActivity {
     ImageView img;
     Button btn;
@@ -140,6 +142,8 @@ public class GameActivity extends AppCompatActivity {
             deactivateButtons(linearLayout2);
             LinearLayout linearLayout3 = findViewById(R.id.linearLayout30);
             deactivateButtons(linearLayout3);
+            TextView gameOverWord = findViewById(R.id.textView30);
+            gameOverWord.setText(new String(fromDB));
         }
         numOfTrials.setText(message);
     }
