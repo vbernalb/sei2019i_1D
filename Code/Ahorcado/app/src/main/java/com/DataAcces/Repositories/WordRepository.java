@@ -39,12 +39,13 @@ public class WordRepository {
      * @param URL  la URL del servidor donde se encuentra la base de datos example: http://192.162.1.3:80/Database/insertar.php
      * @return
      */
-    public void create (Word word, String URL){
+    public void create (Word word, String URL, String category, String difficulty){
         System.out.println("*******entre al user repositori");
         boolean operacion= false;
         final String  palabra =word.getName_Word();
         final String  descripcion =word.getDescription();
-        final String diff_cat = Integer.toString(word.getDiff_cat());
+        final String  category_f =category;
+        final String  difficulty_f =difficulty;
 
         StringRequest stringRequest= new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
@@ -78,7 +79,8 @@ public class WordRepository {
                 Map<String,String> parametros = new HashMap<String,String>();
                 parametros.put("nameWord",palabra);
                 parametros.put("description",descripcion);
-                parametros.put("diff_cat",diff_cat);
+                parametros.put("difficulty",difficulty_f);
+                parametros.put("category",category_f);
                 return parametros;
             }
         };

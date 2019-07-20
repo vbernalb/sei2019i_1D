@@ -96,7 +96,7 @@ public class Difficulty_CategoryRepository {
                         Difficulty_Category difficulty_category=null;
                         if(jsonObject.getBoolean("success")==true){
                             difficulty_category= new Difficulty_Category(jsonObject.getString("name_category"),
-                                    jsonObject.getString("type"));   
+                                    jsonObject.getString("type"));
                         }
                         //new InsertCategoryController(context).categoryExist1(category, name_category_F); preguntar vale
                     } catch (JSONException e) {
