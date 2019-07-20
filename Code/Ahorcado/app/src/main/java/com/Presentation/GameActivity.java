@@ -97,6 +97,7 @@ public class GameActivity extends AppCompatActivity {
     String resultWord = "--------";
     char[] fromDB = "Ahorcado".toLowerCase().toCharArray();
     boolean isMatch;
+    public int numOfTrials = 5;
 
     public String getTempWord(String touchString){
         isMatch = false;
@@ -122,6 +123,35 @@ public class GameActivity extends AppCompatActivity {
     }
     // metodo para verificar, desactivar botones y cambiar color
 
+    public void setState(){
+        TextView numOfTrials = findViewById(R.id.textView40);
+        String message = "";
+        if(isMatch) {
+            message = "Quedan " + GameActivity.this.numOfTrials + " equivocaciones";
+        }
+        else if(GameActivity.this.numOfTrials > 1 && !isMatch){
+            GameActivity.this.numOfTrials--;
+            message = "Quedan " + GameActivity.this.numOfTrials + " equivocaciones";
+        } else {
+            message = "Perdiste";
+            LinearLayout linearLayout = findViewById(R.id.linearLayout10);
+            deactivateButtons(linearLayout);
+            LinearLayout linearLayout2 = findViewById(R.id.linearLayout20);
+            deactivateButtons(linearLayout2);
+            LinearLayout linearLayout3 = findViewById(R.id.linearLayout30);
+            deactivateButtons(linearLayout3);
+        }
+        numOfTrials.setText(message);
+    }
+
+    public void deactivateButtons(LinearLayout inputLinearLayout){
+        for (int i = 0; i < 9; i++) {
+            Button btn = (Button) inputLinearLayout.getChildAt(i);
+            btn.setEnabled(false);
+            btn.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#00BFFF")));
+        }
+    }
+
     public void Verificar(View v) {
         Button btn = (Button) v;
         String colorButton;
@@ -134,8 +164,7 @@ public class GameActivity extends AppCompatActivity {
         else
             colorButton = "#F31C0A";
         btn.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor(colorButton)));
-
-
+        setState();
         //Toast.makeText(this, "Boton desactivado", Toast.LENGTH_SHORT).show();
     }
 
