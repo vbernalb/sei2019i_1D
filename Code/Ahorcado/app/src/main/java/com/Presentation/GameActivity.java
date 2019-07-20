@@ -22,6 +22,8 @@ import android.widget.Toast;
 
 import com.example.ahorcado.R;
 
+import org.w3c.dom.Text;
+
 public class GameActivity extends AppCompatActivity {
     ImageView img;
     Button btn;
@@ -96,14 +98,22 @@ public class GameActivity extends AppCompatActivity {
     char[] outputWord = {'-', '-', '-', '-', '-', '-', '-', '-'};
     String resultWord = "--------";
     char[] fromDB = "Ahorcado".toLowerCase().toCharArray();
+    boolean isMatch;
+    public int numOfTrials = 5;
 
     public String getTempWord(String touchString){
+        isMatch = false;
         char touchChar = touchString.toLowerCase().charAt(0);
         for(int k = 0; k < fromDB.length; k++)
-            if(fromDB[k] == touchChar)
+            if(fromDB[k] == touchChar) {
                 outputWord[k] = touchChar;
-        String resultWord = new String(outputWord);
-        return resultWord;
+                isMatch = true;
+            }
+        return new String(outputWord);
+    }
+
+    public boolean isMatch(){
+        return isMatch;
     }
 
     public void setInitWord(String wordFromDB){
@@ -115,14 +125,53 @@ public class GameActivity extends AppCompatActivity {
     }
     // metodo para verificar, desactivar botones y cambiar color
 
+    public void setState(){
+        TextView numOfTrials = findViewById(R.id.textView40);
+        String message = "";
+        if(isMatch) {
+            message = "Quedan " + GameActivity.this.numOfTrials + " equivocaciones";
+        }
+        else if(GameActivity.this.numOfTrials > 1 && !isMatch){
+            GameActivity.this.numOfTrials--;
+            message = "Quedan " + GameActivity.this.numOfTrials + " equivocaciones";
+        } else {
+            message = "Perdiste";
+            LinearLayout linearLayout = findViewById(R.id.linearLayout10);
+            deactivateButtons(linearLayout);
+            LinearLayout linearLayout2 = findViewById(R.id.linearLayout20);
+            deactivateButtons(linearLayout2);
+            LinearLayout linearLayout3 = findViewById(R.id.linearLayout30);
+            deactivateButtons(linearLayout3);
+            TextView gameOverWord = findViewById(R.id.textView30);
+            gameOverWord.setText(new String(fromDB));
+        }
+        numOfTrials.setText(message);
+    }
+
+    public void deactivateButtons(LinearLayout inputLinearLayout){
+        for (int i = 0; i < 9; i++) {
+            Button btn = (Button) inputLinearLayout.getChildAt(i);
+            btn.setEnabled(false);
+            btn.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#00BFFF")));
+        }
+    }
+
     public void Verificar(View v) {
         Button btn = (Button) v;
+        String colorButton;
         String str = btn.getText().toString();
         btn.setEnabled(false);
         TextView guessWord = findViewById(R.id.textView30);
         guessWord.setText(getTempWord(str));
-
         btn.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#F31C0A")));
+
+        if(isMatch)
+            colorButton = "#00F700";
+        else
+            colorButton = "#F31C0A";
+        btn.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor(colorButton)));
+        setState();
+
         //Toast.makeText(this, "Boton desactivado", Toast.LENGTH_SHORT).show();
     }
 
