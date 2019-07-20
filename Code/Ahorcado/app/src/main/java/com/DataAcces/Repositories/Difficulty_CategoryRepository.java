@@ -43,7 +43,6 @@ public class Difficulty_CategoryRepository {
     public void create (Difficulty_Category difficulty_category, String URL){;
         final String  name_category= difficulty_category.getName_Category();
         final String type= difficulty_category.getType();
-        final String name_word= difficulty_category.getName_word();
 
         StringRequest stringRequest= new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
@@ -69,7 +68,6 @@ public class Difficulty_CategoryRepository {
                 Map<String,String> parametros = new HashMap<String,String>();
                 parametros.put("nameCategory", name_category);
                 parametros.put("type", type);
-                parametros.put("nameWord", name_word);
                 return parametros;
             }
         };
