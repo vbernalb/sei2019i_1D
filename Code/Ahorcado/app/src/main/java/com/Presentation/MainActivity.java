@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     EditText email, password;
     Button login;
-    ImageView img;
+    ImageView img, img2;
     private CheckBox check;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +39,12 @@ public class MainActivity extends AppCompatActivity {
             check = (CheckBox) findViewById(R.id.admin_check);
             img = (ImageView) findViewById(R.id.imageView);
             img.setBackgroundResource(R.drawable.loading);
+            img2 = (ImageView) findViewById(R.id.GifView);
+            img2.setBackgroundResource(R.drawable.loading2);
             AnimationDrawable frameAnimation = (AnimationDrawable) img.getBackground();
+            AnimationDrawable frameAnimation1 = (AnimationDrawable) img2.getBackground();
             frameAnimation.start();
+            frameAnimation1.start();
         /**
          * Esta funcion revisa si la checkbox está o no activada con el fin
          * de iniciar sesión como ususario o como admin

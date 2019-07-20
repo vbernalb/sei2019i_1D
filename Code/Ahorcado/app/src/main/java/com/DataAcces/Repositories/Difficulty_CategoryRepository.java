@@ -43,7 +43,6 @@ public class Difficulty_CategoryRepository {
     public void create (Difficulty_Category difficulty_category, String URL){;
         final String  name_category= difficulty_category.getName_Category();
         final String type= difficulty_category.getType();
-        final String name_word= difficulty_category.getName_word();
 
         StringRequest stringRequest= new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
@@ -69,7 +68,6 @@ public class Difficulty_CategoryRepository {
                 Map<String,String> parametros = new HashMap<String,String>();
                 parametros.put("nameCategory", name_category);
                 parametros.put("type", type);
-                parametros.put("nameWord", name_word);
                 return parametros;
             }
         };
@@ -85,10 +83,9 @@ public class Difficulty_CategoryRepository {
      * @param URL  la URL del servidor donde se encuentra la base de datos example: http://192.162.1.3:80/Database/insertar.php
      * @return Un objeto Difficulty_Category, con los datos obtenidos, null si no encuentra nada.
      */
-    public void getbyDifficulty_Category(String URL, final String name_category, final String type, final String name_word ){
+    public void getbyDifficulty_Category(String URL, final String name_category, final String type ){
         final String name_category_F = name_category;
         final String type_F = type;
-        final String name_word_F = name_word;
         StringRequest jsonArrayRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -99,7 +96,7 @@ public class Difficulty_CategoryRepository {
                         Difficulty_Category difficulty_category=null;
                         if(jsonObject.getBoolean("success")==true){
                             difficulty_category= new Difficulty_Category(jsonObject.getString("name_category"),
-                                    jsonObject.getString("type"), jsonObject.getString("name_word"));
+                                    jsonObject.getString("type"));
                         }
                         //new InsertCategoryController(context).categoryExist1(category, name_category_F); preguntar vale
                     } catch (JSONException e) {
@@ -118,7 +115,6 @@ public class Difficulty_CategoryRepository {
                 Map<String,String> parametros = new HashMap<String,String>();
                 parametros.put("nameCategory",name_category_F);
                 parametros.put("type",type_F);
-                parametros.put("nameWord",name_word_F);
                 return parametros;
             }
         };

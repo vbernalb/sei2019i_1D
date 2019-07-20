@@ -54,8 +54,8 @@ public class WordActivity extends AppCompatActivity {
         final EditText editText = (EditText)findViewById(R.id.ca_word);
         final Spinner spinner2 = (Spinner)findViewById(R.id.spinner2);
         if(confirm){
-            new InsertWordController(WordActivity.this).diff_cat_create(editText.getText().toString(),
-                    spinner1.getItemAtPosition(spinner1.getSelectedItemPosition()).toString(), spinner2.getItemAtPosition(spinner2.getSelectedItemPosition()).toString());
+            //new InsertWordController(WordActivity.this).diff_cat_create(editText.getText().toString(),
+                   // spinner1.getItemAtPosition(spinner1.getSelectedItemPosition()).toString(), spinner2.getItemAtPosition(spinner2.getSelectedItemPosition()).toString());
             Toast.makeText(context, "Palabra agregada", Toast.LENGTH_SHORT).show();
         }else{
             Toast.makeText(context, "Palabra ya existente", Toast.LENGTH_SHORT).show();
