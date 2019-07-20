@@ -66,7 +66,10 @@ public class GameActivity extends AppCompatActivity {
         });
         // prueba tamaño palabra
         //cambiar número probar text view
-       for (int i = 0; i <= 10 ; i++)
+
+        String inputString = "";
+
+/*       for (int i = 0; i <= 15 ; i++)
         {
             TextView myText = new TextView(this);
             myText.setHeight(100);
@@ -75,6 +78,7 @@ public class GameActivity extends AppCompatActivity {
             myText.setText("L"+ i);
             ly.addView(myText);
         }
+        */
 
         /*final int c = 12;
             final TextView[] mtext = new TextView[c];
@@ -84,18 +88,41 @@ public class GameActivity extends AppCompatActivity {
             myLinearLayout.addView(rowtxt);
             myTextViews[i] = rowtxt;
             myTextViews[i].setOnClickListener(onclicklistener);*/
-
+        //TextView guessWord = findViewById(R.id.textView30);
+        //guessWord.setText("--------");
+        setInitWord("--------");
     }
 
+    char[] outputWord = {'-', '-', '-', '-', '-', '-', '-', '-'};
+    String resultWord = "--------";
+    char[] fromDB = "Ahorcado".toLowerCase().toCharArray();
 
+    public String getTempWord(String touchString){
+        char touchChar = touchString.toLowerCase().charAt(0);
+        for(int k = 0; k < fromDB.length; k++)
+            if(fromDB[k] == touchChar)
+                outputWord[k] = touchChar;
+        String resultWord = new String(outputWord);
+        return resultWord;
+    }
+
+    public void setInitWord(String wordFromDB){
+        TextView guessWord = findViewById(R.id.textView30);
+        String initWord = "";
+        for(char c : wordFromDB.toCharArray())
+            initWord += "-";
+        guessWord.setText(initWord);
+    }
     // metodo para verificar, desactivar botones y cambiar color
 
     public void Verificar(View v) {
         Button btn = (Button) v;
         String str = btn.getText().toString();
         btn.setEnabled(false);
+        TextView guessWord = findViewById(R.id.textView30);
+        guessWord.setText(getTempWord(str));
         btn.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#F31C0A")));
-        Toast.makeText(this, "Boton desactivado", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Boton desactivado", Toast.LENGTH_SHORT).show();
     }
 
     //cerrar sesion
