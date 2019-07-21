@@ -36,12 +36,13 @@ public class WordActivity extends AppCompatActivity {
         spinner1.setAdapter(arrayAdapter);
         final EditText editText = (EditText)findViewById(R.id.ca_word);
         final Spinner spinner2 = (Spinner)findViewById(R.id.spinner2);
+        final EditText hintText = (EditText)findViewById(R.id.ca_hint);
 
         Button button = (Button)findViewById(R.id.button2);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new InsertWordController(WordActivity.this).InsertWord(editText.getText().toString(), "",
+                new InsertWordController(WordActivity.this).InsertWord(editText.getText().toString(), hintText.getText().toString(),
                         spinner1.getItemAtPosition(spinner1.getSelectedItemPosition()).toString(), spinner2.getItemAtPosition(spinner2.getSelectedItemPosition()).toString());
             }
         });
