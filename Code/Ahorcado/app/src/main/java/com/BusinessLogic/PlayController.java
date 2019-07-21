@@ -40,7 +40,7 @@ public class PlayController {
         aleatorio = (int) Math.random()*m.length;
         word = m[aleatorio];
 
-        //ma.nuevoIntent2(word, context);
+        //ma.nuevoIntent1(word, context);
     }
 
 
@@ -59,7 +59,7 @@ public class PlayController {
             p = a.split("\"");
             m[i]= p[3];
         }
-        //pa.nuevoIntent(m, context);
+        //pa.nuevoIntent1(m, context);
     }
 }
 
