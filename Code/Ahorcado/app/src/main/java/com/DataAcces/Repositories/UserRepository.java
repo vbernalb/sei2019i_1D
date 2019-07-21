@@ -148,10 +148,9 @@ public class UserRepository {
      *@param email El email por el cual se quiere buscar
      *  @param password La contraseña por el cual se quiere comparar
      */
-    public void getbyEmail(String URL, final String email, String password, int score, int tipo ){
+    public void getbyEmail(String URL, final String email, String password, int tipo ){
         final int numero = tipo;
         final String email_F = email;
-        final int score_f= score;
         System.out.println("*** user entro");
         final String password_f = password;
         StringRequest jsonArrayRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
@@ -179,8 +178,6 @@ public class UserRepository {
                                 case 3:
                                     new ScoreViewController(context).viewScoreAnswer(user.getAcumulate_score());
                                     break;
-                                case 4:
-                                    new PlayController(context).score(user.getAcumulate_score(), score_f);
                             }
                     } catch (JSONException e) {
                         System.out.println("on error ");
