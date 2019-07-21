@@ -21,7 +21,7 @@ public class PlayController {
     }
 
     public void play(){
-        wordRepository.wordList();
+        //wordRepository.wordList();
     }
     public void wordPlay(ArrayList<String> arrayList){
         final GameActivity ma = (GameActivity) context;

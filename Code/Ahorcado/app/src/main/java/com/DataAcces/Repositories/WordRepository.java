@@ -4,6 +4,7 @@ import android.content.Context;
 import android.widget.Toast;
 
 import com.BusinessLogic.InsertWordController;
+import com.BusinessLogic.PlayController;
 import com.BusinessLogic.ScoreViewController;
 import com.DataAcces.Models.Word;
 import com.android.volley.AuthFailureError;
@@ -19,6 +20,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -148,6 +150,42 @@ public class WordRepository {
         return ;
     }
 
-    public void wordList(){};
+    public void wordList(String URL){
+        final StringRequest jsonArrayRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                JSONArray jsonArray =null;
+                try {
+                    jsonArray= new JSONArray(response);
+                    ArrayList arrayList= new ArrayList();
+                    for (int j=0; j<jsonArray.length(); j++){
+                        arrayList.add(j, jsonArray.getString(j));
+                    }
+                    new PlayController(context).wordPlay(arrayList);
+
+                } catch (JSONException e) {
+                    Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(context, "problema en la conexion", Toast.LENGTH_SHORT).show();
+            }
+        }
+        ){
+            @Override
+            protected Map<String, String> getParams()  {
+                /*Map<String,String> parametros = new HashMap<String,String>();
+                parametros.put("name_category",name_category_F);
+                parametros.put("type",type_F);
+                parametros.put("name_word",name_word_F);
+                return parametros;*/
+                return null;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
+        requestQueue.add(jsonArrayRequest);
+    };
 
 }
