@@ -2,6 +2,7 @@ package com.Presentation;
 
 
 import android.app.ActionBar;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
@@ -20,6 +21,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.BusinessLogic.PlayController;
 import com.example.ahorcado.R;
 
 import org.w3c.dom.Text;
@@ -38,12 +40,20 @@ public class GameActivity extends AppCompatActivity {
         int WrapWidth = LinearLayout.LayoutParams.WRAP_CONTENT;
         int WrapHeight = LinearLayout.LayoutParams.WRAP_CONTENT;
         String inputString = "";
-        setInitWord("--------");
+        setInitWord("---");
     }
 
-    char[] outputWord = {'-', '-', '-', '-', '-', '-', '-', '-'};
-    String resultWord = "--------";
-    char[] fromDB = "Ahorcado".toLowerCase().toCharArray();
+    char[] fromDB;
+    char[] outputWord;
+
+    public void nuevoIntent1(String word, Context context){
+        System.out.println("*** context  " + context);
+        fromDB = word.toLowerCase().toCharArray();
+        outputWord = setInitWord(word).toCharArray();
+    }
+
+    //char[] outputWord = {'-', '-', '-', '-', '-', '-', '-', '-'};
+    //char[] fromDB = "Ahorcado".toLowerCase().toCharArray();
     boolean isMatch;
     public int numOfTrials = 6;
 
@@ -62,12 +72,13 @@ public class GameActivity extends AppCompatActivity {
         return isMatch;
     }
 
-    public void setInitWord(String wordFromDB){
+    public String setInitWord(String wordFromDB){
         TextView guessWord = findViewById(R.id.textView30);
         String initWord = "";
         for(char c : wordFromDB.toCharArray())
             initWord += "-";
         guessWord.setText(initWord);
+        return initWord;
     }
     // metodo para verificar, desactivar botones y cambiar color
 
