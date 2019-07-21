@@ -76,16 +76,17 @@ public class GameActivity extends AppCompatActivity {
         String message = "";
 
         if(isMatch) {
-            message = "Quedan " + GameActivity.this.numOfTrials + " equivocaciones";
+            message = "Quedan " + GameActivity.this.numOfTrials + " intentos";
             if(hasWon()){
                 message = "¡GANASTE!";
+                img.setImageResource(R.drawable.g);
                 deactivateAllButtons();
                 // INSERTAR CODIGO DEBAJO DE ESTE COMENTARIO
             }
         }
         else if(GameActivity.this.numOfTrials > 1 && !isMatch){
             GameActivity.this.numOfTrials--;
-            message = "Quedan " + GameActivity.this.numOfTrials + " equivocaciones";
+            message = "Quedan " + GameActivity.this.numOfTrials + " intentos";
 
             if(count==1){
                 img.setImageResource(R.drawable.a);
