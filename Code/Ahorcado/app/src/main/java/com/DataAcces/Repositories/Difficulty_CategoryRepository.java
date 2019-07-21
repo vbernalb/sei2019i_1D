@@ -52,7 +52,7 @@ public class Difficulty_CategoryRepository {
                     JSONObject jsonObject = new JSONObject(response);
 
                 }catch (JSONException e ) {
-                    System.out.println("exeption    "+ e.getMessage());
+                    System.out.println("exception    "+ e.getMessage());
                 }
             }
         }, new Response.ErrorListener() {
@@ -67,7 +67,7 @@ public class Difficulty_CategoryRepository {
             protected Map<String, String> getParams()  {
                 Map<String,String> parametros = new HashMap<String,String>();
                 parametros.put("nameCategory", name_category);
-                parametros.put("type", type);
+                //parametros.put("type", type);
                 return parametros;
             }
         };
@@ -95,10 +95,11 @@ public class Difficulty_CategoryRepository {
                         jsonObject = new JSONObject(response);
                         Difficulty_Category difficulty_category=null;
                         if(jsonObject.getBoolean("success")==true){
-                            difficulty_category= new Difficulty_Category(jsonObject.getString("name_category"),
+                            difficulty_category= new Difficulty_Category(jsonObject.getInt("id_diff_cat"),jsonObject.getString("name_category"),
                                     jsonObject.getString("type"));
+
                         }
-                        //new InsertCategoryController(context).categoryExist1(category, name_category_F); preguntar vale
+                        //new InsertCategoryController(context).diff_cat_create(difficulty_category, difficulty_category.getId()); ////preguntar vale
                     } catch (JSONException e) {
                         Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
