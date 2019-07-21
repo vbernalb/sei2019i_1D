@@ -9,6 +9,7 @@ import com.DataAcces.Repositories.WordRepository;
 import com.Presentation.GameActivity;
 import com.Presentation.PlayActivity;
 
+import java.security.SecureRandom;
 import java.util.ArrayList;
 
 public class PlayController {
@@ -39,9 +40,13 @@ public class PlayController {
             p = a.split("\"");
             m[i]= p[3];
         }
-            int aleatorio;
-            aleatorio = (int) (Math.random()*m.length);
-            word = m[aleatorio];
+            //int aleatorio;
+            //aleatorio = (int) (Math.random()*m.length);
+            //word = m[aleatorio];
+            SecureRandom sr= new SecureRandom();
+            sr.nextBytes(new byte[1]);
+            sr.nextInt(m.length);
+            word=m[sr.nextInt(m.length)];
         }
         System.out.println("palabra: "+ word);
         pa.nuevoIntent1(word, context);
