@@ -34,4 +34,10 @@ public class Word {
     public int getDiff_cat() {
         return diff_cat;
     }
+
+    public void setDiff_cat(int diff_cat) {
+        this.diff_cat = diff_cat;
+    }
 }
+
+

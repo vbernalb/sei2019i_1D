@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.BusinessLogic.InsertCategoryController;
@@ -44,9 +45,21 @@ public class CategoryActivity extends AppCompatActivity {
         System.out.println("*** context  "+ context);
         System.out.println("*** confirm  "+ confirm);
         if(confirm){
+            Intent intent = new Intent(context, CategoryActivity.class);
+            startActivity(intent);
+            finishActivity(0);
             Toast.makeText(context, "Categoria registrada", Toast.LENGTH_SHORT).show();
+            new InsertCategoryController(CategoryActivity.this).InsertDiffCat(etCategory.getText().toString());
         }else{
             Toast.makeText(context, "Categoria ya registrada", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    public void nuevoIntent1(boolean confirm, Context context){
+        etCategory = (EditText)findViewById(R.id.ca_category);
+        if(confirm){
+            Toast.makeText(context, "Palabra agregada", Toast.LENGTH_SHORT).show();
         }
 
     }
