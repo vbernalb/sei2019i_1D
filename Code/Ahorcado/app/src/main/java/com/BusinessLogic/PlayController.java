@@ -65,10 +65,7 @@ public class PlayController {
     }
 
     public void subirScore(String emailUser, int score){
-        new UserRepository(context).update("http://ahorcado1d.000webhostapp.com/get_all_category.php", emailUser, score);
-    }
-    public void score(int score_a, int score_f){
-        
+        new UserRepository(context).update("http://ahorcado1d.000webhostapp.com/update_user.php", emailUser, score);
     }
 }
 
