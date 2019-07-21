@@ -61,5 +61,9 @@ public class PlayController {
         }
         pa.nuevoIntentP(m, context);
     }
+
+    public void subirScore(String emailUser, double score){
+        
+    }
 }
 
