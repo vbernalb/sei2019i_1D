@@ -20,8 +20,8 @@ public class PlayController {
         this.context = context;
     }
 
-    public void play(){
-        //wordRepository.wordList();
+    public void play(String nameCategory, String type){
+        wordRepository.wordList("http://ahorcado1d.000webhostapp.com/get_all_word.php", nameCategory, type);
     }
     public void wordPlay(ArrayList<String> arrayList){
         final GameActivity ma = (GameActivity) context;
