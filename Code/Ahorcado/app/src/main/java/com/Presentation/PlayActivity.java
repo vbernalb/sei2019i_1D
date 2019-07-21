@@ -51,17 +51,12 @@ public class PlayActivity extends AppCompatActivity {
         System.out.println("*** word  " + word);
         System.out.println("*** context  " + context);
         final String word_f=word;
-        Button buttonPlay = (Button) findViewById(R.id.buttonPlay);
-        buttonPlay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(PlayActivity.this, GameActivity.class);
-                intent.putExtra("word", word_f);
-                startActivity(intent);
-            }
-        });
+        Intent intent = new Intent(PlayActivity.this, GameActivity.class);
+        intent.putExtra("word", word_f);
+        startActivity(intent);
+        };
 
-    }
+
 
   /*  public void nuevoIntent1(boolean confirm, Context context){
         System.out.println("*** context  "+ context);
