@@ -28,8 +28,10 @@ public class PlayController {
     public void wordPlay(ArrayList<String> arrayList){
         final PlayActivity pa = (PlayActivity) context;
         String a;
+        String  word= "false";
         String[] m= new String[arrayList.size()];
         String[] p;
+        if(arrayList!=null){
         for(int i=0; i<arrayList.size(); i++){
 
             a = arrayList.get(i);
@@ -37,11 +39,10 @@ public class PlayController {
             p = a.split("\"");
             m[i]= p[3];
         }
-        String  word= null;
-        int aleatorio;
-        aleatorio = (int) Math.random()*m.length;
-        System.out.println("alea: "+aleatorio);
-        word = m[aleatorio];
+            int aleatorio;
+            aleatorio = (int) Math.random()*m.length;
+            word = m[aleatorio];
+        }
         System.out.println("palabra: "+word);
         pa.nuevoIntent1(word, context);
     }
