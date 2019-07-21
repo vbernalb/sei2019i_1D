@@ -51,11 +51,17 @@ public class PlayActivity extends AppCompatActivity {
         System.out.println("*** word  " + word);
         System.out.println("*** context  " + context);
         final String word_f=word;
-        Intent intent = new Intent(PlayActivity.this, GameActivity.class);
-        intent.putExtra("word", word_f);
-        startActivity(intent);
-        PlayActivity.this.finish();
-        };
+        
+        if(word =="false"){
+            Toast.makeText(context, "No exite palabras en esta categoria", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Intent intent = new Intent(PlayActivity.this, GameActivity.class);
+            intent.putExtra("word", word_f);
+            startActivity(intent);
+            PlayActivity.this.finish(); 
+        }
+    }
 
 
 

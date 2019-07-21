@@ -23,6 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.BusinessLogic.PlayController;
+import com.BusinessLogic.ScoreViewController;
 import com.example.ahorcado.R;
 
 import org.w3c.dom.Text;
@@ -36,6 +37,12 @@ public class GameActivity extends AppCompatActivity {
     int count = 1;
     public int numOfTrials = 6;
     public static int time = 3000;
+
+    char[] fromDB;
+    char[] outputWord;
+
+    boolean isMatch;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,23 +51,11 @@ public class GameActivity extends AppCompatActivity {
         ly = (LinearLayout) findViewById(R.id.layout_word);
         int WrapWidth = LinearLayout.LayoutParams.WRAP_CONTENT;
         int WrapHeight = LinearLayout.LayoutParams.WRAP_CONTENT;
+        final Bundle bundle = getIntent().getExtras();
+        System.out.println("WORD IS ......... " + bundle.getString("word"));
+        fromDB = bundle.getString("word").toLowerCase().toCharArray();;
+        outputWord = getInitWord(new String(fromDB)).toCharArray();
     }
-
-    char[] fromDB = "Ahorcado".toLowerCase().toCharArray();;
-    char[] outputWord = getInitWord(new String(fromDB)).toCharArray();
-
-    /*public void nuevoIntent1(String word, Context context){
-        System.out.println("*** context  " + context);
-        fromDB = word.toLowerCase().toCharArray();
-        outputWord = setInitWord(word).toCharArray();
-    }*/
-
-    //char[] outputWord = {'-', '-', '-', '-', '-', '-', '-', '-'};
-    //char[] fromDB = "Ahorcado".toLowerCase().toCharArray();
-    //String result = setInitWord(new String(fromDB).toString());
-
-    boolean isMatch;
-
 
     public String getTempWord(String touchString) {
         isMatch = false;
@@ -82,12 +77,12 @@ public class GameActivity extends AppCompatActivity {
         TextView guessWord = findViewById(R.id.textView30);
     }
     public String getInitWord(String wordFromDB){
-        //TextView guessWord = findViewById(R.id.textView30);
+        TextView guessWord = findViewById(R.id.textView30);
 
         String initWord = "";
         for (char c : wordFromDB.toCharArray())
             initWord += "-";
-        //guessWord.setText(initWord);
+        guessWord.setText(initWord);
         return initWord;
     }
     // metodo para verificar, desactivar botones y cambiar color
