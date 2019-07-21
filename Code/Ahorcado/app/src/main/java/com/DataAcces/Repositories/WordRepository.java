@@ -163,6 +163,7 @@ public class WordRepository {
                     for (int j=0; j<jsonArray.length(); j++){
                         arrayList.add(j, jsonArray.getString(j));
                     }
+                    System.out.println("papas");
                     new PlayController(context).wordPlay(arrayList);
 
                 } catch (JSONException e) {

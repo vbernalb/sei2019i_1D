@@ -26,7 +26,7 @@ public class PlayController {
         wordRepository.wordList("http://ahorcado1d.000webhostapp.com/get_all_word.php", nameCategory, type);
     }
     public void wordPlay(ArrayList<String> arrayList){
-        final GameActivity ma = (GameActivity) context;
+        final PlayActivity pa = (PlayActivity) context;
         String a;
         String[] m= new String[arrayList.size()];
         String[] p;
@@ -40,9 +40,10 @@ public class PlayController {
         String  word= null;
         int aleatorio;
         aleatorio = (int) Math.random()*m.length;
+        System.out.println("alea: "+aleatorio);
         word = m[aleatorio];
-
-        //ma.nuevoIntent1(word, context);
+        System.out.println("palabra: "+word);
+        pa.nuevoIntent1(word, context);
     }
 
 
