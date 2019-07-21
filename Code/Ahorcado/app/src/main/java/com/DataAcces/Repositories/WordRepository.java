@@ -150,7 +150,9 @@ public class WordRepository {
         return ;
     }
 
-    public void wordList(String URL){
+    public void wordList(String URL, String nameCategory, String type){
+        final String nameCategory_f= nameCategory;
+        final String type_f = type;
         final StringRequest jsonArrayRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -176,12 +178,10 @@ public class WordRepository {
         ){
             @Override
             protected Map<String, String> getParams()  {
-                /*Map<String,String> parametros = new HashMap<String,String>();
-                parametros.put("name_category",name_category_F);
-                parametros.put("type",type_F);
-                parametros.put("name_word",name_word_F);
-                return parametros;*/
-                return null;
+                Map<String,String> parametros = new HashMap<String,String>();
+                parametros.put("nameCategory",nameCategory_f);
+                parametros.put("type",type_f);
+                return parametros;
             }
         };
         RequestQueue requestQueue = Volley.newRequestQueue(context);
