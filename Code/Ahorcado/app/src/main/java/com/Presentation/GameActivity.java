@@ -22,9 +22,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.BusinessLogic.PlayController;
 import com.example.ahorcado.R;
 
 import org.w3c.dom.Text;
+
+import java.sql.SQLOutput;
 
 public class GameActivity extends AppCompatActivity {
     ImageView img;
@@ -41,13 +44,21 @@ public class GameActivity extends AppCompatActivity {
         ly = (LinearLayout) findViewById(R.id.layout_word);
         int WrapWidth = LinearLayout.LayoutParams.WRAP_CONTENT;
         int WrapHeight = LinearLayout.LayoutParams.WRAP_CONTENT;
-        String inputString = "";
-        setInitWord("--------");
     }
 
-    char[] outputWord = {'-', '-', '-', '-', '-', '-', '-', '-'};
-    String resultWord = "--------";
-    char[] fromDB = "Ahorcado".toLowerCase().toCharArray();
+    char[] fromDB = "Ahorcado".toLowerCase().toCharArray();;
+    char[] outputWord = getInitWord(new String(fromDB)).toCharArray();
+
+    /*public void nuevoIntent1(String word, Context context){
+        System.out.println("*** context  " + context);
+        fromDB = word.toLowerCase().toCharArray();
+        outputWord = setInitWord(word).toCharArray();
+    }*/
+
+    //char[] outputWord = {'-', '-', '-', '-', '-', '-', '-', '-'};
+    //char[] fromDB = "Ahorcado".toLowerCase().toCharArray();
+    //String result = setInitWord(new String(fromDB).toString());
+
     boolean isMatch;
 
 
@@ -66,12 +77,18 @@ public class GameActivity extends AppCompatActivity {
         return isMatch;
     }
 
+
     public void setInitWord(String wordFromDB) {
         TextView guessWord = findViewById(R.id.textView30);
+    }
+    public String getInitWord(String wordFromDB){
+        //TextView guessWord = findViewById(R.id.textView30);
+
         String initWord = "";
         for (char c : wordFromDB.toCharArray())
             initWord += "-";
-        guessWord.setText(initWord);
+        //guessWord.setText(initWord);
+        return initWord;
     }
     // metodo para verificar, desactivar botones y cambiar color
 
@@ -84,7 +101,6 @@ public class GameActivity extends AppCompatActivity {
             if (hasWon()) {
                 message = "¡GANASTE!";
                 deactivateAllButtons();
-
                 img.setImageResource(R.drawable.g);
                 cambiarActivity(time);
             }
