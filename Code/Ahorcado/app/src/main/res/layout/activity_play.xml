@@ -17,7 +17,7 @@
         android:orientation="vertical"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp">
-        
+
         <Spinner
             android:id="@+id/spinnerCat"
             android:layout_width="match_parent"
