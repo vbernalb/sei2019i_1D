@@ -45,6 +45,9 @@ public class CategoryActivity extends AppCompatActivity {
         System.out.println("*** context  "+ context);
         System.out.println("*** confirm  "+ confirm);
         if(confirm){
+            Intent intent = new Intent(context, CategoryActivity.class);
+            startActivity(intent);
+            finishActivity(0);
             Toast.makeText(context, "Categoria registrada", Toast.LENGTH_SHORT).show();
             new InsertCategoryController(CategoryActivity.this).InsertDiffCat(etCategory.getText().toString());
         }else{
