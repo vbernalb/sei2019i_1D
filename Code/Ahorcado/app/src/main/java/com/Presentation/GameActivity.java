@@ -57,7 +57,7 @@ public class GameActivity extends AppCompatActivity {
         fromDB = bundle.getString("word").toLowerCase().toCharArray();;
         outputWord = getInitWord(new String(fromDB)).toCharArray();
     }
-    
+
     public String getTempWord(String touchString) {
         isMatch = false;
         char touchChar = touchString.toLowerCase().charAt(0);
