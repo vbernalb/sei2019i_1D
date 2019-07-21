@@ -77,12 +77,12 @@ public class GameActivity extends AppCompatActivity {
         TextView guessWord = findViewById(R.id.textView30);
     }
     public String getInitWord(String wordFromDB){
-        //TextView guessWord = findViewById(R.id.textView30);
+        TextView guessWord = findViewById(R.id.textView30);
 
         String initWord = "";
         for (char c : wordFromDB.toCharArray())
             initWord += "-";
-        //guessWord.setText(initWord);
+        guessWord.setText(initWord);
         return initWord;
     }
     // metodo para verificar, desactivar botones y cambiar color
