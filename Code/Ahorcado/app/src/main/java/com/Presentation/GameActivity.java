@@ -52,7 +52,6 @@ public class GameActivity extends AppCompatActivity {
         int WrapWidth = LinearLayout.LayoutParams.WRAP_CONTENT;
         int WrapHeight = LinearLayout.LayoutParams.WRAP_CONTENT;
         final Bundle bundle = getIntent().getExtras();
-        new ScoreViewController(GameActivity.this).viewScore(bundle.getString("email_user"));
         System.out.println("WORD IS ......... " + bundle.getString("word"));
         fromDB = bundle.getString("word").toLowerCase().toCharArray();;
         outputWord = getInitWord(new String(fromDB)).toCharArray();
