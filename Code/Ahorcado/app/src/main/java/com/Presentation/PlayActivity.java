@@ -47,7 +47,7 @@ public class PlayActivity extends AppCompatActivity {
         });
     }
 
-    public void nuevoIntent1(String word,Context context){
+    public void nuevoIntent1(String word, String description, Context context){
         System.out.println("*** word  " + word);
         System.out.println("*** context  " + context);
         final String word_f=word;
