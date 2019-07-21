@@ -35,7 +35,7 @@ public class GameActivity extends AppCompatActivity {
     private TextView tv;
     int count = 1;
     public int numOfTrials = 6;
-    public static int time = 6000;
+    public static int time = 3000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
