@@ -77,10 +77,16 @@ public class GameActivity extends AppCompatActivity {
 
         if(isMatch) {
             message = "Quedan " + GameActivity.this.numOfTrials + " equivocaciones";
+            if(hasWon()){
+                message = "¡GANASTE!";
+                deactivateAllButtons();
+                // INSERTAR CODIGO DEBAJO DE ESTE COMENTARIO
+            }
         }
         else if(GameActivity.this.numOfTrials > 1 && !isMatch){
             GameActivity.this.numOfTrials--;
             message = "Quedan " + GameActivity.this.numOfTrials + " equivocaciones";
+
             if(count==1){
                 img.setImageResource(R.drawable.a);
             }
@@ -101,12 +107,7 @@ public class GameActivity extends AppCompatActivity {
         } else {
             message = "Perdiste";
             img.setImageResource(R.drawable.f);
-            LinearLayout linearLayout = findViewById(R.id.linearLayout10);
-            deactivateButtons(linearLayout);
-            LinearLayout linearLayout2 = findViewById(R.id.linearLayout20);
-            deactivateButtons(linearLayout2);
-            LinearLayout linearLayout3 = findViewById(R.id.linearLayout30);
-            deactivateButtons(linearLayout3);
+            deactivateAllButtons();
             TextView gameOverWord = findViewById(R.id.textView30);
             gameOverWord.setText(new String(fromDB));
         }
@@ -119,6 +120,15 @@ public class GameActivity extends AppCompatActivity {
             btn.setEnabled(false);
             btn.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#00BFFF")));
         }
+    }
+
+    public void deactivateAllButtons(){
+        LinearLayout linearLayout = findViewById(R.id.linearLayout10);
+        deactivateButtons(linearLayout);
+        LinearLayout linearLayout2 = findViewById(R.id.linearLayout20);
+        deactivateButtons(linearLayout2);
+        LinearLayout linearLayout3 = findViewById(R.id.linearLayout30);
+        deactivateButtons(linearLayout3);
     }
 
     public void Verificar(View v) {
@@ -138,6 +148,16 @@ public class GameActivity extends AppCompatActivity {
         setState();
 
         //Toast.makeText(this, "Boton desactivado", Toast.LENGTH_SHORT).show();
+    }
+
+    public boolean hasWon(){
+        String fromDBString = new String(fromDB);
+        TextView guessWord = findViewById(R.id.textView30);
+
+        if(fromDBString.equals(guessWord.getText().toString()))
+            return true;
+
+        return false;
     }
 
     //cerrar sesion
