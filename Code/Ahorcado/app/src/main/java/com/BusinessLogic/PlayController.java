@@ -64,8 +64,8 @@ public class PlayController {
         pa.nuevoIntentP(m, context);
     }
 
-    public void subirScore(String emailUser, String password, int score){
-        new UserRepository(context).getbyEmail("http://ahorcado1d.000webhostapp.com/get_user.php",emailUser ,password, score,4);
+    public void subirScore(String emailUser, int score){
+        new UserRepository(context).update("http://ahorcado1d.000webhostapp.com/get_all_category.php", emailUser, score);
     }
     public void score(int score_a, int score_f){
         

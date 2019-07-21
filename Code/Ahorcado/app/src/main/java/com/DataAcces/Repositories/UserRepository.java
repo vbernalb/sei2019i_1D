@@ -100,7 +100,7 @@ public class UserRepository {
 
 
     public void delete (String email_user){}
-    public void update (String URL, String email_user, short score){
+    public void update (String URL, String email_user, int score){
         final String email = email_user;
         final String score_f = Integer.toString(score);
         StringRequest stringRequest= new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
