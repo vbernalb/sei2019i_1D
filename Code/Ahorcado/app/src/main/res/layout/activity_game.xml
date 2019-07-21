@@ -23,8 +23,8 @@
 
         <ImageView
             android:id="@+id/image_ahorc"
-            android:layout_width="422dp"
-            android:layout_height="256dp"
+            android:layout_width="382dp"
+            android:layout_height="216dp"
             android:layout_gravity="center_horizontal"
             android:src="@drawable/n"
             tools:srcCompat="@tools:sample/avatars" />
