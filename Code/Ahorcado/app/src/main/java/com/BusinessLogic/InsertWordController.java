@@ -66,7 +66,7 @@ public class InsertWordController {
 
 
     public void InsertWord (String name_word, String description, String name_category, String name_difficulty){
-        w = new Word(name_word,"",0);
+        w = new Word(name_word,description,0);
         System.out.println("INSERT WORD: " + name_word +  " "+ description +  " " + name_category + " " + name_difficulty);
         difficulty_categoryRepository.getbyDifficulty_Category("http://ahorcado1d.000webhostapp.com/get_difficulty_category.php",name_category,name_difficulty);
     }
