@@ -41,15 +41,25 @@ public class PlayActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent i= new Intent(PlayActivity.this, GameActivity.class);
-                startActivity(i);
-
+               new PlayController(PlayActivity.this).play(spinnerCat.getItemAtPosition(spinnerCat.getSelectedItemPosition()).toString(),
+                       spinnerDif.getItemAtPosition(spinnerDif.getSelectedItemPosition()).toString());
             }
         });
     }
-    public void ChangeGame(View view){
-        Intent i= new Intent(this, GameActivity.class);
-        startActivity(i);
+
+    public void nuevoIntent1(String word,Context context){
+        System.out.println("*** word  " + word);
+        System.out.println("*** context  " + context);
+
+        Button buttonPlay = (Button) findViewById(R.id.buttonPlay);
+        buttonPlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PlayActivity.this, GameActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
   /*  public void nuevoIntent1(boolean confirm, Context context){
@@ -66,5 +76,6 @@ public class PlayActivity extends AppCompatActivity {
         }
 
     }*/
+
 
 }
