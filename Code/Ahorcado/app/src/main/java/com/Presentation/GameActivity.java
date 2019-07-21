@@ -41,8 +41,6 @@ public class GameActivity extends AppCompatActivity {
         ly= (LinearLayout) findViewById(R.id.layout_word);
         int WrapWidth = LinearLayout.LayoutParams.WRAP_CONTENT;
         int WrapHeight = LinearLayout.LayoutParams.WRAP_CONTENT;
-        String inputString = "";
-        //setInitWord("--------");
     }
 
     char[] fromDB = "Ahorcado".toLowerCase().toCharArray();;
