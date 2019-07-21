@@ -16,6 +16,7 @@ public class InsertWordController {
     WordRepository wordRepository;
     Difficulty_CategoryRepository difficulty_categoryRepository;
     CategoryRepository categoryRepository;
+   static Word w;
 
     public InsertWordController(Context context){
         this.context=context;
@@ -65,20 +66,35 @@ public class InsertWordController {
 
 
     public void InsertWord (String name_word, String description, String name_category, String name_difficulty){
-        wordExist(name_word, name_category, name_difficulty);
+        w = new Word(name_word,"",0);
+        System.out.println("INSERT WORD: " + name_word +  " "+ description +  " " + name_category + " " + name_difficulty);
+        difficulty_categoryRepository.getbyDifficulty_Category("http://ahorcado1d.000webhostapp.com/get_difficulty_category.php",name_category,name_difficulty);
     }
-    private void wordExist (String name_word, String name_category, String name_difficulty){
-        wordRepository.getbyword("http://ahorcado1d.000webhostapp.com/get_word.php", name_word, "a",name_category,name_difficulty);
+
+
+    //llama desde el repositorio con respuesta del id en diff_cat
+    public void IdDiffCatAnswer(Difficulty_Category dc, int id_diff_cat){
+        System.out.println("IDDIFFCATANSWER: " + id_diff_cat);
+        //boolean confirm =false;
+        //final WordActivity ca= (WordActivity) context;
+        if(dc!= null){
+            //confirm=true;
+            w.setDiff_cat(id_diff_cat);
+            System.out.println("MI PALABRA: " + w.getName_Word()+ " " + w.getDescription()+ " " + w.getDiff_cat() );
+            wordExist(w.getName_Word(), w.getDescription(), w.getDiff_cat());
+        }
+        //ca.nuevoIntent1(confirm, context);
     }
-    public  void wordExist1(Word word, String name_word, String description, String name_category, String name_difficulty){
+
+    private void wordExist (String name_word, String description, int id_diff_cat){
+        wordRepository.getbyword("http://ahorcado1d.000webhostapp.com/get_word.php", name_word,description,id_diff_cat);
+    }
+    public  void wordExist1(Word word, String name_word, String description, int id_diff_cat){
         boolean confirm =false;
         final WordActivity ca= (WordActivity) context;
-        System.out.println("name_word: " + name_word);
-        System.out.println("name_cate: " + name_category);
-        System.out.println("name_diff: " + name_difficulty);
         if(word== null){
             confirm=true;
-            wordRepository.create(new Word(name_word,description,0), "http://ahorcado1d.000webhostapp.com/insert_word.php",name_category,name_difficulty);
+            wordRepository.create(new Word(w.getName_Word(),w.getDescription(),w.getDiff_cat()), "http://ahorcado1d.000webhostapp.com/insert_word.php");
         }
        ca.nuevoIntent1(confirm, context);
     }
