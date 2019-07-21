@@ -30,15 +30,18 @@ public class PlayController {
         final PlayActivity pa = (PlayActivity) context;
         String a;
         String  word= "false";
+        String description = new String();
         String[] m= new String[arrayList.size()];
+        String[] d= new String[arrayList.size()];
         String[] p;
         if(arrayList!=null){
         for(int i=0; i<arrayList.size(); i++){
 
             a = arrayList.get(i);
-
+            System.out.println("STRING: " + a);
             p = a.split("\"");
             m[i]= p[3];
+            d[i]= p[11];
         }
             //int aleatorio;
             //aleatorio = (int) (Math.random()*m.length);
@@ -46,10 +49,13 @@ public class PlayController {
             SecureRandom sr= new SecureRandom();
             sr.nextBytes(new byte[1]);
             sr.nextInt(m.length);
-            word=m[sr.nextInt(m.length)];
+            int i = sr.nextInt(m.length);
+            word=m[i];
+            description=d[i];
+            System.out.println("palabra: "+ word + "description " + description);
         }
-        System.out.println("palabra: "+ word);
-        pa.nuevoIntent1(word, context);
+
+        pa.nuevoIntent1(word, description, context);
     }
 
 
