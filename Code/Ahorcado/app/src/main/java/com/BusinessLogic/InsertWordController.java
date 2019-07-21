@@ -78,13 +78,11 @@ public class InsertWordController {
         System.out.println("name_diff: " + name_difficulty);
         if(word== null){
             confirm=true;
-            wordRepository.create(new Word(name_word,description), "http://ahorcado1d.000webhostapp.com/insert_word.php");
+            wordRepository.create(new Word(name_word,description,0), "http://ahorcado1d.000webhostapp.com/insert_word.php",name_category,name_difficulty);
         }
        ca.nuevoIntent1(confirm, context);
     }
-    public void diff_cat_create(String name_word, String name_category, String name_difficulty){
-        difficulty_categoryRepository.create(new Difficulty_Category(name_category,name_difficulty,name_word),"http://ahorcado1d.000webhostapp.com/insert_difficulty_category.php");
-    }
+
 
 
 }

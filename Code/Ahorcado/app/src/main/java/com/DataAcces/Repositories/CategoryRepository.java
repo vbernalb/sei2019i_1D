@@ -132,7 +132,7 @@ public class CategoryRepository {
                                 break;
                             }
                             case 2: {
-                            //    new PlayController(context).categoryList2(arrayList);
+                                //new PlayController(context).categoryList2(arrayList);
                                 break;
                             }
                         }

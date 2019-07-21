@@ -75,6 +75,24 @@
             android:entries="@array/dificulty_values"
             android:prompt="@string/dificulty_prompt" />
 
+        <EditText
+            android:id="@+id/ca_hint"
+            android:layout_width="match_parent"
+            android:layout_height="85dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/edittext_form"
+            android:drawableLeft="@drawable/ic_action_iconlapiz"
+            android:ems="10"
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:hint="Desctipcion"
+            android:inputType="textPersonName"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textColor="#ffffff"
+            android:textColorHint="#5DA9B3"
+            android:textStyle="bold" />
+
         <Button
             android:id="@+id/button2"
             android:layout_width="match_parent"
