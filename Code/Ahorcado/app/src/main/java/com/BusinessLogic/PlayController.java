@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.DataAcces.Repositories.CategoryRepository;
 import com.DataAcces.Repositories.WordRepository;
+import com.Presentation.GameActivity;
 import com.Presentation.PlayActivity;
 
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ public class PlayController {
         wordRepository.wordList();
     }
     public void wordPlay(ArrayList<String> arrayList){
-        final PlayActivity pa = (PlayActivity) context;
+        final GameActivity ma = (GameActivity) context;
         String a;
         String[] m= new String[arrayList.size()];
         String[] p;
@@ -39,7 +40,7 @@ public class PlayController {
         aleatorio = (int) Math.random()*m.length;
         word = m[aleatorio];
 
-        //pa.nuevoIntent2(word, context);
+        //ma.nuevoIntent2(word, context);
     }
 
 
