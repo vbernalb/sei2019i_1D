@@ -4,6 +4,7 @@ import android.content.Context;
 import android.widget.Toast;
 
 import com.BusinessLogic.InsertCategoryController;
+import com.BusinessLogic.InsertWordController;
 import com.DataAcces.Models.Category;
 import com.DataAcces.Models.Difficulty_Category;
 import com.android.volley.Request;
@@ -90,16 +91,17 @@ public class Difficulty_CategoryRepository {
             @Override
             public void onResponse(String response) {
                 JSONObject jsonObject = null;
-
+                System.out.println("ON ENTRA");
                     try {
                         jsonObject = new JSONObject(response);
                         Difficulty_Category difficulty_category=null;
                         if(jsonObject.getBoolean("success")==true){
-                            difficulty_category= new Difficulty_Category(jsonObject.getInt("id_diff_cat"),jsonObject.getString("name_category"),
+                            System.out.println("ESTOY ENTRANDO");
+                            difficulty_category= new Difficulty_Category(jsonObject.getInt("id_diff_cat"),jsonObject.getString("nameCategory"),
                                     jsonObject.getString("type"));
 
                         }
-                        //new InsertCategoryController(context).diff_cat_create(difficulty_category, difficulty_category.getId()); ////preguntar vale
+                        new InsertWordController(context).IdDiffCatAnswer(difficulty_category, difficulty_category.getId()); ////preguntar vale
                     } catch (JSONException e) {
                         Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
