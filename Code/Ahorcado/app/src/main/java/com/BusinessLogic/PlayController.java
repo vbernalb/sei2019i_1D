@@ -2,7 +2,9 @@ package com.BusinessLogic;
 
 import android.content.Context;
 
+import com.DataAcces.Models.User;
 import com.DataAcces.Repositories.CategoryRepository;
+import com.DataAcces.Repositories.UserRepository;
 import com.DataAcces.Repositories.WordRepository;
 import com.Presentation.GameActivity;
 import com.Presentation.PlayActivity;
@@ -20,8 +22,8 @@ public class PlayController {
         this.context = context;
     }
 
-    public void play(){
-        //wordRepository.wordList();
+    public void play(String nameCategory, String type){
+        wordRepository.wordList("http://ahorcado1d.000webhostapp.com/get_all_word.php", nameCategory, type);
     }
     public void wordPlay(ArrayList<String> arrayList){
         final GameActivity ma = (GameActivity) context;
@@ -59,7 +61,11 @@ public class PlayController {
             p = a.split("\"");
             m[i]= p[3];
         }
-        //pa.nuevoIntent1(m, context);
+        pa.nuevoIntentP(m, context);
+    }
+
+    public void subirScore(String emailUser, int score){
+        new UserRepository(context).update("http://ahorcado1d.000webhostapp.com/update_user.php", emailUser, score);
     }
 }
 
