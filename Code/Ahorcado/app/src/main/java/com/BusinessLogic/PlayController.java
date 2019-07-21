@@ -43,7 +43,7 @@ public class PlayController {
             aleatorio = (int) (Math.random()*m.length);
             word = m[aleatorio];
         }
-        
+        System.out.println("palabra: "+ word);
         pa.nuevoIntent1(word, context);
     }
 
