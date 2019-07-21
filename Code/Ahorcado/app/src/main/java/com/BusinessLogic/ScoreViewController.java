@@ -16,7 +16,7 @@ public class ScoreViewController {
 
     public void viewScore(String email) {
         System.out.println("EMAIL: "+ email);
-        userRepository.getbyEmail("http://ahorcado1d.000webhostapp.com/get_user.php", email, null, 0, 3);
+        userRepository.getbyEmail("http://ahorcado1d.000webhostapp.com/get_user.php", email, null, 3);
     }
 
     public void viewScoreAnswer(int score) {

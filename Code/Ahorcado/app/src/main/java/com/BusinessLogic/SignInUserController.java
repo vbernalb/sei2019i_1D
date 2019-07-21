@@ -46,7 +46,7 @@ public class SignInUserController {
     }
 
     private void userExist1(String email, String password){
-        userRepository.getbyEmail("http://ahorcado1d.000webhostapp.com/get_user.php", email, password, 0, 2);
+        userRepository.getbyEmail("http://ahorcado1d.000webhostapp.com/get_user.php", email, password, 2);
     }
     public void userExist (User user, String email, String password){
         boolean confirm =false;
