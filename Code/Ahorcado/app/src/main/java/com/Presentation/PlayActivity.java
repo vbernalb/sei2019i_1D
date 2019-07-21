@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.BusinessLogic.InsertWordController;
 //import com.BusinessLogic.SelectGameController;
+import com.BusinessLogic.PlayController;
 import com.example.ahorcado.R;
 
 public class PlayActivity extends AppCompatActivity {
@@ -21,18 +22,30 @@ public class PlayActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
- //       new SelectGameController(PlayActivity.this).showCategory1();
+
+        new PlayController(PlayActivity.this).categoryList();
 
     }
     public void nuevoIntentP(String[] inputArray, Context context) {
         System.out.println("*** context  " + inputArray.toString());
 
         final Spinner spinnerCat = (Spinner) findViewById(R.id.spinnerCat);
+        final Spinner spinnerDif = (Spinner) findViewById(R.id.spinnerDif);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, inputArray);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerCat.setAdapter(arrayAdapter);
-        final Spinner spinnerDif = (Spinner) findViewById(R.id.spinnerDif);
+
         Button buttonPlay = (Button) findViewById(R.id.buttonPlay);
+
+        buttonPlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i= new Intent(PlayActivity.this, GameActivity.class);
+                startActivity(i);
+
+            }
+        });
     }
     public void ChangeGame(View view){
         Intent i= new Intent(this, GameActivity.class);

@@ -59,7 +59,7 @@ public class PlayController {
             p = a.split("\"");
             m[i]= p[3];
         }
-        //pa.nuevoIntent1(m, context);
+        pa.nuevoIntentP(m, context);
     }
 }
 
