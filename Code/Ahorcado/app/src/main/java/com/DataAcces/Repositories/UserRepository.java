@@ -4,6 +4,7 @@ import android.content.Context;
 import android.widget.Toast;
 
 import com.BusinessLogic.LoginUserController;
+import com.BusinessLogic.PlayController;
 import com.BusinessLogic.ScoreViewController;
 import com.BusinessLogic.SignInUserController;
 import com.DataAcces.Models.User;
@@ -98,21 +99,59 @@ public class UserRepository {
     }
 
 
-
-
-
-
     public void delete (String email_user){}
-    public void update (String email_user, short score){}
+    public void update (String URL, String email_user, short score){
+        final String email = email_user;
+        final String score_f = Integer.toString(score);
+        StringRequest stringRequest= new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+
+                try{
+                    JSONObject jsonObject = new JSONObject(response);
+
+
+                    if(jsonObject.getBoolean("success")){
+                        Toast.makeText(context, "REGISTRO EXITOSO",Toast.LENGTH_SHORT).show();
+                    }
+
+                }catch (JSONException e ) {
+
+                    System.out.println("exeption    "+ e.getMessage());
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                Toast.makeText(context, "Operacion fallida " + error.getMessage(),Toast.LENGTH_SHORT).show();
+            }
+        })
+        {
+            @Override
+            protected Map<String, String> getParams()  {
+                Map<String,String> parametros = new HashMap<String,String>();
+                parametros.put("email_user",email);
+                parametros.put("accumulated_score",score_f);
+                return parametros;
+            }
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
+        requestQueue.add(stringRequest);
+        return ;
+    }
     /**
      *Busca de acuerdo al parametro especificado en la URL
      * @param URL  la URL del servidor donde se encuentra la base de datos example: http://192.162.1.3:80/Database/insertar.php
      *@param email El email por el cual se quiere buscar
      *  @param password La contraseña por el cual se quiere comparar
      */
-    public void getbyEmail(String URL, final String email, String password, int tipo ){
+    public void getbyEmail(String URL, final String email, String password, int score, int tipo ){
         final int numero = tipo;
         final String email_F = email;
+        final int score_f= score;
         System.out.println("*** user entro");
         final String password_f = password;
         StringRequest jsonArrayRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
@@ -139,6 +178,9 @@ public class UserRepository {
                                     break;
                                 case 3:
                                     new ScoreViewController(context).viewScoreAnswer(user.getAcumulate_score());
+                                    break;
+                                case 4:
+                                    new PlayController(context).score(user.getAcumulate_score(), score_f);
                             }
                     } catch (JSONException e) {
                         System.out.println("on error ");

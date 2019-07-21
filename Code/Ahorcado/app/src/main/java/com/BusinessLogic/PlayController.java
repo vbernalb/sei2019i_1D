@@ -2,7 +2,9 @@ package com.BusinessLogic;
 
 import android.content.Context;
 
+import com.DataAcces.Models.User;
 import com.DataAcces.Repositories.CategoryRepository;
+import com.DataAcces.Repositories.UserRepository;
 import com.DataAcces.Repositories.WordRepository;
 import com.Presentation.GameActivity;
 import com.Presentation.PlayActivity;
@@ -62,7 +64,10 @@ public class PlayController {
         pa.nuevoIntentP(m, context);
     }
 
-    public void subirScore(String emailUser, double score){
+    public void subirScore(String emailUser, String password, int score){
+        new UserRepository(context).getbyEmail("http://ahorcado1d.000webhostapp.com/get_user.php",emailUser ,password, score,4);
+    }
+    public void score(int score_a, int score_f){
         
     }
 }
