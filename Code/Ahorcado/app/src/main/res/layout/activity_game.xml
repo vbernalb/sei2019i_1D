@@ -46,11 +46,6 @@
             android:textColor="#ffffff"
             android:textSize="50dp"
             android:textStyle="normal|bold" />
-        <Button
-            android:id="@+id/img_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="cambiar" />
 
         <TextView
             android:id="@+id/textView40"
