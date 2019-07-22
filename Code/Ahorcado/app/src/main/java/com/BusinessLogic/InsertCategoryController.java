@@ -38,13 +38,6 @@ public class InsertCategoryController {
         ca.nuevoIntent(confirm, context);
     }
 
-    public  void diff_cat_create(Difficulty_Category dc, String name_category){
-        boolean confirm =true;
-        final CategoryActivity ca= (CategoryActivity) context;
-        new Difficulty_CategoryRepository(context).create(new Difficulty_Category(0,name_category,""), "http://ahorcado1d.000webhostapp.com/insert_difficulty_category cvf.php");
-
-        ca.nuevoIntent1(confirm, context);
-    }
 
 
 }
