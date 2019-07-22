@@ -19,19 +19,6 @@
 
 
         <Button
-            android:id="@+id/try_btn"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/button_form"
-            android:fontFamily="sans-serif-black"
-            android:gravity="center"
-            android:shadowColor="#B5C45E"
-            android:text="Volver a intentar"/>
-
-        <Button
             android:id="@+id/category_btn"
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -41,8 +28,9 @@
             android:background="@drawable/button_form"
             android:fontFamily="sans-serif-black"
             android:gravity="center"
+            android:onClick="onClick"
             android:shadowColor="#B5C45E"
-            android:text="Elegir categoria"/>
+            android:text="jugar Nueva categoria" />
 
         <Button
             android:id="@+id/points_btn"
@@ -54,7 +42,21 @@
             android:background="@drawable/button_form"
             android:fontFamily="sans-serif-black"
             android:gravity="center"
+            android:onClick="onClick"
             android:shadowColor="#B5C45E"
-            android:text="Puntaje" />
+            android:text="ver Puntaje" />
+
+        <Button
+            android:id="@+id/try_btn"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/button_form"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center"
+            android:shadowColor="#B5C45E"
+            android:text="Volver a jugar " />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

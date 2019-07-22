@@ -195,6 +195,7 @@ public class GameActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             public void run() {
                 final Intent i = new Intent(GameActivity.this, FinishActivity.class);
+                i.putExtra("email_user",bundle.getString("email"));
                 GameActivity.this.startActivity(i);
                 GameActivity.this.finish();
             }
