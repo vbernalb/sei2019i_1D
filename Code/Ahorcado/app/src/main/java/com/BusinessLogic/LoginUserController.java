@@ -16,7 +16,6 @@ public class LoginUserController {
      * Esta funcion loguea un usuario en la applicacion, haciendo llamado a la clase UserRepository.
      * @param email email del usuario registrado
      * @param password password del usuario registrado.
-     * @return
      */
     public void loginUser(String email, String password) {
         new UserRepository(context).getbyEmail("http://ahorcado1d.000webhostapp.com/get_user.php",email ,password,1);
