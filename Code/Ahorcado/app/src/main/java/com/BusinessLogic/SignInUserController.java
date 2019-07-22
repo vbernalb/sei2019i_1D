@@ -1,6 +1,7 @@
 package com.BusinessLogic;
 
 import android.content.Context;
+import android.widget.Toast;
 
 
 import com.DataAcces.Models.User;
@@ -30,7 +31,23 @@ public class SignInUserController {
 
 
     private boolean PasswordValidation(String password, String password2){
-        return password.equals(password2)&&(password.length()>=6)&&(password.length()<=18);
+        final RegisterActivity ma = (RegisterActivity) context;
+        if(password.equals(password2)){
+            if(password.length()>=6){
+                if(password.length()<=18) {
+                    return password.equals(password2) && (password.length() >= 6) && (password.length() <= 18);
+                }else{
+                    Toast.makeText(ma,"La contraseña debe ser menor de 19 caracteres", Toast.LENGTH_SHORT).show();
+                    return false;
+                }
+            }else{
+                Toast.makeText(ma,"La contraseña debe ser mayor o igual a 6 carácteres", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        }else{
+            Toast.makeText(ma,"Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
+            return false;
+        }
     }
 
     public static boolean PasswordValidationSignIn(String password, String password2){
@@ -38,7 +55,14 @@ public class SignInUserController {
     }
 
     private boolean EmailValidation(String email){
-        return email.contains("@");
+        final RegisterActivity ma = (RegisterActivity) context;
+        if (email.contains("@")){
+            return email.contains("@");
+        }else{
+            Toast.makeText(ma,"El correo no es correcto", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
     }
 
     public static boolean EmailValidationtest(String email){
@@ -51,6 +75,7 @@ public class SignInUserController {
     public void userExist (User user, String email, String password){
         boolean confirm =false;
         final RegisterActivity ma = (RegisterActivity) context;
+
             if(user==null){
                 confirm= true;
                 new UserRepository(context).create(new User(email,password,0),"http://ahorcado1d.000webhostapp.com/insert_user.php");
