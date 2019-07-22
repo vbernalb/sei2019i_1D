@@ -42,6 +42,7 @@ public class GameActivity extends AppCompatActivity {
     char[] outputWord;
 
     boolean isMatch;
+    Bundle bundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +52,7 @@ public class GameActivity extends AppCompatActivity {
         ly = (LinearLayout) findViewById(R.id.layout_word);
         int WrapWidth = LinearLayout.LayoutParams.WRAP_CONTENT;
         int WrapHeight = LinearLayout.LayoutParams.WRAP_CONTENT;
-        final Bundle bundle = getIntent().getExtras();
+        bundle = getIntent().getExtras();
         System.out.println("WORD IS ......... " + bundle.getString("word"));
         System.out.println("DESCRIPTION IS ......... " + bundle.getString("description"));
         String description = "Pista: " + bundle.getString("description");
@@ -97,6 +98,7 @@ public class GameActivity extends AppCompatActivity {
         if (isMatch) {
             message = "Quedan " + GameActivity.this.numOfTrials + " intentos";
             if (hasWon()) {
+                new PlayController(GameActivity.this).subirScore(bundle.getString("email"),bundle.getInt("score"));
                 message = "¡GANASTE!";
                 deactivateAllButtons();
                 img.setImageResource(R.drawable.g);

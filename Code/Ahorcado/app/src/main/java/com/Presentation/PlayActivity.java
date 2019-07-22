@@ -18,11 +18,12 @@ import com.example.ahorcado.R;
 
 public class PlayActivity extends AppCompatActivity {
 
+     Bundle bundle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
-
+        bundle = getIntent().getExtras();
         new PlayController(PlayActivity.this).categoryList();
 
     }
@@ -56,9 +57,22 @@ public class PlayActivity extends AppCompatActivity {
             Toast.makeText(context, "No exite palabras en esta categoria", Toast.LENGTH_SHORT).show();
         }
         else{
+            final Spinner spinnerDif = (Spinner) findViewById(R.id.spinnerDif);
             Intent intent = new Intent(PlayActivity.this, GameActivity.class);
             intent.putExtra("word", word_f);
             intent.putExtra("description", description);
+            intent.putExtra("email",bundle.getString("email"));
+            switch (spinnerDif.getItemAtPosition(spinnerDif.getSelectedItemPosition()).toString()){
+                case "FACIL":
+                    intent.putExtra("score",5);
+                    break;
+                case "MEDIO":
+                    intent.putExtra("score",10);
+                    break;
+                case "DIFICIL":
+                    intent.putExtra("score",15);
+                    break;
+            }
             System.out.println("WORD + " + word + " DESCRIPTION " + description);
             startActivity(intent);
             PlayActivity.this.finish(); 
