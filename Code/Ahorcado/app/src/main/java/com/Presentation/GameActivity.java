@@ -53,8 +53,9 @@ public class GameActivity extends AppCompatActivity {
         int WrapHeight = LinearLayout.LayoutParams.WRAP_CONTENT;
         final Bundle bundle = getIntent().getExtras();
         System.out.println("WORD IS ......... " + bundle.getString("word"));
+        System.out.println("DESCRIPTION IS ......... " + bundle.getString("description"));
         fromDB = bundle.getString("word").toLowerCase().toCharArray();
-        outputWord = getInitWord(new String(fromDB)).toCharArray();
+        outputWord = getInitWordAndSetHint(new String(fromDB), "Descriptionnnnn").toCharArray();
     }
 
     public String getTempWord(String touchString) {
@@ -76,13 +77,14 @@ public class GameActivity extends AppCompatActivity {
     public void setInitWord(String wordFromDB) {
         TextView guessWord = findViewById(R.id.textView30);
     }
-    public String getInitWord(String wordFromDB){
+    public String getInitWordAndSetHint(String wordFromDB, String hintString){
         TextView guessWord = findViewById(R.id.textView30);
-
+        TextView hintWord = findViewById(R.id.textView35);
         String initWord = "";
         for (char c : wordFromDB.toCharArray())
             initWord += "-";
         guessWord.setText(initWord);
+        hintWord.setText(hintString);
         return initWord;
     }
     // metodo para verificar, desactivar botones y cambiar color
