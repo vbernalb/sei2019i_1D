@@ -157,12 +157,19 @@ public class WordRepository {
             @Override
             public void onResponse(String response) {
                 JSONArray jsonArray =null;
+                ArrayList arrayList= new ArrayList();
                 try {
-                    jsonArray= new JSONArray(response);
-                    ArrayList arrayList= new ArrayList();
-                    for (int j=0; j<jsonArray.length(); j++){
-                        arrayList.add(j, jsonArray.getString(j));
+                    System.out.println("Respuesta: "+response+" otro: "+response.contains("null"));
+                    if(!response.contains("null")){
+                        System.out.println("entre");
+                        jsonArray= new JSONArray(response);
+                        for (int j=0; j<jsonArray.length(); j++){
+                            arrayList.add(j, jsonArray.getString(j));
+
+                        }
+                    }else{arrayList=null;
                     }
+
                     new PlayController(context).wordPlay(arrayList);
 
                 } catch (JSONException e) {

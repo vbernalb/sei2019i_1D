@@ -113,7 +113,7 @@ public class UserRepository {
 
 
                     if(jsonObject.getBoolean("success")){
-                        Toast.makeText(context, "REGISTRO EXITOSO",Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(context, "REGISTRO EXITOSO",Toast.LENGTH_SHORT).show();
                     }
 
                 }catch (JSONException e ) {

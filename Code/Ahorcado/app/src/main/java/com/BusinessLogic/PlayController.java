@@ -31,10 +31,10 @@ public class PlayController {
         String a;
         String  word= "false";
         String description = new String();
-        String[] m= new String[arrayList.size()];
-        String[] d= new String[arrayList.size()];
         String[] p;
         if(arrayList!=null){
+            String[] m= new String[arrayList.size()];
+            String[] d= new String[arrayList.size()];
         for(int i=0; i<arrayList.size(); i++){
 
             a = arrayList.get(i);

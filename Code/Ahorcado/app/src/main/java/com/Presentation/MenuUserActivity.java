@@ -22,6 +22,7 @@ public class MenuUserActivity extends AppCompatActivity {
         switch (view.getId()){
             case R.id.mu_jugar:
                 intent = new Intent(this,PlayActivity.class);
+                intent.putExtra("email",email_user);
                 break;
             case R.id.mu_puntaje:
                 intent = new Intent(this, ScoreActivity.class);
