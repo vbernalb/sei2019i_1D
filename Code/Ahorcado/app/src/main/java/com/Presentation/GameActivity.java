@@ -50,7 +50,7 @@ public class GameActivity extends AppCompatActivity {
         img = (ImageView) findViewById(R.id.image_ahorc);
         ly = (LinearLayout) findViewById(R.id.layout_word);
         int WrapWidth = LinearLayout.LayoutParams.WRAP_CONTENT;
-        int WrapHeight = LinearLayout.fLayoutParams.WRAP_CONTENT;
+        int WrapHeight = LinearLayout.LayoutParams.WRAP_CONTENT;
         final Bundle bundle = getIntent().getExtras();
         System.out.println("WORD IS ......... " + bundle.getString("word"));
         System.out.println("DESCRIPTION IS ......... " + bundle.getString("description"));
