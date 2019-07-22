@@ -53,7 +53,7 @@ public class GameActivity extends AppCompatActivity {
         int WrapHeight = LinearLayout.LayoutParams.WRAP_CONTENT;
         final Bundle bundle = getIntent().getExtras();
         System.out.println("WORD IS ......... " + bundle.getString("word"));
-        fromDB = bundle.getString("word").toLowerCase().toCharArray();;
+        fromDB = bundle.getString("word").toLowerCase().toCharArray();
         outputWord = getInitWord(new String(fromDB)).toCharArray();
     }
 
