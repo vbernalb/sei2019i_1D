@@ -63,18 +63,6 @@ public class WordActivity extends AppCompatActivity {
         }
 
     }
-   /*public void nuevoIntent2(boolean confirm, Context context){
-        System.out.println("*** context  "+ context);
-        System.out.println("*** confirm  "+ confirm);
-        if(confirm){
-            Intent intent = new Intent(context, WordActivity.class);
-            startActivity(intent);
-            finishActivity(0);
-            Toast.makeText(context, "Palabra agregada", Toast.LENGTH_SHORT).show();
-        }else{
-            Toast.makeText(context, "Palabra no agregada a diff_cat", Toast.LENGTH_SHORT).show();
-        }
-    }*/
 
     public void openMenuAdminActivity(View view){
         Intent openMenuAdminActivity = new Intent(WordActivity.this, MenuAdminActivity.class);
