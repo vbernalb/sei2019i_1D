@@ -14,20 +14,25 @@ public class LoginAdminController {
     }
 
     /**
-     * Esta funcion loguea un administrador en la applicacion, haciendo llamado a la clase AdminRepository.
-     *
+     * Esta funcion Verifica que los datos ingresados en la actividad coincidan con los datos de un admin,
+     * llamando al AdminRepository.
      * @param email    email del administrador registrado
      * @param password password del administrador registrado.
      * @return
      */
     public void loginAdmin(String email, String password) {
-        System.out.println("*** login admin");
         new AdminRepository(context).getbyEmail("http://ahorcado1d.000webhostapp.com/get_admi.php",email ,password);
     }
 
+    /**
+     * Esta funcion coge la respuesta enviada del repositorio, verifica que el admin exista y que la clave coincida,
+     * y le envia la respuesta a la actividad.
+     * @param admin
+     * @param password
+     */
+
     public void cofirmLogin(Admin admin, String password){
         boolean confirm = false;
-        System.out.println("*** login admin confirm nuevo intend");
         final MainActivity ma = (MainActivity) context;
 
         if(admin!= null){
@@ -37,6 +42,12 @@ public class LoginAdminController {
 
     }
 
+    /**
+     * Esta funcion verifica que la clave ingresada coincida con la clave almacenada en la base de datos del administrador.
+     * @param password1
+     * @param password2
+     * @return
+     */
     public static boolean confirmLoginAdmin(String password1, String password2){
         return password1.equals(password2);
     }
