@@ -48,6 +48,17 @@
             android:textStyle="normal|bold" />
 
         <TextView
+            android:id="@+id/textView35"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="15dp"
+            android:textStyle="normal|bold" />
+
+        <TextView
             android:id="@+id/textView40"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -57,6 +68,7 @@
             android:textColor="#ffffff"
             android:textSize="15dp"
             android:textStyle="normal|bold" />
+
 
     </LinearLayout>
 
