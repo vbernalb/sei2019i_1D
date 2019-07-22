@@ -58,15 +58,12 @@ public class WordActivity extends AppCompatActivity {
             //new InsertWordController(WordActivity.this).diff_cat_create(editText.getText().toString(),
                    // spinner1.getItemAtPosition(spinner1.getSelectedItemPosition()).toString(), spinner2.getItemAtPosition(spinner2.getSelectedItemPosition()).toString());
             Toast.makeText(context, "Palabra agregada", Toast.LENGTH_SHORT).show();
+            Intent openMenuAdminActivity = new Intent(WordActivity.this, WordActivity.class);
+            WordActivity.this.finish();
         }else{
             Toast.makeText(context, "Palabra ya existente", Toast.LENGTH_SHORT).show();
         }
 
     }
 
-    public void openMenuAdminActivity(View view){
-        Intent openMenuAdminActivity = new Intent(WordActivity.this, MenuAdminActivity.class);
-        startActivity(openMenuAdminActivity);
-        WordActivity.this.finish();
-    }
 }
