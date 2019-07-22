@@ -4,43 +4,44 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 import com.example.ahorcado.R;
 
 public class FinishActivity extends AppCompatActivity {
-    Button pointBtn,tryBtn, catBtn;
+    String email_user;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_finish);
 
-        pointBtn= (Button)findViewById(R.id.points_btn);
-        tryBtn = (Button)findViewById(R.id.try_btn);
-        catBtn= (Button)findViewById(R.id.category_btn);
+        Bundle bundle = getIntent().getExtras();
+        email_user = bundle.getString("email_user");
+    }
 
-        pointBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final Intent i = new Intent(FinishActivity.this, ScoreActivity.class);
-                FinishActivity.this.startActivity(i);
-                FinishActivity.this.finish();
+    public void onClick(View view){
+        Intent intent = null;
 
-            }
-        });
-        tryBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        switch (view.getId()){
+            case R.id.category_btn:
+                intent = new Intent(this,PlayActivity.class);
+                intent.putExtra("email",email_user);
+                break;
 
-            }
-        });
-        catBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final Intent i = new Intent(FinishActivity.this, PlayActivity.class);
-                FinishActivity.this.startActivity(i);
-                FinishActivity.this.finish();
-            }
-        });
+            case R.id.points_btn:
+                intent = new Intent(this, ScoreActivity.class);
+                intent.putExtra("email_user",email_user);
+                break;
+
+            case R.id.try_btn:
+                intent = new Intent(this, GameActivity.class);
+                intent.putExtra("email_user",email_user);
+
+        }
+        if(intent!=null){
+
+            startActivity(intent);
+            finish();
+        }
     }
 }
