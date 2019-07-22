@@ -59,6 +59,7 @@ public class PlayActivity extends AppCompatActivity {
             Intent intent = new Intent(PlayActivity.this, GameActivity.class);
             intent.putExtra("word", word_f);
             intent.putExtra("description", description);
+            System.out.println("WORD + " + word + " DESCRIPTION " + description);
             startActivity(intent);
             PlayActivity.this.finish(); 
         }
