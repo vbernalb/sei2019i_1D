@@ -39,7 +39,7 @@ public class CategoryActivity extends AppCompatActivity {
     public void openMenuAdminActivity(View view){
         Intent openMenuAdminActivity = new Intent(CategoryActivity.this, MenuAdminActivity.class);
         startActivity(openMenuAdminActivity);
-        finishActivity(0);
+        CategoryActivity.this.finish();
     }
     public void nuevoIntent(boolean confirm, Context context){
         System.out.println("*** context  "+ context);
@@ -47,7 +47,7 @@ public class CategoryActivity extends AppCompatActivity {
         if(confirm){
             Intent intent = new Intent(context, CategoryActivity.class);
             startActivity(intent);
-            finishActivity(0);
+            CategoryActivity.this.finish();
             Toast.makeText(context, "Categoria registrada", Toast.LENGTH_SHORT).show();
             new InsertCategoryController(CategoryActivity.this).InsertDiffCat(etCategory.getText().toString());
         }else{
