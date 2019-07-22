@@ -52,8 +52,7 @@ public class PlayController {
             int i = sr.nextInt(m.length);
             word=m[i];
             description=d[i];
-            System.out.println("palabra: "+ word + "description " + description);
-        }
+       }
 
         pa.nuevoIntent1(word, description, context);
     }
