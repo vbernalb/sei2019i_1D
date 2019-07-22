@@ -160,6 +160,7 @@ public class WordRepository {
                 try {
                     jsonArray= new JSONArray(response);
                     ArrayList arrayList= new ArrayList();
+                    arrayList=null;
                     for (int j=0; j<jsonArray.length(); j++){
                         arrayList.add(j, jsonArray.getString(j));
                     }
