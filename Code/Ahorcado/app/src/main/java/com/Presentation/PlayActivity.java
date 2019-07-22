@@ -53,7 +53,7 @@ public class PlayActivity extends AppCompatActivity {
         System.out.println("*** context  " + context);
         final String word_f=word;
         
-        if(word =="false"){
+        if(word.equals("false")){
             Toast.makeText(context, "No exite palabras en esta categoria", Toast.LENGTH_SHORT).show();
         }
         else{
