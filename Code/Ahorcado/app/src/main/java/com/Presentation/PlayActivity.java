@@ -47,7 +47,7 @@ public class PlayActivity extends AppCompatActivity {
         });
     }
 
-    public void nuevoIntent1(String word,Context context){
+    public void nuevoIntent1(String word, String description, Context context){
         System.out.println("*** word  " + word);
         System.out.println("*** context  " + context);
         final String word_f=word;
@@ -58,6 +58,8 @@ public class PlayActivity extends AppCompatActivity {
         else{
             Intent intent = new Intent(PlayActivity.this, GameActivity.class);
             intent.putExtra("word", word_f);
+            intent.putExtra("description", description);
+            System.out.println("WORD + " + word + " DESCRIPTION " + description);
             startActivity(intent);
             PlayActivity.this.finish(); 
         }

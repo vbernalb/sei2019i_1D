@@ -186,6 +186,6 @@ public class WordRepository {
         };
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         requestQueue.add(jsonArrayRequest);
-    };
+    }
 
 }
