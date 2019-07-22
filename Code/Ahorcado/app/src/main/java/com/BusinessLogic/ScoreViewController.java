@@ -14,15 +14,20 @@ public class ScoreViewController {
         userRepository = new UserRepository(context);
     }
 
+    /**
+     * Esta funcion llama a UserRepository para encontrar al usuario usando su email.
+     * @param email
+     */
     public void viewScore(String email) {
-        System.out.println("EMAIL: "+ email);
         userRepository.getbyEmail("http://ahorcado1d.000webhostapp.com/get_user.php", email, null, 3);
     }
 
+    /**
+     * Esta funcion coge la informacion enviada del repositorio, toma el score del usuario y se lo envia a la actividad.
+     * @param score
+     */
     public void viewScoreAnswer(int score) {
-        System.out.println("SCORE: " + score);
         final ScoreActivity sa = (ScoreActivity) context;
-
         sa.nuevoIntent(score, context);
     }
 }
