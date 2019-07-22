@@ -54,8 +54,9 @@ public class GameActivity extends AppCompatActivity {
         final Bundle bundle = getIntent().getExtras();
         System.out.println("WORD IS ......... " + bundle.getString("word"));
         System.out.println("DESCRIPTION IS ......... " + bundle.getString("description"));
+        String description = "Pista: " + bundle.getString("description");
         fromDB = bundle.getString("word").toLowerCase().toCharArray();
-        outputWord = getInitWordAndSetHint(new String(fromDB), "Descriptionnnnn").toCharArray();
+        outputWord = getInitWordAndSetHint(new String(fromDB), description).toCharArray();
     }
 
     public String getTempWord(String touchString) {
