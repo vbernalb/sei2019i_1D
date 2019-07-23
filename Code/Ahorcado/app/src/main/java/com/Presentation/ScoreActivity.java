@@ -24,6 +24,11 @@ public class ScoreActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Esta funcion muestra el puntaje que tiene el usuario
+     * @param score puntaje en integer del usuari<o
+     * @param context   contexto de la actividad
+     */
     public void nuevoIntent(int score, Context context) {
         System.out.println("*** context  " + context);
         TextView textView = findViewById(R.id.textView11);
@@ -31,6 +36,10 @@ public class ScoreActivity extends AppCompatActivity {
         //Toast.makeText(context, Integer.toString(score), Toast.LENGTH_SHORT).show();
     }
 
+    /**
+     * Intent para abrir la actividad
+     * @param view
+     */
     public void openMainActivity(View view){
         Intent openMainActivity = new Intent(ScoreActivity.this, MainActivity.class);
         startActivity(openMainActivity);
