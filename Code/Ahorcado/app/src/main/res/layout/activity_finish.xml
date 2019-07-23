@@ -56,7 +56,8 @@
             android:background="@drawable/button_form"
             android:fontFamily="sans-serif-black"
             android:gravity="center"
+            android:onClick="onClick"
             android:shadowColor="#B5C45E"
-            android:text="Volver a jugar " />
+            android:text="Salir" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
