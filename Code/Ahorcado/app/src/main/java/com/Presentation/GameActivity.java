@@ -36,7 +36,7 @@ public class GameActivity extends AppCompatActivity {
     private TextView tv;
     int count = 1;
     public int numOfTrials = 6;
-    public static int time = 3000;
+    public static int time = 2500;
 
     char[] fromDB;
     char[] outputWord;
@@ -60,6 +60,11 @@ public class GameActivity extends AppCompatActivity {
         outputWord = getInitWordAndSetHint(new String(fromDB), description).toCharArray();
     }
 
+    /**
+     * nos da la palabra
+     * @param touchString
+     * @return
+     */
     public String getTempWord(String touchString) {
         isMatch = false;
         char touchChar = touchString.toLowerCase().charAt(0);
@@ -71,14 +76,12 @@ public class GameActivity extends AppCompatActivity {
         return new String(outputWord);
     }
 
-    public boolean isMatch() {
-        return isMatch;
-    }
-
-
-    public void setInitWord(String wordFromDB) {
-        TextView guessWord = findViewById(R.id.textView30);
-    }
+    /**
+     * devolvemos la palabra con la pista
+     * @param wordFromDB
+     * @param hintString
+     * @return
+     */
     public String getInitWordAndSetHint(String wordFromDB, String hintString){
         TextView guessWord = findViewById(R.id.textView30);
         TextView hintWord = findViewById(R.id.textView35);
@@ -89,8 +92,12 @@ public class GameActivity extends AppCompatActivity {
         hintWord.setText(hintString);
         return initWord;
     }
-    // metodo para verificar, desactivar botones y cambiar color
 
+    /**
+     * Función que desactiva los botones cuando el juego termina y los cambia de color
+     * además se cambian las respectivas imagenes de ahorcado y hace el cambio de actividad
+     * automaticamente
+     */
     public void setState() {
         TextView numOfTrials = findViewById(R.id.textView40);
         String message = "";
@@ -136,6 +143,10 @@ public class GameActivity extends AppCompatActivity {
         numOfTrials.setText(message);
     }
 
+    /**
+     * funcion que desactiva los botones de un layout
+     * @param inputLinearLayout layout en el que se encuentran los botones
+     */
     public void deactivateButtons(LinearLayout inputLinearLayout) {
         for (int i = 0; i < 9; i++) {
             Button btn = (Button) inputLinearLayout.getChildAt(i);
@@ -144,6 +155,9 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * desactiva los botones de todos los layouts
+     */
     public void deactivateAllButtons() {
         LinearLayout linearLayout = findViewById(R.id.linearLayout10);
         deactivateButtons(linearLayout);
@@ -153,6 +167,10 @@ public class GameActivity extends AppCompatActivity {
         deactivateButtons(linearLayout3);
     }
 
+    /**
+     * verifica que el boton seleccionado (la letra) se encuentre o no en la palabra y lo cambia de color y desactiva
+     * @param v View del botón
+     */
     public void Verificar(View v) {
         Button btn = (Button) v;
         String colorButton;
@@ -172,6 +190,10 @@ public class GameActivity extends AppCompatActivity {
         //Toast.makeText(this, "Boton desactivado", Toast.LENGTH_SHORT).show();
     }
 
+    /**
+     * detecta cuando gana o pierde el juego
+     * @return
+     */
     public boolean hasWon() {
         String fromDBString = new String(fromDB);
         TextView guessWord = findViewById(R.id.textView30);
@@ -182,6 +204,10 @@ public class GameActivity extends AppCompatActivity {
         return false;
     }
 
+    /**
+     * cierra la sesión
+     * @param view
+     */
     //cerrar sesion
     public void exit(View view) {
         Intent intent = new Intent(this, MainActivity.class);
@@ -189,7 +215,10 @@ public class GameActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
+    /**
+     * funcion para cambiar la actividad automaticamente
+     * @param milisegundos tiempo en el que se cambia la actividad
+     */
     public void cambiarActivity(int milisegundos) {
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {

@@ -27,6 +27,11 @@ public class WordActivity extends AppCompatActivity {
         new InsertWordController(WordActivity.this).showCategory();
     }
 
+    /**
+     * Intent para recibir datos del spinner y mostrar un array en este
+     * @param inputArray array que se muestra en el espinner
+     * @param context contexto de la actividad
+     */
     public void nuevoIntent(String[] inputArray, Context context) {
         System.out.println("*** context  " + inputArray.toString());
 
@@ -48,6 +53,11 @@ public class WordActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * funcion que indica si la palabra fue agregada o no con éxito y abre un activity nuevo
+     * @param confirm boolean que confirma si se agregó o no
+     * @param context contexto de la actividad
+     */
     public void nuevoIntent1(boolean confirm, Context context){
         System.out.println("*** context  "+ context);
         System.out.println("*** confirm  "+ confirm);
