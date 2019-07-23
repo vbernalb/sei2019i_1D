@@ -36,11 +36,13 @@ public class CategoryActivity extends AppCompatActivity {
         });
     }
 
-    public void openMenuAdminActivity(View view){
-        Intent openMenuAdminActivity = new Intent(CategoryActivity.this, MenuAdminActivity.class);
-        startActivity(openMenuAdminActivity);
-        CategoryActivity.this.finish();
-    }
+    /**
+     * Esta funcion muestra si la categoria fue registrada en la base de datos en o si la categoria ya esta registrada.
+     * Espera respuesta desde InsertCategotycontroller
+     * @param confirm
+     * @param context
+     */
+
     public void nuevoIntent(boolean confirm, Context context){
         System.out.println("*** context  "+ context);
         System.out.println("*** confirm  "+ confirm);
@@ -53,14 +55,5 @@ public class CategoryActivity extends AppCompatActivity {
         }else{
             Toast.makeText(context, "Categoria ya registrada", Toast.LENGTH_SHORT).show();
         }
-
-    }
-
-    public void nuevoIntent1(boolean confirm, Context context){
-        etCategory = (EditText)findViewById(R.id.ca_category);
-        if(confirm){
-            Toast.makeText(context, "Palabra agregada", Toast.LENGTH_SHORT).show();
-        }
-
     }
 }
