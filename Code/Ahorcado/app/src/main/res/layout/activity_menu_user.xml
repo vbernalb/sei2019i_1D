@@ -57,20 +57,23 @@
             android:paddingRight="70dp"
             android:shadowColor="#0066DB19"
             android:text="Ver puntaje" />
-
         <Button
-            android:id="@+id/sign_out_btn"
-            style="@style/Widget.AppCompat.Button"
+            android:id="@+id/btn_close"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp"
             android:layout_marginRight="10dp"
-            android:layout_marginTop="430dp"
             android:background="@drawable/button_form"
+            android:drawableLeft="@drawable/ic_action_iconuser"
             android:fontFamily="sans-serif-black"
+            android:onClick="onClick"
             android:paddingLeft="70dp"
             android:paddingRight="70dp"
-            android:text="CERRAR SESIÓN" />
+            android:shadowColor="#0066DB19"
+            android:text="Cerrar sesión" />
+
+
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

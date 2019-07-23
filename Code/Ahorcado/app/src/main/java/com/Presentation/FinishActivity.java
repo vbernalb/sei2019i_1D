@@ -41,6 +41,7 @@ public class FinishActivity extends AppCompatActivity {
 
             case R.id.try_btn:
                 intent = new Intent(this, MenuUserActivity.class);
+                intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 intent.putExtra("email_user",email_user);
                 break;
 
