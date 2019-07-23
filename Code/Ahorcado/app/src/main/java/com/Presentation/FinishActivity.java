@@ -19,6 +19,11 @@ public class FinishActivity extends AppCompatActivity {
         email_user = bundle.getString("email_user");
     }
 
+    /**
+     * Esta funcion permite controlar el evento Onclick para ir a las actividades, ya no se necesita referenciar los botones.
+     * @param view
+     */
+
     public void onClick(View view){
         Intent intent = null;
 
@@ -34,8 +39,8 @@ public class FinishActivity extends AppCompatActivity {
                 break;
 
             case R.id.try_btn:
-                intent = new Intent(this, GameActivity.class);
-                intent.putExtra("email_user",email_user);
+                intent = new Intent(this, MainActivity.class);
+                intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
         }
         if(intent!=null){
