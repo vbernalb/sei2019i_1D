@@ -137,8 +137,10 @@
             android:id="@+id/floatingActionButton2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
 
+            android:layout_marginTop="10dp"
+            android:backgroundTint="#F4511E"
             android:clickable="true"
             android:paddingEnd="10dp"
             android:paddingRight="10dp"

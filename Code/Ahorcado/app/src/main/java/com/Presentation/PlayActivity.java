@@ -27,6 +27,12 @@ public class PlayActivity extends AppCompatActivity {
         new PlayController(PlayActivity.this).categoryList();
 
     }
+
+    /**
+     * Esta funcion recibe la lista de categorias para ser selecionadas por medio en un Spinner.
+     * @param inputArray
+     * @param context
+     */
     public void nuevoIntentP(String[] inputArray, Context context) {
         System.out.println("*** context  " + inputArray.toString());
 
@@ -47,6 +53,14 @@ public class PlayActivity extends AppCompatActivity {
             }
         });
     }
+
+    /**
+     * Esta funcion recibe una palabra aleatoria y su descripcion correspondiente, generada desde PlayController
+     * y asi poder iniciar el juego en la actividad game.
+     * @param word
+     * @param description
+     * @param context
+     */
 
     public void nuevoIntent1(String word, String description, Context context){
         System.out.println("*** word  " + word);
@@ -78,23 +92,5 @@ public class PlayActivity extends AppCompatActivity {
             PlayActivity.this.finish(); 
         }
     }
-
-
-
-  /*  public void nuevoIntent1(boolean confirm, Context context){
-        System.out.println("*** context  "+ context);
-        System.out.println("*** confirm  "+ confirm);
-        final Spinner spinner1 = (Spinner)findViewById(R.id.spinner1);
-        final Spinner spinner2 = (Spinner)findViewById(R.id.spinner2);
-        if(confirm){
-           // new InsertWordController(PlayActivity.this).diff_cat_create(editText.getText().toString(),
-            //        spinner1.getItemAtPosition(spinner1.getSelectedItemPosition()).toString(), spinner2.getItemAtPosition(spinner2.getSelectedItemPosition()).toString());
-           // Toast.makeText(context, "Palabra agregada", Toast.LENGTH_SHORT).show();
-        }else{
-           // Toast.makeText(context, "Palabra ya existente", Toast.LENGTH_SHORT).show();
-        }
-
-    }*/
-
 
 }
