@@ -27,6 +27,11 @@ public class WordActivity extends AppCompatActivity {
         new InsertWordController(WordActivity.this).showCategory();
     }
 
+    /**
+     * Intent para recibir datos del spinner y mostrar un array en este
+     * @param inputArray array que se muestra en el espinner
+     * @param context contexto de la actividad
+     */
     public void nuevoIntent(String[] inputArray, Context context) {
         System.out.println("*** context  " + inputArray.toString());
 
@@ -36,17 +41,23 @@ public class WordActivity extends AppCompatActivity {
         spinner1.setAdapter(arrayAdapter);
         final EditText editText = (EditText)findViewById(R.id.ca_word);
         final Spinner spinner2 = (Spinner)findViewById(R.id.spinner2);
+        final EditText hintText = (EditText)findViewById(R.id.ca_hint);
 
         Button button = (Button)findViewById(R.id.button2);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new InsertWordController(WordActivity.this).InsertWord(editText.getText().toString(), "",
+                new InsertWordController(WordActivity.this).InsertWord(editText.getText().toString(), hintText.getText().toString(),
                         spinner1.getItemAtPosition(spinner1.getSelectedItemPosition()).toString(), spinner2.getItemAtPosition(spinner2.getSelectedItemPosition()).toString());
             }
         });
     }
 
+    /**
+     * funcion que indica si la palabra fue agregada o no con éxito y abre un activity nuevo
+     * @param confirm boolean que confirma si se agregó o no
+     * @param context contexto de la actividad
+     */
     public void nuevoIntent1(boolean confirm, Context context){
         System.out.println("*** context  "+ context);
         System.out.println("*** confirm  "+ confirm);
@@ -54,30 +65,15 @@ public class WordActivity extends AppCompatActivity {
         final EditText editText = (EditText)findViewById(R.id.ca_word);
         final Spinner spinner2 = (Spinner)findViewById(R.id.spinner2);
         if(confirm){
-            new InsertWordController(WordActivity.this).diff_cat_create(editText.getText().toString(),
-                    spinner1.getItemAtPosition(spinner1.getSelectedItemPosition()).toString(), spinner2.getItemAtPosition(spinner2.getSelectedItemPosition()).toString());
+            //new InsertWordController(WordActivity.this).diff_cat_create(editText.getText().toString(),
+                   // spinner1.getItemAtPosition(spinner1.getSelectedItemPosition()).toString(), spinner2.getItemAtPosition(spinner2.getSelectedItemPosition()).toString());
             Toast.makeText(context, "Palabra agregada", Toast.LENGTH_SHORT).show();
+            Intent openMenuAdminActivity = new Intent(WordActivity.this, WordActivity.class);
+            WordActivity.this.finish();
         }else{
             Toast.makeText(context, "Palabra ya existente", Toast.LENGTH_SHORT).show();
         }
 
     }
-   /*public void nuevoIntent2(boolean confirm, Context context){
-        System.out.println("*** context  "+ context);
-        System.out.println("*** confirm  "+ confirm);
-        if(confirm){
-            Intent intent = new Intent(context, WordActivity.class);
-            startActivity(intent);
-            finishActivity(0);
-            Toast.makeText(context, "Palabra agregada", Toast.LENGTH_SHORT).show();
-        }else{
-            Toast.makeText(context, "Palabra no agregada a diff_cat", Toast.LENGTH_SHORT).show();
-        }
-    }*/
 
-    public void openMenuAdminActivity(View view){
-        Intent openMenuAdminActivity = new Intent(WordActivity.this, MenuAdminActivity.class);
-        startActivity(openMenuAdminActivity);
-        finishActivity(1);
-    }
 }

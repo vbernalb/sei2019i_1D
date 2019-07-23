@@ -6,4 +6,5 @@
     <color name="gradientStart">#16b7fb</color>
     <color name="gradientEnd">#16b7fb</color>
     <color name="orange">#FF8C00</color>
+    <color name="orange2">#FF921E</color>
 </resources>

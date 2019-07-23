@@ -35,19 +35,5 @@
             android:textColor="#ffffff"
             android:textSize="60sp"
             android:textStyle="normal|bold" />
-        <Button
-            android:id="@+id/sign_out_btn"
-            style="@style/Widget.AppCompat.Button"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="430dp"
-            android:onClick="openMainActivity"
-            android:background="@drawable/button_form"
-            android:fontFamily="sans-serif-black"
-            android:paddingLeft="70dp"
-            android:paddingRight="70dp"
-            android:text="CERRAR SESIÓN" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

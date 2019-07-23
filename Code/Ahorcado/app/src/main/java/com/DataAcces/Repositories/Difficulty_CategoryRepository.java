@@ -4,6 +4,7 @@ import android.content.Context;
 import android.widget.Toast;
 
 import com.BusinessLogic.InsertCategoryController;
+import com.BusinessLogic.InsertWordController;
 import com.DataAcces.Models.Category;
 import com.DataAcces.Models.Difficulty_Category;
 import com.android.volley.Request;
@@ -43,7 +44,6 @@ public class Difficulty_CategoryRepository {
     public void create (Difficulty_Category difficulty_category, String URL){;
         final String  name_category= difficulty_category.getName_Category();
         final String type= difficulty_category.getType();
-        final String name_word= difficulty_category.getName_word();
 
         StringRequest stringRequest= new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
@@ -53,7 +53,7 @@ public class Difficulty_CategoryRepository {
                     JSONObject jsonObject = new JSONObject(response);
 
                 }catch (JSONException e ) {
-                    System.out.println("exeption    "+ e.getMessage());
+                    System.out.println("exception    "+ e.getMessage());
                 }
             }
         }, new Response.ErrorListener() {
@@ -68,8 +68,7 @@ public class Difficulty_CategoryRepository {
             protected Map<String, String> getParams()  {
                 Map<String,String> parametros = new HashMap<String,String>();
                 parametros.put("nameCategory", name_category);
-                parametros.put("type", type);
-                parametros.put("nameWord", name_word);
+                //parametros.put("type", type);
                 return parametros;
             }
         };
@@ -85,23 +84,24 @@ public class Difficulty_CategoryRepository {
      * @param URL  la URL del servidor donde se encuentra la base de datos example: http://192.162.1.3:80/Database/insertar.php
      * @return Un objeto Difficulty_Category, con los datos obtenidos, null si no encuentra nada.
      */
-    public void getbyDifficulty_Category(String URL, final String name_category, final String type, final String name_word ){
+    public void getbyDifficulty_Category(String URL, final String name_category, final String type ){
         final String name_category_F = name_category;
         final String type_F = type;
-        final String name_word_F = name_word;
         StringRequest jsonArrayRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 JSONObject jsonObject = null;
-
+                System.out.println("ON ENTRA");
                     try {
                         jsonObject = new JSONObject(response);
                         Difficulty_Category difficulty_category=null;
                         if(jsonObject.getBoolean("success")==true){
-                            difficulty_category= new Difficulty_Category(jsonObject.getString("name_category"),
-                                    jsonObject.getString("type"), jsonObject.getString("name_word"));
+                            System.out.println("ESTOY ENTRANDO");
+                            difficulty_category= new Difficulty_Category(jsonObject.getInt("id_diff_cat"),jsonObject.getString("nameCategory"),
+                                    jsonObject.getString("type"));
+
                         }
-                        //new InsertCategoryController(context).categoryExist1(category, name_category_F); preguntar vale
+                        new InsertWordController(context).IdDiffCatAnswer(difficulty_category, difficulty_category.getId()); ////preguntar vale
                     } catch (JSONException e) {
                         Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
@@ -118,7 +118,6 @@ public class Difficulty_CategoryRepository {
                 Map<String,String> parametros = new HashMap<String,String>();
                 parametros.put("nameCategory",name_category_F);
                 parametros.put("type",type_F);
-                parametros.put("nameWord",name_word_F);
                 return parametros;
             }
         };

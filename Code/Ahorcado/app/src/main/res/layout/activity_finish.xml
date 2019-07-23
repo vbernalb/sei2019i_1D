@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/star"
+    tools:context="com.Presentation.FinishActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="7dp"
+        tools:layout_editor_absoluteY="6dp">
+
+
+        <Button
+            android:id="@+id/category_btn"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/button_form"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:shadowColor="#B5C45E"
+            android:text="jugar Nueva categoria" />
+
+        <Button
+            android:id="@+id/points_btn"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/button_form"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:shadowColor="#B5C45E"
+            android:text="ver Puntaje" />
+
+        <Button
+            android:id="@+id/try_btn"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/button_form"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:shadowColor="#B5C45E"
+            android:text="Menu principal" />
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

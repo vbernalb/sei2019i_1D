@@ -15,6 +15,11 @@ public class MenuUserActivity extends AppCompatActivity {
         final Bundle bundle = getIntent().getExtras();
         email_user= bundle.getString("email_user");
     }
+    /**
+     * Esta funcion permite controlar el evento Onclick para ir a la actividades de selecionar categorias,
+     * y ver puntaje.
+     * @param view
+     */
 
     public void onClick(View view){
         Intent intent = null;
@@ -22,10 +27,16 @@ public class MenuUserActivity extends AppCompatActivity {
         switch (view.getId()){
             case R.id.mu_jugar:
                 intent = new Intent(this,PlayActivity.class);
+                intent.putExtra("email",email_user);
                 break;
             case R.id.mu_puntaje:
                 intent = new Intent(this, ScoreActivity.class);
                 intent.putExtra("email_user", email_user);
+                break;
+            case R.id.btn_close:
+                intent = new Intent(this, MainActivity.class);
+                intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                MenuUserActivity.this.finish();
                 break;
         }
         if(intent!=null){

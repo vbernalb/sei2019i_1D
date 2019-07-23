@@ -4,9 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/star"
     tools:context="com.Presentation.PlayActivity">
-
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/star"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -14,11 +17,64 @@
         android:orientation="vertical"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp">
-
         <TextView
-            android:id="@+id/textView8"
+            android:id="@+id/textViewy"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-black"
+            android:text="Elija categoría:"
+            android:textColor="#FFB300"
+            android:textSize="20dp"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp" />
+        <Spinner
+            android:id="@+id/spinnerCat"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/button_form"
+            android:backgroundTint="#B0FFFFFF"
+            android:entries="@array/category_values"
+            android:prompt="@string/category_prompt" />
+        <TextView
+            android:id="@+id/textViewx"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-black"
+            android:text="Elija dificultad:"
+            android:textColor="#FFB300"
+            android:textSize="20dp"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp" />
+        <Spinner
+            android:id="@+id/spinnerDif"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/button_form"
+            android:backgroundTint="#B9FFFFFF"
+            android:entries="@array/dificulty_values"
+            android:prompt="@string/dificulty_prompt" />
+
+        <Button
+            android:id="@+id/buttonPlay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/button_form"
             android:text="Jugar" />
     </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>

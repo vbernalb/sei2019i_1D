@@ -16,6 +16,7 @@ public class InsertWordController {
     WordRepository wordRepository;
     Difficulty_CategoryRepository difficulty_categoryRepository;
     CategoryRepository categoryRepository;
+   static Word w;
 
     public InsertWordController(Context context){
         this.context=context;
@@ -25,27 +26,16 @@ public class InsertWordController {
     }
 
     /*/**
-     * Esta funcion registra una nueva palabra en la applicacion, haciendo llamado a la clase DifficulttRepository, CategoryRepository, WordRepository,  .
-     * @param word palabra que se va a ingresar
-     * @param description descripcion/pista de la palabra.
-     * @param category categoria de la palabra
-     * @param difficulty dificultad de la palabra
-     * @return si la insercion fue exitosa
+     * Esta funcion busca en la base de datos todas las categorias dentro de la aplicacion
      */
-        /*public void insert(String word, String description, String category, String difficulty){
-            Word word1 = new Word(word, description);
-            Difficulty_Category d_c = new Difficulty_Category(category,difficulty,word);
-            //FALTA REPOSITORIO DEFFICULTY_CATEGORY
-            WordRepository wordRepository = new WordRepository(context);
-            //System.out.println("*******entre al sign insertWORD");
-            wordRepository.create(word1, "http://ahorcado1d.000webhostapp.com/insert_word.php");
-
-    }*/
-
     public void showCategory(){
-        categoryRepository.categoryList("http://ahorcado1d.000webhostapp.com/get_all_category.php");
+        categoryRepository.categoryList("http://ahorcado1d.000webhostapp.com/get_all_category.php", 1);
     }
 
+    /**
+     * Esta funcian toda el arreglo de todas las categorias desde el repocitorio y se las envia de regreso a la actividad.
+     * @param arrayList
+     */
     public void showCategoryAnswer(ArrayList<String> arrayList){
         final WordActivity wa = (WordActivity) context;
         String a;
@@ -63,28 +53,59 @@ public class InsertWordController {
 
         }
 
-
+    /**
+     * Esta funcion busca una difficulty_category segun la categoria y dificultad que llegan desde la actividad
+     * @param name_word
+     * @param description
+     * @param name_category
+     * @param name_difficulty
+     */
     public void InsertWord (String name_word, String description, String name_category, String name_difficulty){
-        wordExist(name_word, name_category, name_difficulty);
+        w = new Word(name_word,description,0);
+        difficulty_categoryRepository.getbyDifficulty_Category("http://ahorcado1d.000webhostapp.com/get_difficulty_category.php",name_category,name_difficulty);
     }
-    private void wordExist (String name_word, String name_category, String name_difficulty){
-        wordRepository.getbyword("http://ahorcado1d.000webhostapp.com/get_word.php", name_word, "a",name_category,name_difficulty);
+
+
+    /**
+     * Esta funcion coge lo que le envia el repositorio Difficulty_Category, le añade a w el id_diff_cat, y llama a wordExist
+     * @param dc
+     * @param id_diff_cat
+     */
+    public void IdDiffCatAnswer(Difficulty_Category dc, int id_diff_cat){
+        if(dc!= null){
+            w.setDiff_cat(id_diff_cat);
+            wordExist(w.getName_Word(), w.getDescription(), w.getDiff_cat());
+        }
     }
-    public  void wordExist1(Word word, String name_word, String description, String name_category, String name_difficulty){
+
+    /**
+     * Esta funcion verifica que la palabra a ingresar ya exista.
+     * @param name_word
+     * @param description
+     * @param id_diff_cat
+     */
+    private void wordExist (String name_word, String description, int id_diff_cat){
+        wordRepository.getbyword("http://ahorcado1d.000webhostapp.com/get_word.php", name_word,description,id_diff_cat);
+    }
+
+    /**
+     * Esta funcion recive la respuesta del WordRepository, de ser que la palabra a ingresar no exista la crea; luego
+     * envia la respuesta de si existe o no a la actividad.
+     * @param word
+     * @param name_word
+     * @param description
+     * @param id_diff_cat
+     */
+    public  void wordExist1(Word word, String name_word, String description, int id_diff_cat){
         boolean confirm =false;
         final WordActivity ca= (WordActivity) context;
-        System.out.println("name_word: " + name_word);
-        System.out.println("name_cate: " + name_category);
-        System.out.println("name_diff: " + name_difficulty);
         if(word== null){
             confirm=true;
-            wordRepository.create(new Word(name_word,description), "http://ahorcado1d.000webhostapp.com/insert_word.php");
+            wordRepository.create(new Word(w.getName_Word(),w.getDescription(),w.getDiff_cat()), "http://ahorcado1d.000webhostapp.com/insert_word.php");
         }
        ca.nuevoIntent1(confirm, context);
     }
-    public void diff_cat_create(String name_word, String name_category, String name_difficulty){
-        difficulty_categoryRepository.create(new Difficulty_Category(name_category,name_difficulty,name_word),"http://ahorcado1d.000webhostapp.com/insert_difficulty_category.php");
-    }
+
 
 
 }

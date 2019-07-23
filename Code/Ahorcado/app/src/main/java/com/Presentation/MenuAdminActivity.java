@@ -15,6 +15,12 @@ public class MenuAdminActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu_admin);
     }
 
+    /**
+     * Esta funcion permite controlar el evento Onclick para ir a la actividades de ingreso de categoria,
+     * ingreso de nuevas palabras y la opcion de cerrar sesion.
+     * @param view
+     */
+
     public void onClick(View view){
         Intent intent = null;
 
@@ -25,15 +31,13 @@ public class MenuAdminActivity extends AppCompatActivity {
             case R.id.ma_word:
                 intent = new Intent(this, WordActivity.class);
                 break;
+            case R.id.ma_salir:
+                intent = new Intent(this, MainActivity.class);
+                intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                break;
         }
         if(intent!=null){
             startActivity(intent);
         }
-    }
-
-    public void openMainActivity(View view){
-        Intent openMainActivity = new Intent(MenuAdminActivity.this, MainActivity.class);
-        startActivity(openMainActivity);
-        finishActivity(0);
     }
 }

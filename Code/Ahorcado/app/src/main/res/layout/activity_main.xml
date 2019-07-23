@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:background="@mipmap/star"
+
     tools:context="com.Presentation.MainActivity">
 
     <LinearLayout
@@ -22,6 +22,7 @@
             android:id="@+id/textView5"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginTop="20dp"
             android:layout_weight="1"
             android:fontFamily="@font/alfa_slab_one"
             android:text="Ahorcado"
@@ -32,8 +33,22 @@
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="112dp"
-            app:srcCompat="@drawable/ahorcado" />
+            android:layout_height="60dp"
+            android:layout_marginLeft="130dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="130dp" />
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="sans-serif-black"
+            android:textColor="#FFB300"
+            android:textSize="20dp"
+            android:text="Correo:"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp"/>
 
         <EditText
             android:id="@+id/emailJoin_txt"
@@ -43,31 +58,44 @@
             android:layout_marginTop="5dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/edittext_form"
+            android:drawableLeft="@drawable/ic_action_iconemail"
             android:ems="10"
             android:fontFamily="sans-serif-black"
-            android:hint="email"
             android:inputType="textEmailAddress"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
-            android:textColor="#1E88E5"
-            android:textColorHint="#1E88E5" />
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="sans-serif-black"
+            android:textColor="#FFB300"
+            android:textSize="20dp"
+            android:text="Contraseña:"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp" />
 
         <EditText
             android:id="@+id/passJoin_txt"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/edittext_form"
+            android:drawableLeft="@drawable/ic_action_iconpass"
             android:ems="10"
             android:fontFamily="sans-serif-black"
-            android:hint="password"
             android:inputType="textPassword"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
-            android:textColor="#1E88E5"
-            android:textColorHint="#1E88E5" />
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF" />
 
         <CheckBox
             android:id="@+id/admin_check"
@@ -86,11 +114,11 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/button_form"
             android:fontFamily="sans-serif-black"
-            android:paddingLeft="70dp"
-            android:paddingRight="70dp"
+            android:gravity="center"
             android:shadowColor="#B5C45E"
             android:text="Login" />
 
@@ -102,12 +130,21 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/button_form"
+            android:drawableLeft="@drawable/ic_action_iconregister"
             android:fontFamily="sans-serif-black"
+            android:gravity="center"
             android:onClick="openRegisterActivity"
-            android:paddingLeft="70dp"
-            android:paddingRight="70dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="30dp"
             android:shadowColor="#43DB19"
             android:text="register" />
+        <ImageView
+            android:id="@+id/GifView"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="130dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="130dp" />
     </LinearLayout>
 
 

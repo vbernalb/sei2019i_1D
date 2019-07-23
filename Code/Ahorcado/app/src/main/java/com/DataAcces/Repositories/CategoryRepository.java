@@ -6,6 +6,8 @@ import android.widget.Toast;
 import com.BusinessLogic.InsertCategoryController;
 
 import com.BusinessLogic.InsertWordController;
+//import com.BusinessLogic.PlayController;
+import com.BusinessLogic.PlayController;
 import com.DataAcces.Models.Category;
 
 import com.android.volley.Request;
@@ -114,7 +116,7 @@ public class CategoryRepository {
         requestQueue.add(jsonArrayRequest);
     }
 
-    public void categoryList (String URL){
+    public void categoryList (String URL, final int option){
         final StringRequest jsonArrayRequest = new StringRequest(Request.Method.POST,URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -125,7 +127,17 @@ public class CategoryRepository {
                         for (int j=0; j<jsonArray.length(); j++){
                             arrayList.add(j, jsonArray.getString(j));
                         }
-                        new InsertWordController(context).showCategoryAnswer(arrayList);
+                        switch (option){
+                            case 1: {
+                                new InsertWordController(context).showCategoryAnswer(arrayList);
+                                break;
+                            }
+                            case 2: {
+                                new PlayController(context).categoryList2(arrayList);
+                                break;
+                            }
+                        }
+
 
                     } catch (JSONException e) {
                         Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -151,5 +163,6 @@ public class CategoryRepository {
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         requestQueue.add(jsonArrayRequest);
     }
+
 
 }
