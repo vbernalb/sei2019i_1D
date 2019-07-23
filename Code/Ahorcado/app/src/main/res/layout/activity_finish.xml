@@ -58,6 +58,6 @@
             android:gravity="center"
             android:onClick="onClick"
             android:shadowColor="#B5C45E"
-            android:text="Salir" />
+            android:text="Menu principal" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

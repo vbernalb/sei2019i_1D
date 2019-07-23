@@ -20,7 +20,8 @@ public class FinishActivity extends AppCompatActivity {
     }
 
     /**
-     * Esta funcion permite controlar el evento Onclick para ir a las actividades, ya no se necesita referenciar los botones.
+     * Esta funcion permite controlar el evento Onclick para volver a las actividades de selecion de categorias,
+     * ver puntuacion y volver al menu principal, ya no se necesita referenciar los botones.
      * @param view
      */
 
