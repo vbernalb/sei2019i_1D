@@ -33,6 +33,11 @@ public class MenuUserActivity extends AppCompatActivity {
                 intent = new Intent(this, ScoreActivity.class);
                 intent.putExtra("email_user", email_user);
                 break;
+            case R.id.btn_close:
+                intent = new Intent(this, MainActivity.class);
+                intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                MenuUserActivity.this.finish();
+                break;
         }
         if(intent!=null){
 
