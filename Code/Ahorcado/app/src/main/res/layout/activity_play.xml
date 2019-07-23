@@ -17,7 +17,19 @@
         android:orientation="vertical"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp">
-
+        <TextView
+            android:id="@+id/textViewy"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-black"
+            android:text="Elija categoría:"
+            android:textColor="#FFB300"
+            android:textSize="20dp"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp" />
         <Spinner
             android:id="@+id/spinnerCat"
             android:layout_width="match_parent"
@@ -29,7 +41,19 @@
             android:backgroundTint="#B0FFFFFF"
             android:entries="@array/category_values"
             android:prompt="@string/category_prompt" />
-
+        <TextView
+            android:id="@+id/textViewx"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-black"
+            android:text="Elija dificultad:"
+            android:textColor="#FFB300"
+            android:textSize="20dp"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp" />
         <Spinner
             android:id="@+id/spinnerDif"
             android:layout_width="match_parent"
